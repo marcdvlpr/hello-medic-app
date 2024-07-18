@@ -51,9 +51,10 @@
 		680C18192C49177900BD7874 /* HelloMedic */ = {
 			isa = PBXGroup;
 			children = (
-				680C181A2C49177900BD7874 /* HelloMedicApp.swift */,
-				680C181C2C49177900BD7874 /* ContentView.swift */,
-				680C181E2C49177A00BD7874 /* Assets.xcassets */,
+				680C182B2C4942DF00BD7874 /* App */,
+				680C182C2C49435800BD7874 /* Core */,
+				680C18282C4942C000BD7874 /* Model */,
+				680C18332C4944AE00BD7874 /* Resource */,
 				680C18202C49177A00BD7874 /* Preview Content */,
 			);
 			path = HelloMedic;
@@ -65,6 +66,93 @@
 				680C18212C49177A00BD7874 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		680C18282C4942C000BD7874 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		680C182B2C4942DF00BD7874 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				680C181A2C49177900BD7874 /* HelloMedicApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		680C182C2C49435800BD7874 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				680C182F2C4943EF00BD7874 /* Home */,
+				680C182E2C49438C00BD7874 /* Login */,
+				680C18342C49457100BD7874 /* Register */,
+				680C182D2C49437C00BD7874 /* Root */,
+				680C18312C49443B00BD7874 /* SpecialistProfile */,
+				680C18322C49449200BD7874 /* TabBar */,
+				680C18302C49442400BD7874 /* UserProfile */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		680C182D2C49437C00BD7874 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				680C181C2C49177900BD7874 /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		680C182E2C49438C00BD7874 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		680C182F2C4943EF00BD7874 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		680C18302C49442400BD7874 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		680C18312C49443B00BD7874 /* SpecialistProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SpecialistProfile;
+			sourceTree = "<group>";
+		};
+		680C18322C49449200BD7874 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		680C18332C4944AE00BD7874 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				680C181E2C49177A00BD7874 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		680C18342C49457100BD7874 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
