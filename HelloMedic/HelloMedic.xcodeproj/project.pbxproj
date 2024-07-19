@@ -11,6 +11,7 @@
 		680C181D2C49177900BD7874 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C181C2C49177900BD7874 /* ContentView.swift */; };
 		680C181F2C49177A00BD7874 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680C181E2C49177A00BD7874 /* Assets.xcassets */; };
 		680C18222C49177A00BD7874 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680C18212C49177A00BD7874 /* Preview Assets.xcassets */; };
+		680C18362C4A54FB00BD7874 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C18352C4A54FB00BD7874 /* TabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		680C181C2C49177900BD7874 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		680C181E2C49177A00BD7874 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		680C18212C49177A00BD7874 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		680C18352C4A54FB00BD7874 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		680C18322C49449200BD7874 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				680C18352C4A54FB00BD7874 /* TabBarView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				680C181D2C49177900BD7874 /* ContentView.swift in Sources */,
+				680C18362C4A54FB00BD7874 /* TabBarView.swift in Sources */,
 				680C181B2C49177900BD7874 /* HelloMedicApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
