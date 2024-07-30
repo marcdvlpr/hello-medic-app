@@ -23,10 +23,29 @@ class UserProfileViewController: UIViewController {
         return image
     }()
     
+    private let editButton: UIButton = {
+        var configuration = UIButton.Configuration.filled()
+        configuration.title = "Editer"
+        configuration.contentInsets = NSDirectionalEdgeInsets(
+            top: 5,
+            leading: 15,
+            bottom: 5,
+            trailing: 15
+        )
+        configuration.baseBackgroundColor = .hmBlue
+        configuration.baseForegroundColor = .white
+        configuration.cornerStyle = .capsule
+        
+        let button = UIButton(configuration: configuration)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         userProfileView.addSubview(imageProfile)
+        userProfileView.addSubview(editButton)
         
         view.addSubview(userProfileView)
         
@@ -39,5 +58,8 @@ class UserProfileViewController: UIViewController {
         imageProfile.heightAnchor.constraint(equalToConstant: 100).isActive = true
         imageProfile.widthAnchor.constraint(equalToConstant: 100).isActive = true
         imageProfile.layer.cornerRadius = imageProfile.frame.width / 2
+        
+        editButton.topAnchor.constraint(equalTo: imageProfile.bottomAnchor, constant: 10).isActive = true
+        editButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 }
