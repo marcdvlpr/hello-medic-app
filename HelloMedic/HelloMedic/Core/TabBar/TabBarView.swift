@@ -40,7 +40,7 @@ struct TabBarView: View {
                 }
                 .tag(Tab.favorite)
             
-            Text("Profile Screen")
+            UserProfileView()
                 .tabItem {
                     Image(systemName: Tab.profile.rawValue)
                     Text("Profil")
