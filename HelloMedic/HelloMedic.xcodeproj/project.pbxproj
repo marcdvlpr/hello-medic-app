@@ -15,6 +15,7 @@
 		6910579E2C4AABD2001BB6F4 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6910579D2C4AABD2001BB6F4 /* SplashView.swift */; };
 		691057A02C4AABEA001BB6F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6910579F2C4AABEA001BB6F4 /* HomeView.swift */; };
 		691057A32C4AB665001BB6F4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691057A22C4AB665001BB6F4 /* SearchView.swift */; };
+		69B873E92C58D4FE0038E3A6 /* DoctorHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B873E82C58D4FE0038E3A6 /* DoctorHome.swift */; };
 		69F556DF2C53F03B005C8B61 /* ViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F556DE2C53F03B005C8B61 /* ViewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		6910579D2C4AABD2001BB6F4 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		6910579F2C4AABEA001BB6F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		691057A22C4AB665001BB6F4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		69B873E82C58D4FE0038E3A6 /* DoctorHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorHome.swift; sourceTree = "<group>"; };
 		69F556DE2C53F03B005C8B61 /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 		680C18282C4942C000BD7874 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				69B873E82C58D4FE0038E3A6 /* DoctorHome.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				691057A32C4AB665001BB6F4 /* SearchView.swift in Sources */,
 				680C181B2C49177900BD7874 /* HelloMedicApp.swift in Sources */,
 				69F556DF2C53F03B005C8B61 /* ViewCoordinator.swift in Sources */,
+				69B873E92C58D4FE0038E3A6 /* DoctorHome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
