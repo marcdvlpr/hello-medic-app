@@ -14,7 +14,6 @@
 		680C18362C4A54FB00BD7874 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C18352C4A54FB00BD7874 /* TabBarView.swift */; };
 		6910579E2C4AABD2001BB6F4 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6910579D2C4AABD2001BB6F4 /* SplashView.swift */; };
 		691057A02C4AABEA001BB6F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6910579F2C4AABEA001BB6F4 /* HomeView.swift */; };
-		691057A32C4AB665001BB6F4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691057A22C4AB665001BB6F4 /* SearchView.swift */; };
 		69F556DF2C53F03B005C8B61 /* ViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F556DE2C53F03B005C8B61 /* ViewCoordinator.swift */; };
 		F389E25D2C4A6C2A00CFCB77 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389E25C2C4A6C2A00CFCB77 /* AppointmentView.swift */; };
 		F389E2612C4A96AA00CFCB77 /* AppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */; };
@@ -25,6 +24,7 @@
 		F3B521402C57984200E4034F /* AppointmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5213F2C57984200E4034F /* AppointmentViewModel.swift */; };
 		F3E94EC22C57D999000B0D69 /* DetailAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E94EC12C57D999000B0D69 /* DetailAppointmentView.swift */; };
 		F3E94EC42C57DA26000B0D69 /* DetailAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E94EC32C57DA26000B0D69 /* DetailAppointmentViewController.swift */; };
+		691057A22C4AB665001BB6F4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E94EC52C593385000B0D69 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,6 @@
 		680C18352C4A54FB00BD7874 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		6910579D2C4AABD2001BB6F4 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		6910579F2C4AABEA001BB6F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		691057A22C4AB665001BB6F4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		69F556DE2C53F03B005C8B61 /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
 		F389E25C2C4A6C2A00CFCB77 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
 		F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentModel.swift; path = HelloMedic/Core/Appointment/AppointmentModel.swift; sourceTree = SOURCE_ROOT; };
@@ -47,6 +46,7 @@
 		F3B5213F2C57984200E4034F /* AppointmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewModel.swift; sourceTree = "<group>"; };
 		F3E94EC12C57D999000B0D69 /* DetailAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppointmentView.swift; sourceTree = "<group>"; };
 		F3E94EC32C57DA26000B0D69 /* DetailAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppointmentViewController.swift; sourceTree = "<group>"; };
+		691057A22C4AB665001BB6F4 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchView.swift; path = HelloMedic/Core/Search/SearchView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,14 +117,13 @@
 		680C182C2C49435800BD7874 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				691057A12C4AB637001BB6F4 /* Search */,
+				691057A12C4AB637001BB6F4 /* Appointment */,
 				6910579C2C4AAB4F001BB6F4 /* Home */,
 				691057992C4AA85A001BB6F4 /* Splash */,
 				680C182E2C49438C00BD7874 /* Login */,
 				680C18342C49457100BD7874 /* Register */,
 				680C182D2C49437C00BD7874 /* Root */,
 				680C18312C49443B00BD7874 /* SpecialistProfile */,
-				F389E25B2C4A6B9A00CFCB77 /* Appointment */,
 				680C18322C49449200BD7874 /* TabBar */,
 				680C18302C49442400BD7874 /* UserProfile */,
 			);
@@ -200,15 +199,10 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		691057A12C4AB637001BB6F4 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				691057A22C4AB665001BB6F4 /* SearchView.swift */,
-			);
-			path = Search;
 		F389E25B2C4A6B9A00CFCB77 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
+				691057A22C4AB665001BB6F4 /* SearchView.swift */,
 				F389E25C2C4A6C2A00CFCB77 /* AppointmentView.swift */,
 				F3E94EC12C57D999000B0D69 /* DetailAppointmentView.swift */,
 				F3E94EC32C57DA26000B0D69 /* DetailAppointmentViewController.swift */,
@@ -293,7 +287,8 @@
 				6910579E2C4AABD2001BB6F4 /* SplashView.swift in Sources */,
 				680C18362C4A54FB00BD7874 /* TabBarView.swift in Sources */,
 				691057A02C4AABEA001BB6F4 /* HomeView.swift in Sources */,
-				691057A32C4AB665001BB6F4 /* SearchView.swift in Sources */,
+				F389E25D2C4A6C2A00CFCB77 /* AppointmentView.swift in Sources */,
+				691057A22C4AB665001BB6F4 /* SearchView.swift in Sources */,
 				680C181B2C49177900BD7874 /* HelloMedicApp.swift in Sources */,
 				69F556DF2C53F03B005C8B61 /* ViewCoordinator.swift in Sources */,
 				F389E25D2C4A6C2A00CFCB77 /* AppointmentView.swift in Sources */,
