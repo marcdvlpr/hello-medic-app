@@ -61,7 +61,7 @@ struct HomeView: View {
                             .scaledToFit()
                             .frame(width: 35, height: 35)
                             .padding(7.5)
-                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(Color.hmBlue)
                     })
                     .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.circle)
@@ -75,7 +75,7 @@ struct HomeView: View {
                             .scaledToFit()
                             .frame(width: 35, height: 35)
                             .padding(7.5)
-                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(Color.hmBlue)
                     })
                     .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.circle)
@@ -89,7 +89,7 @@ struct HomeView: View {
                             .scaledToFit()
                             .frame(width: 35, height: 35)
                             .padding(7.5)
-                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(Color.hmBlue)
                     })
                     .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.circle)
@@ -103,7 +103,7 @@ struct HomeView: View {
                             .scaledToFit()
                             .frame(width: 35, height: 35)
                             .padding(7.5)
-                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(Color.hmBlue)
                     })
                     .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.circle)
@@ -122,6 +122,9 @@ struct HomeView: View {
                     Text ("blabla")
                     
                 }
+                .background(Color.hmBlue)
+                .cornerRadius(20)
+                .scrollContentBackground(.hidden)
                 
                 Text("Docteur à proximité")
                     .padding(.top, 20)
@@ -130,6 +133,7 @@ struct HomeView: View {
                 List {
                     Text ("blabla")
                 }
+                .cornerRadius(20)
                 
                 
                 
