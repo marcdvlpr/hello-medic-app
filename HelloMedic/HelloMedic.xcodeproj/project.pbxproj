@@ -156,6 +156,8 @@
 		680C18312C49443B00BD7874 /* SpecialistProfile */ = {
 			isa = PBXGroup;
 			children = (
+				F389E2682C4AA4F200CFCB77 /* SpecialityViewModel.swift */,
+				F389E2642C4A9D5700CFCB77 /* ProfilSpecialistViewModel.swift */,
 			);
 			path = SpecialistProfile;
 			sourceTree = "<group>";
@@ -208,8 +210,6 @@
 				F3E94EC12C57D999000B0D69 /* DetailAppointmentView.swift */,
 				F3E94EC32C57DA26000B0D69 /* DetailAppointmentViewController.swift */,
 				F3B5213F2C57984200E4034F /* AppointmentViewModel.swift */,
-				F389E2682C4AA4F200CFCB77 /* SpecialityViewModel.swift */,
-				F389E2642C4A9D5700CFCB77 /* ProfilSpecialistViewModel.swift */,
 			);
 			path = Appointment;
 			sourceTree = "<group>";
