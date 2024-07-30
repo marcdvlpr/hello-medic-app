@@ -117,6 +117,7 @@
 		680C182C2C49435800BD7874 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F3E94EC72C5934A4000B0D69 /* Search */,
 				691057A12C4AB637001BB6F4 /* Appointment */,
 				6910579C2C4AAB4F001BB6F4 /* Home */,
 				691057992C4AA85A001BB6F4 /* Splash */,
@@ -211,6 +212,15 @@
 				F389E2642C4A9D5700CFCB77 /* ProfilSpecialistViewModel.swift */,
 			);
 			path = Appointment;
+			sourceTree = "<group>";
+		};
+		F3E94EC72C5934A4000B0D69 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F3E94EC52C593385000B0D69 /* SearchView.swift */,
+			);
+			name = Search;
+			path = Home/Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
