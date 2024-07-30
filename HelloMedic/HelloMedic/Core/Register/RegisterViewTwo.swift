@@ -14,7 +14,7 @@ struct RegisterViewTwo: View {
     /// Variable d'état pour le nom
     @State private var lastname: String = ""
     /// Variable d'état pour  la date de naissance
-    @State private var dateofBirth: Date = Date()
+    @State private var dateofBirth: Date = Calendar.current.date(byAdding: .year, value: 0, to: Date()) ?? Date()
     /// Variable d'état pour l'adresse
     @State private var address: String = ""
     /// Variable d'état pour le code postale
@@ -53,7 +53,7 @@ struct RegisterViewTwo: View {
                 }
                 TextField("Prénom", text: $firstname)
                 TextField("Nom", text: $lastname)
-                DatePicker("Date de Naissance", selection: $dateofBirth,displayedComponents: .date)
+                DatePicker("Date de Naissance", selection: $dateofBirth, in: ...Calendar.current.date(byAdding: .day, value: 0, to: Date())!, displayedComponents: .date)
                 TextField("Adresse complète", text: $address)
                 TextField("Code Postal", text: $zipcode)
                 TextField("Ville", text: $city)
