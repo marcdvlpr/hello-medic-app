@@ -16,6 +16,7 @@
 		68C236212C5797CF0001B402 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C236202C5797CF0001B402 /* UserProfileViewController.swift */; };
 		68C236432C5A254B0001B402 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C236422C5A254B0001B402 /* User.swift */; };
 		68C236452C5A5DA50001B402 /* usersData.json in Resources */ = {isa = PBXBuildFile; fileRef = 68C236442C5A5DA50001B402 /* usersData.json */; };
+		68C236482C5A60A40001B402 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C236472C5A60A40001B402 /* JSONLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		68C236202C5797CF0001B402 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		68C236422C5A254B0001B402 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		68C236442C5A5DA50001B402 /* usersData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usersData.json; sourceTree = "<group>"; };
+		68C236472C5A60A40001B402 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				680C182B2C4942DF00BD7874 /* App */,
 				680C182C2C49435800BD7874 /* Core */,
 				680C18282C4942C000BD7874 /* Model */,
+				68C236462C5A5F380001B402 /* Services */,
 				680C18332C4944AE00BD7874 /* Resource */,
 				680C18202C49177A00BD7874 /* Preview Content */,
 			);
@@ -170,6 +173,14 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		68C236462C5A5F380001B402 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				68C236472C5A60A40001B402 /* JSONLoader.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,6 +258,7 @@
 				680C18362C4A54FB00BD7874 /* TabBarView.swift in Sources */,
 				680C181B2C49177900BD7874 /* HelloMedicApp.swift in Sources */,
 				680C18382C4A653100BD7874 /* UserProfileView.swift in Sources */,
+				68C236482C5A60A40001B402 /* JSONLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
