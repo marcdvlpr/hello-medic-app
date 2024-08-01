@@ -231,6 +231,8 @@
 				F3B5213F2C57984200E4034F /* AppointmentViewModel.swift */,
 			);
 			path = Appointment;
+			sourceTree = "<group>";	
+		};
 		6AF9347D2C5B6EDC0018164E /* Components */ = {
 			isa = PBXGroup;
 			children = (
