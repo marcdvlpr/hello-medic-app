@@ -18,6 +18,8 @@
 		69F556DF2C53F03B005C8B61 /* ViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F556DE2C53F03B005C8B61 /* ViewCoordinator.swift */; };
 		75D65C152C578B51008DB4A0 /* RegisterViewTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D65C142C578B51008DB4A0 /* RegisterViewTwo.swift */; };
 		75D65C182C5824B0008DB4A0 /* RegisterViewOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D65C172C5824B0008DB4A0 /* RegisterViewOne.swift */; };
+		75D65C3A2C5B8C50008DB4A0 /* MyDocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D65C392C5B8C50008DB4A0 /* MyDocumentsView.swift */; };
+		75D65C3C2C5BB12F008DB4A0 /* DocumentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D65C3B2C5BB12F008DB4A0 /* DocumentDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		69F556DE2C53F03B005C8B61 /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
 		75D65C142C578B51008DB4A0 /* RegisterViewTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewTwo.swift; sourceTree = "<group>"; };
 		75D65C172C5824B0008DB4A0 /* RegisterViewOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewOne.swift; sourceTree = "<group>"; };
+		75D65C392C5B8C50008DB4A0 /* MyDocumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocumentsView.swift; sourceTree = "<group>"; };
+		75D65C3B2C5BB12F008DB4A0 /* DocumentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,8 @@
 			children = (
 				75D65C172C5824B0008DB4A0 /* RegisterViewOne.swift */,
 				75D65C142C578B51008DB4A0 /* RegisterViewTwo.swift */,
+				75D65C392C5B8C50008DB4A0 /* MyDocumentsView.swift */,
+				75D65C3B2C5BB12F008DB4A0 /* DocumentDetailView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -263,8 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				680C181D2C49177900BD7874 /* ContentView.swift in Sources */,
+				75D65C3A2C5B8C50008DB4A0 /* MyDocumentsView.swift in Sources */,
 				6910579E2C4AABD2001BB6F4 /* SplashView.swift in Sources */,
 				680C18362C4A54FB00BD7874 /* TabBarView.swift in Sources */,
+				75D65C3C2C5BB12F008DB4A0 /* DocumentDetailView.swift in Sources */,
 				75D65C182C5824B0008DB4A0 /* RegisterViewOne.swift in Sources */,
 				691057A02C4AABEA001BB6F4 /* HomeView.swift in Sources */,
 				691057A32C4AB665001BB6F4 /* SearchView.swift in Sources */,

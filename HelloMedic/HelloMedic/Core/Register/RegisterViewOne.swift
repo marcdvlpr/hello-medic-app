@@ -21,7 +21,6 @@ class RegisterViewOne: UIViewController{
         errorlabel.isHidden = true
     }
     
-    
     func connexionUI(){
         
         enteremail.placeholder = "E-mail"
@@ -48,25 +47,25 @@ class RegisterViewOne: UIViewController{
         view.addSubview(errorlabel)
         
       
-            NSLayoutConstraint.activate(
-                [enteremail.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
-                 enteremail.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                 enteremail.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+    NSLayoutConstraint.activate(
+       [enteremail.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+        enteremail.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        enteremail.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
                  
-                 enterpassword.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
-                 enterpassword.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                 enterpassword.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                 
-                 
-                 loginButton.topAnchor.constraint(equalTo:enterpassword.bottomAnchor, constant: 100),
-                 loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                 loginButton.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20),
-                 loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        enterpassword.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
+        enterpassword.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        enterpassword.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
                  
                  
-                 errorlabel.topAnchor.constraint(equalTo: errorlabel.bottomAnchor, constant: 20),
-                 errorlabel.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20),
-                 errorlabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        loginButton.topAnchor.constraint(equalTo:enterpassword.bottomAnchor, constant: 100),
+        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        loginButton.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20),
+        loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                 
+                 
+        errorlabel.topAnchor.constraint(equalTo: errorlabel.bottomAnchor, constant: 20),
+        errorlabel.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20),
+        errorlabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
                 ])
             
         }
