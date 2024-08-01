@@ -147,3 +147,15 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
+
+
+struct DoctorView: UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: Context) -> some HomeViewController {
+        return HomeViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        //
+    }
+}
