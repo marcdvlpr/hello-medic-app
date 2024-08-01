@@ -134,8 +134,8 @@ class DetailAppointmentViewController : UIViewController {
         NSLayoutConstraint.activate([
             composantMotif.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             composantMotif.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            composantMotif.widthAnchor.constraint(equalToConstant: 200),
-            composantMotif.heightAnchor.constraint(equalToConstant: 200)
+            composantMotif.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
+            composantMotif.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
         ])
     }
 }
@@ -161,23 +161,40 @@ class ComposantView: UIView {
         let composantImageView = UIImageView()
         let composantLabel = UILabel()
         let composantHStack = UIStackView(arrangedSubviews: [composantImageView, composantLabel])
+        let textComposantLabel = UILabel()
+        
+        self.layer.cornerRadius = 14
         
         composantLabel.text = "Motif"
+        composantLabel.textColor = .hmBlue
         
         composantImageView.image = UIImage(systemName: "message.fill")
+        composantImageView.tintColor = .hmBlue
         
         composantHStack.axis = .horizontal
-        composantHStack.spacing = 8
+        composantHStack.spacing = 3
         composantHStack.alignment = .center
         
+        textComposantLabel.text = "Rappel Vaccin\nfsfsfsf"
+        textComposantLabel.numberOfLines = 0 // Permet au label de s'ajuster sur plusieurs lignes
+        textComposantLabel.lineBreakMode = .byWordWrapping
+        
+        composantHStack.translatesAutoresizingMaskIntoConstraints = false
         composantLabel.translatesAutoresizingMaskIntoConstraints = false
         composantImageView.translatesAutoresizingMaskIntoConstraints = false
+        textComposantLabel.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(composantHStack)
+        addSubview(textComposantLabel)
         
-//        NSLayoutConstraint.activate([
-//            label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            label.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-//        ])
+        NSLayoutConstraint.activate([
+            self.heightAnchor.constraint(equalToConstant: 100),
+            composantHStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            composantHStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            textComposantLabel.topAnchor.constraint(equalTo: composantHStack.topAnchor, constant: 16),
+            textComposantLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            textComposantLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -32)
+            
+        ])
     }
 }
