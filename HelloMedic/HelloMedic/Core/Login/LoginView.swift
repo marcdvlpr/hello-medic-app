@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State private var email: String = ""
+    @State private var isEmailValid: Bool = true
+    @State private var password: String = ""
+    @State private var isPasswordValid: Bool = true
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 20) {
+            LogoViewComponent()
+
+            EmailViewComponent(
+                email: $email,
+                isEmailValid: $isEmailValid
+            )
+
+            PasswordViewComponent(
+                password: $password,
+                isPasswordValid: $isPasswordValid
+            )
+
+            ButtonViewComponent(action: {
+                print("Login button touched")
+            })
+        }
+        .padding()
     }
 }
 
