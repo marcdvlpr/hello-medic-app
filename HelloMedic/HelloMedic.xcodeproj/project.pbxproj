@@ -27,6 +27,7 @@
 		F3E94EC42C57DA26000B0D69 /* DetailAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E94EC32C57DA26000B0D69 /* DetailAppointmentViewController.swift */; };
 		6AF9347F2C5B72950018164E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF9347E2C5B72950018164E /* LoginView.swift */; };
 		6AF934812C5B83F70018164E /* LogoViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF934802C5B83F70018164E /* LogoViewComponent.swift */; };
+		6AF934832C5B85600018164E /* EmailViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF934822C5B85600018164E /* EmailViewComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		F3E94EC32C57DA26000B0D69 /* DetailAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppointmentViewController.swift; sourceTree = "<group>"; };
 		6AF9347E2C5B72950018164E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6AF934802C5B83F70018164E /* LogoViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoViewComponent.swift; sourceTree = "<group>"; };
+		6AF934822C5B85600018164E /* EmailViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				6AF934802C5B83F70018164E /* LogoViewComponent.swift */,
+				6AF934822C5B85600018164E /* EmailViewComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				680C181D2C49177900BD7874 /* ContentView.swift in Sources */,
+				6AF934832C5B85600018164E /* EmailViewComponent.swift in Sources */,
 				6AF934812C5B83F70018164E /* LogoViewComponent.swift in Sources */,
 				6910579E2C4AABD2001BB6F4 /* SplashView.swift in Sources */,
 				680C18362C4A54FB00BD7874 /* TabBarView.swift in Sources */,
