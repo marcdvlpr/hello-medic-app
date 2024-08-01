@@ -39,10 +39,10 @@
 		691057A22C4AB665001BB6F4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		69F556DE2C53F03B005C8B61 /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
 		F389E25C2C4A6C2A00CFCB77 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
-		F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentModel.swift; path = HelloMedic/Core/Appointment/AppointmentModel.swift; sourceTree = SOURCE_ROOT; };
-		F389E2622C4A96C000CFCB77 /* ProfilSpecialistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfilSpecialistModel.swift; path = HelloMedic/Core/Appointment/ProfilSpecialistModel.swift; sourceTree = SOURCE_ROOT; };
+		F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentModel.swift; path = HelloMedic/Model/AppointmentModel.swift; sourceTree = SOURCE_ROOT; };
+		F389E2622C4A96C000CFCB77 /* ProfilSpecialistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfilSpecialistModel.swift; path = HelloMedic/Model/ProfilSpecialistModel.swift; sourceTree = SOURCE_ROOT; };
 		F389E2642C4A9D5700CFCB77 /* ProfilSpecialistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilSpecialistViewModel.swift; sourceTree = "<group>"; };
-		F389E2662C4AA06100CFCB77 /* SpecialityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpecialityModel.swift; path = HelloMedic/Core/Appointment/SpecialityModel.swift; sourceTree = SOURCE_ROOT; };
+		F389E2662C4AA06100CFCB77 /* SpecialityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpecialityModel.swift; path = HelloMedic/Model/SpecialityModel.swift; sourceTree = SOURCE_ROOT; };
 		F389E2682C4AA4F200CFCB77 /* SpecialityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialityViewModel.swift; sourceTree = "<group>"; };
 		F3B5213F2C57984200E4034F /* AppointmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewModel.swift; sourceTree = "<group>"; };
 		F3E94EC12C57D999000B0D69 /* DetailAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppointmentView.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 			children = (
 				680C182B2C4942DF00BD7874 /* App */,
 				680C182C2C49435800BD7874 /* Core */,
-				680C18282C4942C000BD7874 /* Model */,
+				F370C25A2C5BCA7D00BE0F6E /* Model */,
 				680C18332C4944AE00BD7874 /* Resource */,
 				680C18202C49177A00BD7874 /* Preview Content */,
 			);
@@ -94,16 +94,6 @@
 				680C18212C49177A00BD7874 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		680C18282C4942C000BD7874 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */,
-				F389E2622C4A96C000CFCB77 /* ProfilSpecialistModel.swift */,
-				F389E2662C4AA06100CFCB77 /* SpecialityModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		680C182B2C4942DF00BD7874 /* App */ = {
@@ -126,6 +116,7 @@
 				680C18312C49443B00BD7874 /* SpecialistProfile */,
 				680C18322C49449200BD7874 /* TabBar */,
 				680C18302C49442400BD7874 /* UserProfile */,
+				F389E25B2C4A6B9A00CFCB77 /* Appointment */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -209,10 +200,19 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		F370C25A2C5BCA7D00BE0F6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */,
+				F389E2622C4A96C000CFCB77 /* ProfilSpecialistModel.swift */,
+				F389E2662C4AA06100CFCB77 /* SpecialityModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F389E25B2C4A6B9A00CFCB77 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
-				691057A22C4AB665001BB6F4 /* SearchView.swift */,
 				F389E25C2C4A6C2A00CFCB77 /* AppointmentView.swift */,
 				F3E94EC12C57D999000B0D69 /* DetailAppointmentView.swift */,
 				F3E94EC32C57DA26000B0D69 /* DetailAppointmentViewController.swift */,
