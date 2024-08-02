@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct UserProfileView: View {
+    
+    @StateObject var vm = UserProfileViewModel()
+    
     var body: some View {
         VStack {
             ZStack {

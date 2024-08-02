@@ -7,23 +7,17 @@
 
 import Foundation
 
-struct User {
-    let id = UUID()
+struct User: Decodable {
+    let id: String
     let email: String
     let password: String
     let verified: Bool?
     let firstName: String
     let lastName: String
-    let dateOfBirth: Date
-    let gender: Gender
+    let dateOfBirth: String
+    let gender: String
     let address: String
     let postalCode: String
     let city: String
     let phone: String
-    
-    enum Gender: String {
-        case male
-        case female
-        case other
-    }
 }
