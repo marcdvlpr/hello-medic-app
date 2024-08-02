@@ -34,7 +34,7 @@ class DetailAppointmentViewController : UIViewController {
         let specialistVStack = UIStackView(arrangedSubviews: [specialistNameLabel, specialistSpeciality])
         let specialistHStack = UIStackView(arrangedSubviews: [specialistImageView, specialistVStack])
         
-        let composantMotif = ComposantView()
+        let composantMotif = ComposantView(nameSection: "Motif", imageSection: UIImage(systemName: "message.fill") ?? UIImage(), textSection: "Rappel Vaccin")
         
         rectangle.backgroundColor = .hmBlue
         rectangle.layer.cornerRadius = 14
@@ -133,7 +133,7 @@ class DetailAppointmentViewController : UIViewController {
         
         NSLayoutConstraint.activate([
             composantMotif.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            composantMotif.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            composantMotif.topAnchor.constraint(equalTo: specialistHStack.bottomAnchor, constant: 25),
             composantMotif.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
             composantMotif.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
         ])
@@ -142,13 +142,23 @@ class DetailAppointmentViewController : UIViewController {
 
 class ComposantView: UIView {
     
-    // Initializer
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    var nameSection : String
+    var imageSection : UIImage
+    var textSection : String
+    
+    init(nameSection: String, imageSection: UIImage, textSection: String) {
+        self.nameSection = nameSection
+        self.imageSection = imageSection
+        self.textSection = textSection
+        super.init(frame: .zero)
         setupView()
     }
     
+        
     required init?(coder: NSCoder) {
+        self.nameSection = ""
+        self.imageSection = UIImage()
+        self.textSection = ""
         super.init(coder: coder)
         setupView()
     }
@@ -165,19 +175,22 @@ class ComposantView: UIView {
         
         self.layer.cornerRadius = 14
         
-        composantLabel.text = "Motif"
+        composantLabel.text = nameSection
         composantLabel.textColor = .hmBlue
+        composantLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         
-        composantImageView.image = UIImage(systemName: "message.fill")
+        composantImageView.image = imageSection
         composantImageView.tintColor = .hmBlue
         
         composantHStack.axis = .horizontal
         composantHStack.spacing = 3
         composantHStack.alignment = .center
         
-        textComposantLabel.text = "Rappel Vaccin\nfsfsfsf"
+        textComposantLabel.text = textSection
         textComposantLabel.numberOfLines = 0 // Permet au label de s'ajuster sur plusieurs lignes
         textComposantLabel.lineBreakMode = .byWordWrapping
+        textComposantLabel.textColor = .hmBlue
+        textComposantLabel.font = UIFont.systemFont(ofSize: 17, weight: .light)
         
         composantHStack.translatesAutoresizingMaskIntoConstraints = false
         composantLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -188,12 +201,13 @@ class ComposantView: UIView {
         addSubview(textComposantLabel)
         
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 100),
+//            self.heightAnchor.constraint(equalToConstant: 100),
             composantHStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             composantHStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            self.bottomAnchor.constraint(equalTo: textComposantLabel.bottomAnchor, constant: 32),
             textComposantLabel.topAnchor.constraint(equalTo: composantHStack.topAnchor, constant: 16),
             textComposantLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            textComposantLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -32)
+//            textComposantLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 32)
             
         ])
     }
