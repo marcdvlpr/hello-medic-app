@@ -13,7 +13,7 @@ struct ButtonViewComponent: View {
     var body: some View {
         VStack {
             Button(action: action) {
-                Text("Login")
+                Text("Se connecter")
                     .foregroundStyle(.white)
                     .bold()
                     .padding()
@@ -23,23 +23,18 @@ struct ButtonViewComponent: View {
             }
 
             HStack {
-                Text("You already have an account?")
+                Text("Vous n'avez pas de compte ?")
                     .frame(maxWidth: .infinity, alignment: .center)
                     .font(.system(size: 15))
-                Button("Login") {
+                Button("Enregistrez-vous !") {
                     // Action for login
                 }
                 .font(.system(size: 15))
-                Text("if not")
-                    .font(.system(size: 15))
-                Button("SignUp") {
+                Button("Enregistrez-vous !") {
                     // Action for Sign Up
                 }
                 .font(.system(size: 15))
             }
-            .frame(maxWidth: .infinity)
-            .lineLimit(1)
-            .minimumScaleFactor(0.5)
         }
         Spacer()
     }
