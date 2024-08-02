@@ -16,7 +16,7 @@ struct EmailView: View {
             Text("Email")
                 .font(.system(size: 18))
                 .bold()
-            TextField("Enter your email", text: $email)
+            TextField("Entrez votre email", text: $email)
                 .padding(.bottom, 5)
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
