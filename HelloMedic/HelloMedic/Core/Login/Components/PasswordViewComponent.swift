@@ -21,10 +21,10 @@ struct PasswordViewComponent: View {
             HStack {
                 Group {
                     if isPasswordVisible {
-                        TextField("Enter your pasword", text: $password)
+                        TextField("Entrez votre mot de passe", text: $password)
                             .padding(.bottom, 5)
                     } else {
-                        SecureField("Enter yout password", text: $password)
+                        SecureField("Entrez votre mot de passe", text: $password)
                     }
                 }
                 .padding(.bottom, 5)
