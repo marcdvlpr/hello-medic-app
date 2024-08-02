@@ -1,5 +1,5 @@
 //
-//  EmailViewComponent.swift
+//  EmailView.swift
 //  HelloMedic
 //
 //  Created by Apprenant 125 on 01/08/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmailViewComponent: View {
+struct EmailView: View {
     @Binding var email: String
     @Binding var isEmailValid: Bool
 
@@ -32,5 +32,5 @@ struct EmailViewComponent: View {
 }
 
 #Preview {
-    EmailViewComponent(email: .constant(""), isEmailValid: .constant(true))
+    EmailView(email: .constant(""), isEmailValid: .constant(true))
 }
