@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LogoViewComponent: View {
+struct LogoView: View {
     var body: some View {
         Image("hmLogo")
             .resizable()
@@ -17,5 +17,5 @@ struct LogoViewComponent: View {
 }
 
 #Preview {
-    LogoViewComponent()
+    LogoView()
 }
