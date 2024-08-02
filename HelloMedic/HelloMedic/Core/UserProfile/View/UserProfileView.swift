@@ -33,27 +33,42 @@ struct UserProfileView: View {
             
             List {
                 Section("Information Personnelle ") {
-                    RowProfileView(title: "Prénom", value: vm.user.firstName)
-                    RowProfileView(title: "Nom", value: vm.user.lastName)
-                    RowProfileView(title: "Date de naissance", value: vm.user.dateOfBirth)
-                    RowProfileView(title: "Genre", value: vm.user.gender)
-                    RowProfileView(title: "Adresse", value: vm.user.address)
-                    RowProfileView(title: "Code Postal", value: vm.user.postalCode)
-                    RowProfileView(title: "Ville", value: vm.user.city)
-                    RowProfileView(title: "Téléphone", value: vm.user.phone)
+                    RowProfileView(title: "Prénom", 
+                                   value: vm.user.firstName)
+                    RowProfileView(title: "Nom",
+                                   value: vm.user.lastName)
+                    RowProfileView(title: "Date de naissance",
+                                   value: vm.user.dateOfBirth)
+                    RowProfileView(title: "Genre", 
+                                   value: vm.user.gender)
+                    RowProfileView(title: "Adresse", 
+                                   value: vm.user.address)
+                    RowProfileView(title: "Code Postal", 
+                                   value: vm.user.postalCode)
+                    RowProfileView(title: "Ville", 
+                                   value: vm.user.city)
+                    RowProfileView(title: "Téléphone", 
+                                   value: vm.user.phone)
                 }
                 
                 Section("Information Médical") {
-                    RowProfileView(title: "Groupe Sanguin", value: "O+")
-                    RowProfileView(title: "Allergie", value: "")
-                    RowProfileView(title: "Taille", value: "180 cm")
-                    RowProfileView(title: "Poids", value: "80 kg")
-                    RowProfileView(title: "Fauteuil Roulant", value: "Non")
+                    RowProfileView(title: "Groupe Sanguin", 
+                                   value: vm.medicalInfo.bloodType)
+                    RowProfileView(title: "Allergies", 
+                                   value: vm.medicalInfo.allergies)
+                    RowProfileView(title: "Taille", 
+                                   value: "\(vm.medicalInfo.height) cm")
+                    RowProfileView(title: "Poids", 
+                                   value: "\(vm.medicalInfo.weight) kg")
+                    RowProfileView(title: "Fauteuil Roulant", 
+                                   value: "\(vm.medicalInfo.wheelchair ? "Oui" : "Non")")
                 }
                 
                 Section("Connexion") {
-                    RowProfileView(title: "Email", value: vm.user.email)
-                    RowProfileView(title: "Password", value: "••••••••••••")
+                    RowProfileView(title: "Email", 
+                                   value: vm.user.email)
+                    RowProfileView(title: "Password", 
+                                   value: "••••••••••••")
                 }
                 
                 Button {

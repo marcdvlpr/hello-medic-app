@@ -11,7 +11,7 @@ struct MedicalInfo: Decodable {
     let id: String
     let userID: String
     let bloodType: String
-    let allergies: [String]
+    let allergies: String?
     let height: Int
     let weight: Double
     let wheelchair: Bool

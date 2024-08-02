@@ -9,8 +9,10 @@ import Foundation
 
 class UserProfileViewModel: ObservableObject {
     @Published var user: User
+    @Published var medicalInfo: MedicalInfo
     
     init() {
-        user = JSONLoader.load("usersData.json")
+        self.user = JSONLoader.load("usersData.json")
+        self.medicalInfo = JSONLoader.load("medicalInfoData.json")
     }
 }
