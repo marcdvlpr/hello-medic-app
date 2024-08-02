@@ -19,6 +19,7 @@
 		68C236522C5BD5420001B402 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C236512C5BD5420001B402 /* UserProfileViewModel.swift */; };
 		68C236542C5CD4DA0001B402 /* RowProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C236532C5CD4DA0001B402 /* RowProfileView.swift */; };
 		68C236562C5CDE280001B402 /* medicalInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 68C236552C5CDE280001B402 /* medicalInfo.json */; };
+		68C236582C5CDE9D0001B402 /* MedicalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C236572C5CDE9D0001B402 /* MedicalInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		68C236512C5BD5420001B402 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		68C236532C5CD4DA0001B402 /* RowProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowProfileView.swift; sourceTree = "<group>"; };
 		68C236552C5CDE280001B402 /* medicalInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = medicalInfo.json; sourceTree = "<group>"; };
+		68C236572C5CDE9D0001B402 /* MedicalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				68C236422C5A254B0001B402 /* User.swift */,
+				68C236572C5CDE9D0001B402 /* MedicalInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68C236582C5CDE9D0001B402 /* MedicalInfo.swift in Sources */,
 				680C181D2C49177900BD7874 /* ContentView.swift in Sources */,
 				68C236432C5A254B0001B402 /* User.swift in Sources */,
 				680C18362C4A54FB00BD7874 /* TabBarView.swift in Sources */,
