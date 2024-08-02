@@ -1,5 +1,5 @@
 //
-//  ButtonViewComponent.swift
+//  ButtonView.swift
 //  HelloMedic
 //
 //  Created by Apprenant 125 on 01/08/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ButtonViewComponent: View {
+struct ButtonView: View {
     var action: () -> Void
 
     var body: some View {
@@ -39,5 +39,5 @@ struct ButtonViewComponent: View {
 }
 
 #Preview {
-    ButtonViewComponent(action: {print("Button was touched") })
+    ButtonView(action: {print("Button was touched") })
 }
