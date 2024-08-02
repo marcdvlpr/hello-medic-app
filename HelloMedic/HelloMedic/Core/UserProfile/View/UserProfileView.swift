@@ -20,6 +20,7 @@ struct UserProfileView: View {
                 Text("JD")
                     .font(.largeTitle)
             }
+            
             Button {
                 print("EDITER")
             } label: {
@@ -32,103 +33,27 @@ struct UserProfileView: View {
             
             List {
                 Section("Information Personnelle ") {
-                    HStack {
-                        Text("Prénom")
-                        Spacer()
-                        Text("John")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Nom")
-                        Spacer()
-                        Text("Doe")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Date de naissance")
-                        Spacer()
-                        Text("15 juillet 1998")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Genre")
-                        Spacer()
-                        Text("Homme")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Adresse")
-                        Spacer()
-                        Text("12 Avenue Montaigne")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Code Postal")
-                        Spacer()
-                        Text("75008")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Ville")
-                        Spacer()
-                        Text("Paris")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Téléphone")
-                        Spacer()
-                        Text("01 02 03 04 05")
-                            .foregroundStyle(Color(.systemGray))
-                    }
+                    RowProfileView(title: "Prénom", value: vm.user.firstName)
+                    RowProfileView(title: "Nom", value: vm.user.lastName)
+                    RowProfileView(title: "Date de naissance", value: vm.user.dateOfBirth)
+                    RowProfileView(title: "Genre", value: vm.user.gender)
+                    RowProfileView(title: "Adresse", value: vm.user.address)
+                    RowProfileView(title: "Code Postal", value: vm.user.postalCode)
+                    RowProfileView(title: "Ville", value: vm.user.city)
+                    RowProfileView(title: "Téléphone", value: vm.user.phone)
                 }
                 
                 Section("Information Médical") {
-                    HStack {
-                        Text("Groupe Sanguin")
-                        Spacer()
-                        Text("O+")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Allergie")
-                        Spacer()
-                        Text("")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Taille")
-                        Spacer()
-                        Text("180 cm")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Poids")
-                        Spacer()
-                        Text("80 kg")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Fauteuil Roulant")
-                        Spacer()
-                        Text("80 kg")
-                            .foregroundStyle(Color(.systemGray))
-                    }
-                    
+                    RowProfileView(title: "Groupe Sanguin", value: "O+")
+                    RowProfileView(title: "Allergie", value: "")
+                    RowProfileView(title: "Taille", value: "180 cm")
+                    RowProfileView(title: "Poids", value: "80 kg")
+                    RowProfileView(title: "Fauteuil Roulant", value: "Non")
                 }
                 
                 Section("Connexion") {
-                    HStack {
-                        Text("Email")
-                        Spacer()
-                        Text("johndoe@protonmail.com")
-                            .tint(Color(.systemGray))
-                    }
-                    HStack {
-                        Text("Password")
-                        Spacer()
-                        Text("••••••••••••")
-                            .foregroundStyle(Color(.systemGray))
-                    }
+                    RowProfileView(title: "Email", value: vm.user.email)
+                    RowProfileView(title: "Password", value: "••••••••••••")
                 }
                 
                 Button {
