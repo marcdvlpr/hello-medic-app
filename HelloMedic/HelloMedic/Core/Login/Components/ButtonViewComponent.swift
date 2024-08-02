@@ -30,9 +30,7 @@ struct ButtonViewComponent: View {
                     // Action for login
                 }
                 .font(.system(size: 15))
-                Button("Enregistrez-vous !") {
                     // Action for Sign Up
-                }
                 .font(.system(size: 15))
             }
         }
