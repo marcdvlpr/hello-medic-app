@@ -26,6 +26,7 @@ struct ButtonView: View {
                 Text("Vous n'avez pas de compte ?")
                     .frame(maxWidth: .infinity, alignment: .center)
                     .font(.system(size: 15))
+
                 Button("Enregistrez-vous !") {
                     // Action for login
                 }
