@@ -19,7 +19,7 @@
 		6AF9347F2C5B72950018164E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF9347E2C5B72950018164E /* LoginView.swift */; };
 		6AF934812C5B83F70018164E /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF934802C5B83F70018164E /* LogoView.swift */; };
 		6AF934832C5B85600018164E /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF934822C5B85600018164E /* EmailView.swift */; };
-		6AF934852C5B88F00018164E /* PasswordViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF934842C5B88F00018164E /* PasswordViewComponent.swift */; };
+		6AF934852C5B88F00018164E /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF934842C5B88F00018164E /* PasswordView.swift */; };
 		6AF934872C5B8EA60018164E /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF934862C5B8EA60018164E /* ButtonView.swift */; };
 		F389E25D2C4A6C2A00CFCB77 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389E25C2C4A6C2A00CFCB77 /* AppointmentView.swift */; };
 		F389E2612C4A96AA00CFCB77 /* AppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */; };
@@ -46,7 +46,7 @@
 		6AF9347E2C5B72950018164E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6AF934802C5B83F70018164E /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		6AF934822C5B85600018164E /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
-		6AF934842C5B88F00018164E /* PasswordViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewComponent.swift; sourceTree = "<group>"; };
+		6AF934842C5B88F00018164E /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		6AF934862C5B8EA60018164E /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		F389E25C2C4A6C2A00CFCB77 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
 		F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentModel.swift; path = HelloMedic/Model/AppointmentModel.swift; sourceTree = SOURCE_ROOT; };
@@ -217,7 +217,7 @@
 			children = (
 				6AF934802C5B83F70018164E /* LogoView.swift */,
 				6AF934822C5B85600018164E /* EmailView.swift */,
-				6AF934842C5B88F00018164E /* PasswordViewComponent.swift */,
+				6AF934842C5B88F00018164E /* PasswordView.swift */,
 				6AF934862C5B8EA60018164E /* ButtonView.swift */,
 			);
 			path = Components;
@@ -314,7 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AF934852C5B88F00018164E /* PasswordViewComponent.swift in Sources */,
+				6AF934852C5B88F00018164E /* PasswordView.swift in Sources */,
 				680C181D2C49177900BD7874 /* ContentView.swift in Sources */,
 				6AF934872C5B8EA60018164E /* ButtonView.swift in Sources */,
 				6AF934832C5B85600018164E /* EmailView.swift in Sources */,

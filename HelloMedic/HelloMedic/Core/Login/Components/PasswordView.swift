@@ -1,5 +1,5 @@
 //
-//  PasswordViewComponent.swift
+//  PasswordView.swift
 //  HelloMedic
 //
 //  Created by Apprenant 125 on 01/08/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PasswordViewComponent: View {
+struct PasswordView: View {
     @Binding var password: String
     @Binding var isPasswordValid: Bool
     @State var isPasswordVisible: Bool = false
@@ -52,7 +52,7 @@ struct PasswordViewComponent: View {
         @State var isPasswordValid: Bool = true
 
         var body: some View {
-            PasswordViewComponent(password: $password, isPasswordValid: $isPasswordValid)
+            PasswordView(password: $password, isPasswordValid: $isPasswordValid)
         }
     }
 
