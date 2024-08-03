@@ -28,6 +28,7 @@ struct PasswordView: View {
                     }
                 }
                 .padding(.bottom, 5)
+
                 Button(action: {
                     isPasswordVisible.toggle()
                 }) {
@@ -35,6 +36,7 @@ struct PasswordView: View {
                         .foregroundStyle(.gray)
                 }
             }
+
             Rectangle()
                 .frame(height:2)
                 .foregroundStyle(isPasswordValid ? .gray : .red)

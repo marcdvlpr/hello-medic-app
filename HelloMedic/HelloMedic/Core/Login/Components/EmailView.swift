@@ -16,6 +16,7 @@ struct EmailView: View {
             Text("Email")
                 .font(.system(size: 18))
                 .bold()
+
             TextField("Entrez votre email", text: $email)
                 .padding(.bottom, 5)
                 .autocapitalization(.none)
@@ -23,6 +24,7 @@ struct EmailView: View {
                 .onChange(of: email) { oldValue, newValue in
                     isEmailValid = newValue.contains("@")
                 }
+
             Rectangle()
                 .frame(height: 2)
                 .foregroundStyle(isEmailValid ? .gray : .red)
