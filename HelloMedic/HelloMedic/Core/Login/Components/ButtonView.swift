@@ -32,7 +32,6 @@ struct ButtonView: View {
                 }
                 .font(.system(size: 15))
                     // Action for Sign Up
-                .font(.system(size: 15))
             }
         }
         Spacer()
