@@ -15,19 +15,19 @@ struct LoginView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            LogoViewComponent()
+            LogoView()
 
-            EmailViewComponent(
+            EmailView(
                 email: $email,
                 isEmailValid: $isEmailValid
             )
 
-            PasswordViewComponent(
+            PasswordView(
                 password: $password,
                 isPasswordValid: $isPasswordValid
             )
 
-            ButtonViewComponent(action: {
+            ButtonView(action: {
                 print("Login button touched")
             })
         }
