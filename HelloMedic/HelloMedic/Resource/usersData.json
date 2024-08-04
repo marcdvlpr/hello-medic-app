@@ -5,7 +5,7 @@
     "verified": false,
     "firstName": "John",
     "lastName": "Doe",
-    "dateOfBirth": "1999-07-14T00:00:00Z",
+    "dateOfBirth": 931942500,
     "gender": "homme",
     "address": "10 Avenue Montaigne",
     "postalCode": "75008",

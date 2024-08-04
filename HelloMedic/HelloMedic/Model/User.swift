@@ -14,10 +14,14 @@ struct User: Decodable {
     let verified: Bool?
     let firstName: String
     let lastName: String
-    let dateOfBirth: String
+    let dateOfBirth: TimeInterval
     let gender: String
     let address: String
     let postalCode: String
     let city: String
     let phone: String
+    
+    var formattedDate: String {
+        return Date(timeIntervalSince1970: dateOfBirth).formatted(date: .long, time: .omitted)
+    }
 }

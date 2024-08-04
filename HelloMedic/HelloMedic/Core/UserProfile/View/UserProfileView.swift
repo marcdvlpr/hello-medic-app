@@ -38,7 +38,7 @@ struct UserProfileView: View {
                     RowProfileView(title: "Nom",
                                    value: vm.user.lastName)
                     RowProfileView(title: "Date de naissance",
-                                   value: vm.user.dateOfBirth)
+                                   value: vm.user.formattedDate)
                     RowProfileView(title: "Genre", 
                                    value: vm.user.gender)
                     RowProfileView(title: "Adresse", 
