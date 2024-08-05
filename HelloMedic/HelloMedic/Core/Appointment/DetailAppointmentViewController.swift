@@ -6,14 +6,29 @@
 //
 
 import UIKit
+import SwiftUI
 
 class DetailAppointmentViewController : UIViewController {
+    
+    let composantMotif = ComposantView(nameSection: "Motif", imageSection: UIImage(systemName: "message.fill") ?? UIImage(), textSection: "Rappel Vaccin")
+    let composantPlace = ComposantView(nameSection: "Lieu", imageSection: UIImage(systemName: "location.fill") ?? UIImage(), textSection: "12 rue des Peupliers\n75008")
+    let composantPhone = ComposantView(nameSection: "Contact", imageSection: UIImage(systemName: "phone.fill") ?? UIImage(), textSection: "01 12 23 34 56")
+    let composantPay = ComposantView(nameSection: "Modalités paiement", imageSection: UIImage(systemName: "creditcard.fill") ?? UIImage(), textSection: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée")
+    
+    let profilSpecialistButton = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setComposants()
     }
+    
+    override func viewDidLayoutSubviews() {
+            super.viewDidLayoutSubviews()
+            
+            // Apply rounded corners here to ensure bounds are set
+            applyRoundedCornersToComponents()
+        }
     
     func setComposants() {
         let rectangle = UIView()
@@ -34,10 +49,15 @@ class DetailAppointmentViewController : UIViewController {
         let specialistVStack = UIStackView(arrangedSubviews: [specialistNameLabel, specialistSpeciality])
         let specialistHStack = UIStackView(arrangedSubviews: [specialistImageView, specialistVStack])
         
-        let composantMotif = ComposantView(nameSection: "Motif", imageSection: UIImage(systemName: "message.fill") ?? UIImage(), textSection: "Rappel Vaccin",topCorner: 14, bottomCorner: 14)
-        let composantPlace = ComposantView(nameSection: "Lieu", imageSection: UIImage(systemName: "location.fill") ?? UIImage(), textSection: "12 rue des Peupliers\n75008",topCorner: 14, bottomCorner: 0)
-        let composantPhone = ComposantView(nameSection: "Contact", imageSection: UIImage(systemName: "phone.fill") ?? UIImage(), textSection: "01 12 23 34 56",topCorner: 0, bottomCorner: 0)
-        let composantPay = ComposantView(nameSection: "Modalités paiement", imageSection: UIImage(systemName: "creditcard.fill") ?? UIImage(), textSection: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",topCorner: 0, bottomCorner: 0)
+        let profilSpecialistLabel = UILabel()
+        let profilSpecialistImageView = UIImageView()
+        let profilSpecialistHStack = UIStackView(arrangedSubviews: [profilSpecialistLabel,profilSpecialistImageView])
+        
+        let cancelButton = UIButton()
+        var configurationCancelButton = UIButton.Configuration.filled()
+        let modifyButton = UIButton()
+        var configurationModifyButton = UIButton.Configuration.filled()
+        let buttonsHStack = UIStackView(arrangedSubviews: [cancelButton, modifyButton])
         
         rectangle.backgroundColor = .hmBlue
         rectangle.layer.cornerRadius = 14
@@ -87,7 +107,50 @@ class DetailAppointmentViewController : UIViewController {
         specialistHStack.spacing = 8
         specialistHStack.alignment = .center
         
-        composantPlace.applyRoundedCorners(cornerRadii: [14,14,0,0])
+        profilSpecialistButton.backgroundColor = .hmBlue
+        profilSpecialistButton.addTarget(self, action: #selector(navigateToSpecialistProfile), for: .touchUpInside)
+        
+        profilSpecialistLabel.text = "Consulter la fiche du praticien"
+        profilSpecialistLabel.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        profilSpecialistLabel.textColor = .white
+        profilSpecialistImageView.image = UIImage(systemName: "chevron.right")
+        profilSpecialistImageView.tintColor = .white
+        profilSpecialistHStack.spacing = 15
+        
+        // Modifier la taille du titre
+       let titleFont = UIFont.systemFont(ofSize: 14, weight: .medium)
+       configurationCancelButton.attributedTitle = AttributedString("Annuler", attributes: AttributeContainer([.font: titleFont]))
+       
+       // Modifier la taille de l'image
+       let imageConfig = UIImage.SymbolConfiguration(pointSize: 11, weight: .bold)
+       configurationCancelButton.preferredSymbolConfigurationForImage = imageConfig
+        
+        configurationCancelButton.image = UIImage(systemName: "xmark")
+        configurationCancelButton.imagePadding = 5  // Espace entre l'image et le texte
+        configurationCancelButton.imagePlacement = .leading  // Image à gauche du texte
+        configurationCancelButton.baseBackgroundColor = .hmSkyBlue
+        configurationCancelButton.baseForegroundColor = .white
+        
+        cancelButton.configuration = configurationCancelButton
+        cancelButton.layer.cornerRadius = 14
+        cancelButton.clipsToBounds = true
+        
+       configurationModifyButton.attributedTitle = AttributedString("Modifier", attributes: AttributeContainer([.font: titleFont]))
+       
+       // Modifier la taille de l'image
+       configurationModifyButton.preferredSymbolConfigurationForImage = imageConfig
+        
+        configurationModifyButton.image = UIImage(systemName: "pencil")
+        configurationModifyButton.imagePadding = 5  // Espace entre l'image et le texte
+        configurationModifyButton.imagePlacement = .leading  // Image à gauche du texte
+        configurationModifyButton.baseBackgroundColor = .white
+        configurationModifyButton.baseForegroundColor = .hmSkyBlue
+        
+        modifyButton.configuration = configurationModifyButton
+        modifyButton.layer.cornerRadius = 14
+        modifyButton.clipsToBounds = true
+        
+        buttonsHStack.spacing = 29
         
         self.view.addSubview(rectangle)
         self.view.addSubview(dateHStack)
@@ -98,6 +161,9 @@ class DetailAppointmentViewController : UIViewController {
         self.view.addSubview(composantPlace)
         self.view.addSubview(composantPhone)
         self.view.addSubview(composantPay)
+        self.view.addSubview(profilSpecialistButton)
+        self.view.addSubview(profilSpecialistHStack)
+        self.view.addSubview(buttonsHStack)
         
         rectangle.translatesAutoresizingMaskIntoConstraints = false
         calendarImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -110,12 +176,16 @@ class DetailAppointmentViewController : UIViewController {
         composantPlace.translatesAutoresizingMaskIntoConstraints = false
         composantPhone.translatesAutoresizingMaskIntoConstraints = false
         composantPay.translatesAutoresizingMaskIntoConstraints = false
+        profilSpecialistButton.translatesAutoresizingMaskIntoConstraints = false
+        profilSpecialistHStack.translatesAutoresizingMaskIntoConstraints = false
+        buttonsHStack.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             rectangle.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 7),
             rectangle.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -7),
             rectangle.widthAnchor.constraint(equalToConstant: 379),
-            rectangle.heightAnchor.constraint(equalToConstant: 587)
+            rectangle.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16),
+            rectangle.bottomAnchor.constraint(equalTo: buttonsHStack.bottomAnchor, constant: 16)
         ])
         
         NSLayoutConstraint.activate([
@@ -169,6 +239,45 @@ class DetailAppointmentViewController : UIViewController {
             composantPay.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
             composantPay.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
         ])
+        
+        NSLayoutConstraint.activate([
+            profilSpecialistButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            profilSpecialistButton.topAnchor.constraint(equalTo: composantPay.bottomAnchor, constant: 2),
+            profilSpecialistButton.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
+            profilSpecialistButton.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
+            profilSpecialistButton.heightAnchor.constraint(equalToConstant: 45)
+        ])
+        
+        NSLayoutConstraint.activate([
+            profilSpecialistHStack.centerXAnchor.constraint(equalTo: profilSpecialistButton.centerXAnchor),
+            profilSpecialistHStack.centerYAnchor.constraint(equalTo: profilSpecialistButton.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            buttonsHStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            buttonsHStack.topAnchor.constraint(equalTo: profilSpecialistButton.bottomAnchor, constant: 16),
+            cancelButton.widthAnchor.constraint(equalToConstant: 150)
+        ])
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    @objc func navigateToSpecialistProfile() {
+        print("Navigate to specialist profile tapped")
+        // Présenter la vue SwiftUI avec UIHostingController
+        let hostingController = UIHostingController(rootView: ProfilSpecialistView())
+        // Créer un UINavigationController si vous voulez que la vue SwiftUI soit dans une pile de navigation
+        let navigationController = UINavigationController(rootViewController: hostingController)
+        
+        // Présenter le UINavigationController
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func applyRoundedCornersToComponents() {
+            // Appliquer les coins arrondis après la mise à jour des contraintes
+        composantMotif.applyRoundedCorners(cornerRadii: [14,14,14,14])
+        composantPlace.applyRoundedCorners(cornerRadii: [14,14,0,0])
+        profilSpecialistButton.applyRoundedCorners(cornerRadii: [0,0,14,14])
     }
 }
 
@@ -177,15 +286,11 @@ class ComposantView: UIView {
     var nameSection : String
     var imageSection : UIImage
     var textSection : String
-    var topCorner : CGFloat
-    var bottomCorner : CGFloat
     
-    init(nameSection: String, imageSection: UIImage, textSection: String,topCorner: CGFloat, bottomCorner: CGFloat) {
+    init(nameSection: String, imageSection: UIImage, textSection: String) {
         self.nameSection = nameSection
         self.imageSection = imageSection
         self.textSection = textSection
-        self.topCorner = topCorner
-        self.bottomCorner = bottomCorner
         super.init(frame: .zero)
         setupView()
     }
@@ -195,8 +300,6 @@ class ComposantView: UIView {
         self.nameSection = ""
         self.imageSection = UIImage()
         self.textSection = ""
-        self.topCorner = 0
-        self.bottomCorner = 0
         super.init(coder: coder)
         setupView()
     }
@@ -211,7 +314,6 @@ class ComposantView: UIView {
         let composantHStack = UIStackView(arrangedSubviews: [composantImageView, composantLabel])
         let textComposantLabel = UILabel()
         
-//        self.layer.cornerRadius = 14
         self.layer.shadowOffset = CGSize(width: 5, height: 5)
         self.layer.shadowOpacity = 0.3
         
@@ -252,65 +354,72 @@ class ComposantView: UIView {
             textComposantLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
     }
-    
-    override func layoutSubviews() {
-            super.layoutSubviews()
-            // Appliquer le masque personnalisé pour les coins arrondis après la mise en page
-        applyRoundedCorners(cornerRadii: [topCorner, topCorner, bottomCorner, bottomCorner])
+}
+
+extension UIView {
+    func applyRoundedCorners(cornerRadii: [CGFloat]) {
+        let path = UIBezierPath()
+        let width = self.bounds.width
+        let height = self.bounds.height
+        
+        let topLeftRadius = cornerRadii[0]
+        let topRightRadius = cornerRadii[1]
+        let bottomLeftRadius = cornerRadii[2]
+        let bottomRightRadius = cornerRadii[3]
+        
+        // Top-left corner
+        path.move(to: CGPoint(x: 0, y: topLeftRadius))
+        if topLeftRadius > 0 {
+            path.addArc(withCenter: CGPoint(x: topLeftRadius, y: topLeftRadius), radius: topLeftRadius, startAngle: CGFloat.pi, endAngle: 1.5 * CGFloat.pi, clockwise: true)
+        } else {
+            path.addLine(to: CGPoint(x: 0, y: 0))
         }
-    
-    public func applyRoundedCorners(cornerRadii: [CGFloat]) {
-            let path = UIBezierPath()
-            let width = self.bounds.width
-            let height = self.bounds.height
-            
-            let topLeftRadius = cornerRadii[0]
-            let topRightRadius = cornerRadii[1]
-            let bottomLeftRadius = cornerRadii[2]
-            let bottomRightRadius = cornerRadii[3]
-            
-            // Move to top-left corner
-            path.move(to: CGPoint(x: 0, y: topLeftRadius))
-            
-            // Top-left corner
-            if topLeftRadius > 0 {
-                path.addArc(withCenter: CGPoint(x: topLeftRadius, y: topLeftRadius), radius: topLeftRadius, startAngle: CGFloat.pi, endAngle: 1.5 * CGFloat.pi, clockwise: true)
-            } else {
-                path.addLine(to: CGPoint(x: 0, y: 0))
-                path.addLine(to: CGPoint(x: topLeftRadius, y: 0))
-            }
-            
-            // Top-right corner
-            if topRightRadius > 0 {
-                path.addLine(to: CGPoint(x: width - topRightRadius, y: 0))
-                path.addArc(withCenter: CGPoint(x: width - topRightRadius, y: topRightRadius), radius: topRightRadius, startAngle: 1.5 * CGFloat.pi, endAngle: 0, clockwise: true)
-            } else {
-                path.addLine(to: CGPoint(x: width, y: 0))
-                path.addLine(to: CGPoint(x: width, y: topRightRadius))
-            }
-            
-            // Bottom-right corner
-            if bottomRightRadius > 0 {
-                path.addLine(to: CGPoint(x: width, y: height - bottomRightRadius))
-                path.addArc(withCenter: CGPoint(x: width - bottomRightRadius, y: height - bottomRightRadius), radius: bottomRightRadius, startAngle: 0, endAngle: 0.5 * CGFloat.pi, clockwise: true)
-            } else {
-                path.addLine(to: CGPoint(x: width, y: height))
-                path.addLine(to: CGPoint(x: width - bottomRightRadius, y: height))
-            }
-            
-            // Bottom-left corner
-            if bottomLeftRadius > 0 {
-                path.addLine(to: CGPoint(x: bottomLeftRadius, y: height))
-                path.addArc(withCenter: CGPoint(x: bottomLeftRadius, y: height - bottomLeftRadius), radius: bottomLeftRadius, startAngle: 0.5 * CGFloat.pi, endAngle: CGFloat.pi, clockwise: true)
-            } else {
-                path.addLine(to: CGPoint(x: 0, y: height))
-                path.addLine(to: CGPoint(x: 0, y: height - bottomLeftRadius))
-            }
-            
-            path.close()
-            
-            let maskLayer = CAShapeLayer()
-            maskLayer.path = path.cgPath
-            self.layer.mask = maskLayer
+        
+        // Top-right corner
+        path.addLine(to: CGPoint(x: width - topRightRadius, y: 0))
+        if topRightRadius > 0 {
+            path.addArc(withCenter: CGPoint(x: width - topRightRadius, y: topRightRadius), radius: topRightRadius, startAngle: 1.5 * CGFloat.pi, endAngle: 0, clockwise: true)
+        } else {
+            path.addLine(to: CGPoint(x: width, y: 0))
         }
+        
+        // Bottom-right corner
+        path.addLine(to: CGPoint(x: width, y: height - bottomRightRadius))
+        if bottomRightRadius > 0 {
+            path.addArc(withCenter: CGPoint(x: width - bottomRightRadius, y: height - bottomRightRadius), radius: bottomRightRadius, startAngle: 0, endAngle: 0.5 * CGFloat.pi, clockwise: true)
+        } else {
+            path.addLine(to: CGPoint(x: width, y: height))
+        }
+        
+        // Bottom-left corner
+        path.addLine(to: CGPoint(x: bottomLeftRadius, y: height))
+        if bottomLeftRadius > 0 {
+            path.addArc(withCenter: CGPoint(x: bottomLeftRadius, y: height - bottomLeftRadius), radius: bottomLeftRadius, startAngle: 0.5 * CGFloat.pi, endAngle: CGFloat.pi, clockwise: true)
+        } else {
+            path.addLine(to: CGPoint(x: 0, y: height))
+        }
+        
+        path.close()
+        
+        // Apply the mask layer to round the corners
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        self.layer.mask = maskLayer
+        
+        // Create a shadow layer
+        let shadowLayer = CAShapeLayer()
+        shadowLayer.path = path.cgPath
+        shadowLayer.fillColor = self.backgroundColor?.cgColor
+        
+        // Shadow
+        shadowLayer.shadowOpacity = 0.3
+        shadowLayer.shadowOffset = CGSize(width: 5, height: 5)
+        
+        // Ajouter la vue d'ombre en arrière-plan
+        if let superview = self.superview {
+            let shadowView = UIView(frame: self.frame)
+            shadowView.layer.insertSublayer(shadowLayer, at: 0)
+            superview.insertSubview(shadowView, belowSubview: self)
+        }
+    }
 }

@@ -81,8 +81,7 @@ struct UpComingAppointmentView: View {
             ScrollView {
                 ForEach(appointmentViewModel.upComingAppointments()) { appointment in
                     NavigationLink(destination: {
-                        Text("Bienvenue")
-                        Image(appointment.specialist.picture)
+                        DetailAppointmentView()
                     }, label: {
                         ZStack {
                             Rectangle()
