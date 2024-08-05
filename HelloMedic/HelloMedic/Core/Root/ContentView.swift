@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isActive = false
+    
     var body: some View {
-        TabBarView()
+        if isActive {
+            TabBarView()
+        } else {
+            SplashView(isActive: $isActive)
+        }
     }
 }
 
