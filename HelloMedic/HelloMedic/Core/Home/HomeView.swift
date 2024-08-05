@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State private var isSearchViewActive = false
+    @StateObject private var doctorslist = DoctorListViewModel()
     
     var body: some View {
         NavigationStack{
@@ -118,8 +119,22 @@ struct HomeView: View {
                     .font(.headline)
                 
                 List {
-                    
-                    Text ("blabla")
+                    ForEach (doctorslist.filteredDoctors) { doctorslist in
+                        NavigationLink {
+                            Text(doctorslist.name)
+                        } label: {
+                            HStack {
+                                Image(doctorslist.pictName)
+                                    .resizable()
+                                    .frame(width: 70, height: 70)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                                    .padding()
+                            }
+                            
+                        }
+                    }
+                    .background(Color.hmBlue)
                     
                 }
                 .background(Color.hmBlue)

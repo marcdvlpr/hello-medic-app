@@ -58,7 +58,7 @@ struct SearchView: View {
                                     Spacer()
                                     
                                     Button(action: {
-                                        // Action for the bookmark
+                                        // bookmark
                                     }) {
                                         Image(systemName: "bookmark")
                                             .foregroundColor(.blue)
@@ -75,8 +75,8 @@ struct SearchView: View {
             }
             .listStyle(.plain)
             .navigationTitle("Recherche")
+            .searchable(text: $doctorslist.searchText, prompt: "Rechercher un médecin")
         }
-        .searchable(text: $doctorslist.searchText, prompt: "Rechercher un médecin")
     }
 }
 
