@@ -13,6 +13,7 @@ struct HomeView: View {
     @StateObject private var doctorslist = DoctorListViewModel()
     
     var body: some View {
+        
         NavigationStack{
             VStack(alignment: .leading) {
                 Text("Bonjour, Lisa")
@@ -20,8 +21,8 @@ struct HomeView: View {
                     .font(.title2)
                     .padding(.top, 10)
                 
+                //filtered button
                 HStack {
-                    
                     Button(action: {
                         
                         isSearchViewActive = true
@@ -36,12 +37,12 @@ struct HomeView: View {
                     .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.roundedRectangle(radius: 20))
                     .tint(.white)
-                    .frame(maxWidth: 600, maxHeight: 20, alignment: .center)
+                    .frame(maxWidth: 600, maxHeight: 10, alignment: .center)
                 }
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color.black, lineWidth: 0.5)
+                        .stroke(Color.black, lineWidth: 0.2)
                     
                         .navigationDestination(isPresented: $isSearchViewActive) {
                             SearchView()
@@ -112,41 +113,62 @@ struct HomeView: View {
                     
                     
                 }
-                .frame(maxWidth: 700, maxHeight: 60, alignment: .center)
+                .frame(maxWidth: 700, maxHeight: 30, alignment: .center)
                 
                 Text("Mes prochains rendez-vous")
                     .padding(.top, 20)
                     .font(.headline)
                 
-                List {
-                    ForEach (doctorslist.filteredDoctors) { doctorslist in
-                        NavigationLink {
-                            Text(doctorslist.name)
-                        } label: {
-                            HStack {
-                                Image(doctorslist.pictName)
-                                    .resizable()
-                                    .frame(width: 70, height: 70)
-                                    .clipShape(Circle())
-                                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                                    .padding()
-                            }
-                            
+                // Next appointment
+                VStack() {
+                    HStack {
+                        Image("drnicolas")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
+                        
+                        VStack(alignment: .leading) {
+                            Text("Dr. François BENHAMOU")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                            Text("Médecin généraliste")
+                                .foregroundColor(.white)
                         }
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.white)
                     }
-                    .background(Color.hmBlue)
+                    .padding()
                     
+                    Divider()
+                        .frame(height: 2)
+                        .background(.white)
+                        .padding(EdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 18))
+                    
+                    HStack {
+                        Image(systemName: "calendar")
+                            .foregroundColor(.white)
+                        Text("Lundi 03 Septembre")
+                            .foregroundColor(.white)
+                        Spacer()
+                        Image(systemName: "clock")
+                            .foregroundColor(.white)
+                        Text("10:00 - 11:00")
+                            .foregroundColor(.white)
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 10)
                 }
                 .background(Color.hmBlue)
-                .cornerRadius(20)
-                .scrollContentBackground(.hidden)
+                .cornerRadius(10)
+                .padding()
                 
                 Text("Docteur à proximité")
                     .padding(.top, 20)
                     .font(.headline)
                 
                 List {
-                    Text ("blabla")
+                    DoctorView()
                 }
                 .cornerRadius(20)
                 

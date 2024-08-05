@@ -10,15 +10,11 @@ import SwiftUI
 struct SearchView: View {
     
     @State private var searchText = ""
-    
     @StateObject private var doctorslist = DoctorListViewModel()
-    
     
     var body: some View {
         
-        
         NavigationStack {
-            
             HStack {
                 Text("Spécialiste")
                     .font(.headline)
