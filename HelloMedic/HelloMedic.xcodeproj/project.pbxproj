@@ -107,7 +107,6 @@
 			children = (
 				680C182B2C4942DF00BD7874 /* App */,
 				680C182C2C49435800BD7874 /* Core */,
-				F370C25A2C5BCA7D00BE0F6E /* Model */,
 				680C18282C4942C000BD7874 /* Model */,
 				68C236462C5A5F380001B402 /* Services */,
 				680C18332C4944AE00BD7874 /* Resource */,
@@ -122,15 +121,6 @@
 				680C18212C49177A00BD7874 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		680C18282C4942C000BD7874 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				68C236422C5A254B0001B402 /* User.swift */,
-				68C236572C5CDE9D0001B402 /* MedicalInfo.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		680C182B2C4942DF00BD7874 /* App */ = {
@@ -254,12 +244,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		F370C25A2C5BCA7D00BE0F6E /* Model */ = {
+		680C18282C4942C000BD7874 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */,
+				68C236572C5CDE9D0001B402 /* MedicalInfo.swift */,
 				F389E2622C4A96C000CFCB77 /* ProfilSpecialistModel.swift */,
 				F389E2662C4AA06100CFCB77 /* SpecialityModel.swift */,
+				68C236422C5A254B0001B402 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +265,8 @@
 				F3B5213F2C57984200E4034F /* AppointmentViewModel.swift */,
 			);
 			path = Appointment;
+			sourceTree = "<group>";
+		};
 		68C236462C5A5F380001B402 /* Services */ = {
 			isa = PBXGroup;
 			children = (
