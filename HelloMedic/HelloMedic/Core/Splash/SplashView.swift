@@ -16,8 +16,7 @@ struct SplashView: View {
         
         VStack {
             Text("HelloDoc")
-                .font(.custom("Baloo", fixedSize: 60))
-                .fontWeight(.regular)
+                .font(Font.custom("Baloo2", size: 64, relativeTo: .title))
                 .foregroundColor(Color("hmBlue"))
             Image("hmLogo")
                 .resizable()
