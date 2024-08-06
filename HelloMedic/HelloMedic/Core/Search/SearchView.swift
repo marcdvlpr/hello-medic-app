@@ -26,6 +26,7 @@ struct SearchView: View {
                 ForEach (doctorslist.filteredDoctors) { doctorslist in
                     NavigationLink {
                         Text(doctorslist.name)
+                        DetailAppointmentView()
                     } label: {
                         HStack {
                             Image(doctorslist.pictName)
