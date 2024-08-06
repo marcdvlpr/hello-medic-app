@@ -134,14 +134,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		680C18282C4942C000BD7874 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				69B873F32C5BACF80038E3A6 /* DoctorModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		680C182B2C4942DF00BD7874 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,14 +177,14 @@
 			sourceTree = "<group>";
 		};
 		680C18302C49442400BD7874 /* UserProfile */ = {
-			isa = PBXGroup;
-			children = (
-				68C236502C5BD5240001B402 /* ViewModel */,
-				68C2364F2C5BD4810001B402 /* View */,
-			);
-			path = UserProfile;
-			sourceTree = "<group>";
-		};
+            isa = PBXGroup;
+            children = (
+                68C236502C5BD5240001B402 /* ViewModel */,
+                68C2364F2C5BD4810001B402 /* View */,
+            );
+            path = UserProfile;
+            sourceTree = "<group>";
+        };
 		680C18312C49443B00BD7874 /* SpecialistProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +266,7 @@
 				F389E2622C4A96C000CFCB77 /* ProfilSpecialistModel.swift */,
 				F389E2662C4AA06100CFCB77 /* SpecialityModel.swift */,
 				68C236422C5A254B0001B402 /* User.swift */,
+				69B873F32C5BACF80038E3A6 /* DoctorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +303,10 @@
 			isa = PBXGroup;
 			children = (
 				68C236512C5BD5420001B402 /* UserProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		69B873EA2C5A27D90038E3A6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
