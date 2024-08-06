@@ -15,9 +15,12 @@ struct SplashView: View {
     var body: some View {
         
         VStack {
+            // Texte HelloDoc avec la police personnalisée
             Text("HelloDoc")
-                .font(Font.custom("Baloo2", size: 64, relativeTo: .title))
+                .font(Font.custom("Baloo", size: 64))
                 .foregroundColor(Color("hmBlue"))
+            
+            // Image du logo avec une animation de mise à l'échelle
             Image("hmLogo")
                 .resizable()
                 .frame(width: 280, height: 280)
@@ -28,6 +31,8 @@ struct SplashView: View {
                         self.scale = 1.2
                     }
                 }
+            
+            // Changer l'état après un délai de 3,5 secondes
         }.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 withAnimation {

@@ -141,7 +141,7 @@ struct HomeView: View {
                     .font(.headline)
                 
                 
-                NavigationLink(destination: SearchView()) {
+                NavigationLink(destination: AppointmentView()) {
                     // Next appointment
                     VStack() {
                         HStack {
