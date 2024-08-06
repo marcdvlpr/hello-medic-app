@@ -31,6 +31,9 @@ class DetailAppointmentViewController : UIViewController {
         }
     
     func setComposants() {
+        let scrollView = UIScrollView()
+        let contentView = UIView()
+        
         let rectangle = UIView()
         
         let calendarImageView = UIImageView()
@@ -152,19 +155,25 @@ class DetailAppointmentViewController : UIViewController {
         
         buttonsHStack.spacing = 29
         
-        self.view.addSubview(rectangle)
-        self.view.addSubview(dateHStack)
-        self.view.addSubview(timeHStack)
-        self.view.addSubview(divider)
-        self.view.addSubview(specialistHStack)
-        self.view.addSubview(composantMotif)
-        self.view.addSubview(composantPlace)
-        self.view.addSubview(composantPhone)
-        self.view.addSubview(composantPay)
-        self.view.addSubview(profilSpecialistButton)
-        self.view.addSubview(profilSpecialistHStack)
-        self.view.addSubview(buttonsHStack)
+        // Ajouter la scrollView et le contentView
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
         
+        contentView.addSubview(rectangle)
+        contentView.addSubview(dateHStack)
+        contentView.addSubview(timeHStack)
+        contentView.addSubview(divider)
+        contentView.addSubview(specialistHStack)
+        contentView.addSubview(composantMotif)
+        contentView.addSubview(composantPlace)
+        contentView.addSubview(composantPhone)
+        contentView.addSubview(composantPay)
+        contentView.addSubview(profilSpecialistButton)
+        contentView.addSubview(profilSpecialistHStack)
+        contentView.addSubview(buttonsHStack)
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         rectangle.translatesAutoresizingMaskIntoConstraints = false
         calendarImageView.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -180,83 +189,80 @@ class DetailAppointmentViewController : UIViewController {
         profilSpecialistHStack.translatesAutoresizingMaskIntoConstraints = false
         buttonsHStack.translatesAutoresizingMaskIntoConstraints = false
         
+        // Constrain scrollView to the edges of the view
         NSLayoutConstraint.activate([
-            rectangle.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 7),
-            rectangle.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -7),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+        
+        // Constrain contentView to the edges of the scrollView
+        NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor) // Ensure contentView is the same width as scrollView
+        ])
+        
+        // Constraints for your subviews inside contentView
+        NSLayoutConstraint.activate([
+            rectangle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 7),
+            rectangle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -7),
             rectangle.widthAnchor.constraint(equalToConstant: 379),
-            rectangle.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16),
-            rectangle.bottomAnchor.constraint(equalTo: buttonsHStack.bottomAnchor, constant: 16)
-        ])
-        
-        NSLayoutConstraint.activate([
+            rectangle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            rectangle.bottomAnchor.constraint(equalTo: buttonsHStack.bottomAnchor, constant: 16),
+            
             dateHStack.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 10),
-            dateHStack.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30)
-        ])
-        
-        NSLayoutConstraint.activate([
+            dateHStack.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
+            
             timeHStack.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 10),
-            timeHStack.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30)
-        ])
-        
-        NSLayoutConstraint.activate([
+            timeHStack.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
+            
             divider.topAnchor.constraint(equalTo: dateHStack.bottomAnchor, constant: 10),
             divider.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
             divider.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
-            divider.heightAnchor.constraint(equalToConstant: 1)
-        ])
-        
-        NSLayoutConstraint.activate([
+            divider.heightAnchor.constraint(equalToConstant: 1),
+            
             specialistImageView.widthAnchor.constraint(equalToConstant: 76),
             specialistImageView.heightAnchor.constraint(equalToConstant: 76),
             specialistHStack.topAnchor.constraint(equalTo: divider.bottomAnchor, constant: 25),
-            specialistHStack.centerXAnchor.constraint(equalTo: rectangle.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            composantMotif.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            specialistHStack.centerXAnchor.constraint(equalTo: rectangle.centerXAnchor),
+            
+            composantMotif.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             composantMotif.topAnchor.constraint(equalTo: specialistHStack.bottomAnchor, constant: 25),
             composantMotif.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
             composantMotif.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
-        ])
-        
-        NSLayoutConstraint.activate([
-            composantPlace.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            composantPlace.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             composantPlace.topAnchor.constraint(equalTo: composantMotif.bottomAnchor, constant: 10),
             composantPlace.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
             composantPlace.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
-        ])
-        
-        NSLayoutConstraint.activate([
-            composantPhone.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            composantPhone.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             composantPhone.topAnchor.constraint(equalTo: composantPlace.bottomAnchor, constant: 2),
             composantPhone.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
             composantPhone.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
-        ])
-        
-        NSLayoutConstraint.activate([
-            composantPay.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            composantPay.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             composantPay.topAnchor.constraint(equalTo: composantPhone.bottomAnchor, constant: 2),
             composantPay.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
             composantPay.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
-        ])
-        
-        NSLayoutConstraint.activate([
-            profilSpecialistButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            profilSpecialistButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             profilSpecialistButton.topAnchor.constraint(equalTo: composantPay.bottomAnchor, constant: 2),
             profilSpecialistButton.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
             profilSpecialistButton.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
-            profilSpecialistButton.heightAnchor.constraint(equalToConstant: 45)
-        ])
-        
-        NSLayoutConstraint.activate([
+            profilSpecialistButton.heightAnchor.constraint(equalToConstant: 45),
+            
             profilSpecialistHStack.centerXAnchor.constraint(equalTo: profilSpecialistButton.centerXAnchor),
-            profilSpecialistHStack.centerYAnchor.constraint(equalTo: profilSpecialistButton.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            buttonsHStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            buttonsHStack.topAnchor.constraint(equalTo: profilSpecialistButton.bottomAnchor, constant: 16),
-            cancelButton.widthAnchor.constraint(equalToConstant: 150)
+            profilSpecialistHStack.centerYAnchor.constraint(equalTo: profilSpecialistButton.centerYAnchor),
+            
+            buttonsHStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            buttonsHStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            buttonsHStack.topAnchor.constraint(equalTo: profilSpecialistButton.bottomAnchor, constant: 20),
+            buttonsHStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20) // Constraint for bottom of contentView
         ])
         
         self.view.layoutIfNeeded()
@@ -277,6 +283,8 @@ class DetailAppointmentViewController : UIViewController {
             // Appliquer les coins arrondis après la mise à jour des contraintes
         composantMotif.applyRoundedCorners(cornerRadii: [14,14,14,14])
         composantPlace.applyRoundedCorners(cornerRadii: [14,14,0,0])
+        composantPhone.applyRoundedCorners(cornerRadii: [0,0,0,0])
+        composantPay.applyRoundedCorners(cornerRadii: [0,0,0,0])
         profilSpecialistButton.applyRoundedCorners(cornerRadii: [0,0,14,14])
     }
 }
@@ -314,8 +322,8 @@ class ComposantView: UIView {
         let composantHStack = UIStackView(arrangedSubviews: [composantImageView, composantLabel])
         let textComposantLabel = UILabel()
         
-        self.layer.shadowOffset = CGSize(width: 5, height: 5)
-        self.layer.shadowOpacity = 0.3
+//        self.layer.shadowOffset = CGSize(width: 5, height: 5)
+//        self.layer.shadowOpacity = 0.3
         
         composantLabel.text = nameSection
         composantLabel.textColor = .hmBlue
@@ -412,7 +420,7 @@ extension UIView {
         shadowLayer.fillColor = self.backgroundColor?.cgColor
         
         // Shadow
-        shadowLayer.shadowOpacity = 0.3
+        shadowLayer.shadowOpacity = 0.1
         shadowLayer.shadowOffset = CGSize(width: 5, height: 5)
         
         // Ajouter la vue d'ombre en arrière-plan

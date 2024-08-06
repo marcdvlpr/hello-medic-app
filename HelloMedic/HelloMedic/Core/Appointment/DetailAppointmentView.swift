@@ -9,10 +9,7 @@ import SwiftUI
 
 struct DetailAppointmentView: View {
     var body: some View {
-        ScrollView {
-            UIKitDetailAppointmentView()
-        }
-
+        UIKitDetailAppointmentView()
     }
 }
 

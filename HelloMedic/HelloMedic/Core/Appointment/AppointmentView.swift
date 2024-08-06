@@ -81,7 +81,7 @@ struct UpComingAppointmentView: View {
             ScrollView {
                 ForEach(appointmentViewModel.upComingAppointments()) { appointment in
                     NavigationLink(destination: {
-                        DetailAppointmentView()
+                        UIKitDetailAppointmentView()
                     }, label: {
                         ZStack {
                             Rectangle()
@@ -145,13 +145,12 @@ struct UpComingAppointmentView: View {
                                                 .fontWeight(.medium)
                                                 .font(.system(size: 12))
                                         }
-                                        .padding(.horizontal, 30.0)
-                                        
+                                        .foregroundColor(.white)
+                                        .frame(width: 150, height: 28)
+                                        .buttonStyle(.borderedProminent)
+                                        .background(.hmSkyBlue)
+                                        .cornerRadius(14)
                                     })
-                                    .frame(height: 28)
-                                    .buttonStyle(.borderedProminent)
-                                    .cornerRadius(14)
-                                    .accentColor(.hmSkyBlue)
                                     
                                     Button(action: {
                                         
@@ -162,14 +161,13 @@ struct UpComingAppointmentView: View {
                                                 .fontWeight(.medium)
                                                 .font(.system(size: 12))
                                         }
-                                        .padding(.horizontal, 30.0)
+                                        .foregroundColor(.hmSkyBlue)
+                                        .frame(width: 150, height: 28)
+                                        .buttonStyle(.borderedProminent)
+                                        .background(.white)
+                                        .cornerRadius(14)
                                         
                                     })
-                                    .frame(height: 28)
-                                    .buttonStyle(.borderedProminent)
-                                    .cornerRadius(14)
-                                    .foregroundColor(.hmSkyBlue)
-                                    .accentColor(.white)
                                 }
                             }
                         }
@@ -246,14 +244,13 @@ struct PastAppointmentView: View {
                                     .fontWeight(.medium)
                                     .font(.system(size: 12))
                             }
-                            .padding(.horizontal, 30.0)
+                            .foregroundColor(.hmBlue)
+                            .frame(width: 256, height: 28)
+                            .buttonStyle(.borderedProminent)
+                            .background(.white)
+                            .cornerRadius(14)
                                 
                         })
-                        .frame(height: 28)
-                        .buttonStyle(.borderedProminent)
-                        .cornerRadius(14)
-                        .foregroundColor(.hmBlue)
-                        .accentColor(.white)
                     }
                 }
             }
