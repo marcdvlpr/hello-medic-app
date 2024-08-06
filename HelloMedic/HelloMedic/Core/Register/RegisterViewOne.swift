@@ -10,10 +10,16 @@ import UIKit
 
 class RegisterViewOne: UIViewController{
     
+//    @IBOutlet weak var loginButton: UIButton!
+//    @IBOutlet weak var errorlabel: UILabel!
+//    @IBOutlet weak var enterpassword: UITextField!
+//    @IBOutlet weak var enteremail: UITextField!
+    
     let enteremail = UITextField()
     let enterpassword = UITextField()
     let loginButton = UIButton(type: .system)
     let errorlabel = UILabel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +85,11 @@ class RegisterViewOne: UIViewController{
                 return
             }
             errorlabel.isHidden = true
+            
+            let pageView = RegisterViewTwo()
+                let hostingController = UIHostingController(rootView: pageView)
+                hostingController.modalPresentationStyle = .fullScreen
+                present(hostingController, animated: true, completion: nil)
         }
         func isValidEmail(_ email: String) -> Bool {
             let emailEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
