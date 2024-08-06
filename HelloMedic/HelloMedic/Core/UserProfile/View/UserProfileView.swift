@@ -10,6 +10,7 @@ import SwiftUI
 struct UserProfileView: View {
     
     @StateObject var vm = UserProfileViewModel()
+    @State var isShowingSheet = false
     
     var body: some View {
         VStack {
@@ -22,13 +23,17 @@ struct UserProfileView: View {
             }
             
             Button {
-                print("EDITER")
+                isShowingSheet.toggle()
             } label: {
                 Text("Editer")
                     .foregroundStyle(.white)
-                    .padding()
-                    .background(.blue)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(.hmBlue)
                     .clipShape(RoundedRectangle(cornerRadius: 25))
+            }
+            .sheet(isPresented: $isShowingSheet){
+                EditProfileView()
             }
             
             List {
