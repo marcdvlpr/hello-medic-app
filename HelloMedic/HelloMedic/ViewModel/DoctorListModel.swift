@@ -13,11 +13,11 @@ import SwiftUI
 class DoctorListViewModel: ObservableObject {
     
     @Published var doctors = [
-        Doctor(pictName: "drlisa", name: "Dr. Lisa MANOBAL", specialty: "Médecin généraliste", rating: 5, distance: "10 Km", availability: "se déplacer à 9h00"),
-        Doctor(pictName: "drnicolas", name: "Dr. Nicolas CAGE", specialty: "Pédiatre", rating: 4, distance: "2 Km", availability: "se déplacer à 9h00"),
-        Doctor(pictName: "drmiranda", name: "Dr. Miranda Bailey", specialty: "Kinésithérapeute", rating: 4, distance: "4 Km", availability: "se déplacer à 9h00"),
-        Doctor(pictName: "drapril", name: "Dr. April Kepner", specialty: "Infirmière", rating: 4, distance: "6 Km", availability: "se déplacer à 9h00"),
-        Doctor(pictName: "drmeredith", name: "Dr. Méredith Grey", specialty: "Médecin généraliste", rating: 5, distance: "3 Km", availability: "se déplacer à 9h00")
+        Doctor(pictName: "drlisa", name: "Dr. Lisa MANOBAL", specialty: "Médecin généraliste", rating: 5, distance: "1,2 Km", availability: "se déplacer à 9h00"),
+        Doctor(pictName: "drnicolas", name: "Dr. Nicolas CAGE", specialty: "Pédiatre", rating: 4, distance: "1,1 Km", availability: "se déplacer à 9h00"),
+        Doctor(pictName: "drmiranda", name: "Dr. Miranda Bailey", specialty: "Kinésithérapeute", rating: 5, distance: "1 Km", availability: "se déplacer à 9h00"),
+        Doctor(pictName: "drapril", name: "Dr. April Kepner", specialty: "Infirmière", rating: 5, distance: "1,4 Km", availability: "se déplacer à 9h00"),
+        Doctor(pictName: "drmeredith", name: "Dr. Méredith Grey", specialty: "Médecin généraliste", rating: 4, distance: "2 Km", availability: "se déplacer à 9h00")
     ]
     
     @Published var searchText: String = ""

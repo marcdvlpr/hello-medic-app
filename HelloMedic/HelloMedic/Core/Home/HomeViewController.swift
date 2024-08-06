@@ -10,8 +10,9 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var doctors: [Doctor] = [
-        Doctor(pictName: "drlisa", name: "Dr. Lisa MANOBAL", specialty: "Médecin généraliste", rating: 5, distance: "10 Km", availability: "se déplacer à 9h00"),
-        Doctor(pictName: "drnicolas", name: "Dr. Nicolas CAGE", specialty: "Pédiatre", rating: 4, distance: "2 Km", availability: "se déplacer à 9h00")
+        Doctor(pictName: "drlisa", name: "Dr. Lisa MANOBAL", specialty: "Médecin généraliste", rating: 5, distance: "1,2 Km", availability: "se déplacer à 9h00"),
+        Doctor(pictName: "drnicolas", name: "Dr. Nicolas CAGE", specialty: "Pédiatre", rating: 4, distance: "1,1 Km", availability: "se déplacer à 10h00"),
+        Doctor(pictName: "drmiranda", name: "Dr. Miranda Bailey", specialty: "Kinésithérapeute", rating: 5, distance: "1,4 Km", availability: "se déplacer à 9h30")
     ]
     
     let tableView = UITableView()
@@ -20,10 +21,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        setupTableView()
+        doctorNearbyTableView()
     }
     
-    private func setupTableView() {
+    private func doctorNearbyTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(DoctorTableViewCell.self, forCellReuseIdentifier: "DoctorCell")

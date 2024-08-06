@@ -140,49 +140,53 @@ struct HomeView: View {
                     .padding(.top, 60)
                     .font(.headline)
                 
-                // Next appointment
-                VStack() {
-                    HStack {
-                        Image("drnicolas")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .clipShape(Circle())
-                        
-                        VStack(alignment: .leading) {
-                            Text("Dr. François BENHAMOU")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                            Text("Médecin généraliste")
+                
+                NavigationLink(destination: SearchView()) {
+                    // Next appointment
+                    VStack() {
+                        HStack {
+                            Image("drnicolas")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .clipShape(Circle())
+                            
+                            VStack(alignment: .leading) {
+                                Text("Dr. François BENHAMOU")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                Text("Médecin généraliste")
+                                    .foregroundColor(.white)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
                                 .foregroundColor(.white)
                         }
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.white)
+                        .padding()
+                        
+                        Divider()
+                            .frame(height: 2)
+                            .background(.white)
+                            .padding(EdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 18))
+                        
+                        HStack {
+                            Image(systemName: "calendar")
+                                .foregroundColor(.white)
+                            Text("Lundi 03 Septembre")
+                                .foregroundColor(.white)
+                            Spacer()
+                            Image(systemName: "clock")
+                                .foregroundColor(.white)
+                            Text("10:00 - 11:00")
+                                .foregroundColor(.white)
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 10)
                     }
+                    .background(Color.hmBlue)
+                    .cornerRadius(10)
                     .padding()
                     
-                    Divider()
-                        .frame(height: 2)
-                        .background(.white)
-                        .padding(EdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 18))
-                    
-                    HStack {
-                        Image(systemName: "calendar")
-                            .foregroundColor(.white)
-                        Text("Lundi 03 Septembre")
-                            .foregroundColor(.white)
-                        Spacer()
-                        Image(systemName: "clock")
-                            .foregroundColor(.white)
-                        Text("10:00 - 11:00")
-                            .foregroundColor(.white)
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom, 10)
                 }
-                .background(Color.hmBlue)
-                .cornerRadius(10)
-                .padding()
                 
                 Text("Docteur à proximité")
                     .padding(.top, 10)

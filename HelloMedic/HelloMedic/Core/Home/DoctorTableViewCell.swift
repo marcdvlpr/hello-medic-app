@@ -13,20 +13,19 @@ class DoctorTableViewCell: UITableViewCell {
     let drNameLabel = UILabel()
     let drSpecialtyLabel = UILabel()
     let drDistanceLabel = UILabel()
-    let drRatingLabel = UILabel()
     let drAvailabilityLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        doctorNearby()
+        doctorNearbyCell()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func doctorNearby() {
+    private func doctorNearbyCell() {
         drImageView.contentMode = .scaleAspectFill
         drImageView.clipsToBounds = true
         drImageView.layer.cornerRadius = 25
@@ -41,18 +40,13 @@ class DoctorTableViewCell: UITableViewCell {
         drDistanceLabel.font = UIFont.systemFont(ofSize: 14)
         drDistanceLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        drRatingLabel.font = UIFont.systemFont(ofSize: 14)
-        drRatingLabel.textColor = .orange
-        drRatingLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        drAvailabilityLabel.font = UIFont.systemFont(ofSize: 14)
+        drAvailabilityLabel.font = UIFont.systemFont(ofSize: 16)
         drAvailabilityLabel.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(drImageView)
         contentView.addSubview(drNameLabel)
         contentView.addSubview(drSpecialtyLabel)
         contentView.addSubview(drDistanceLabel)
-        contentView.addSubview(drRatingLabel)
         contentView.addSubview(drAvailabilityLabel)
         
         //isActive = True
@@ -71,17 +65,11 @@ class DoctorTableViewCell: UITableViewCell {
             drSpecialtyLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             
             drDistanceLabel.topAnchor.constraint(equalTo: drSpecialtyLabel.bottomAnchor, constant: 5),
-            drDistanceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            drDistanceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            drDistanceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             
-            drRatingLabel.topAnchor.constraint(equalTo: drDistanceLabel.bottomAnchor, constant: 5),
-            drRatingLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            drRatingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            
-            drAvailabilityLabel.topAnchor.constraint(equalTo: drRatingLabel.bottomAnchor, constant: 5),
-            drAvailabilityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            drAvailabilityLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            drAvailabilityLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            drAvailabilityLabel.topAnchor.constraint(equalTo: drDistanceLabel.bottomAnchor, constant: 5),
+            drAvailabilityLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            drAvailabilityLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
         ])
     }
     
@@ -90,7 +78,6 @@ class DoctorTableViewCell: UITableViewCell {
         drNameLabel.text = doctor.name
         drSpecialtyLabel.text = doctor.specialty
         drDistanceLabel.text = doctor.distance
-        drRatingLabel.text = doctor.rating.formatted()
         drAvailabilityLabel.text = doctor.availability
     }
 }

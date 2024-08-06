@@ -42,11 +42,12 @@ struct SearchView: View {
                                 Text(doctorslist.specialty)
                                     .font(.subheadline)
                                 HStack {
-                                    ForEach(Array(repeating: 0, count: doctorslist.rating), id: \.self) { i in
+                                    // Afficher les étoiles en fonction de la note
+                                    ForEach(0..<doctorslist.rating, id: \.self) { _ in
                                         Image(systemName: "star.fill")
                                             .foregroundColor(.yellow)
                                     }
-                                    ForEach(Array(repeating: 0, count: 5 - doctorslist.rating), id: \.self) { i in
+                                    ForEach(0..<(5 - doctorslist.rating), id: \.self) { _ in
                                         Image(systemName: "star")
                                             .foregroundColor(.gray)
                                     }
