@@ -21,7 +21,7 @@ struct HomeView: View {
                     .font(.title2)
                     .padding(.top, 10)
                 
-                //filtered button
+                // Bouton de recherche
                 HStack {
                     Button(action: {
                         

@@ -6,10 +6,8 @@
 //
 
 import Foundation
-import SwiftUI
 
 /// Une classe qui gère la liste des médecins et les filtres de recherche.
-///
 class DoctorListViewModel: ObservableObject {
     
     @Published var doctors = [

@@ -7,8 +7,9 @@
 
 import SwiftUI
 
+/// Une vue qui affiche une liste de médecins filtrés par spécialité.
 struct FilterButtonView: View {
-    
+    /// Le modèle de vue des médecins, fourni par l'environnement.
     @EnvironmentObject var doctorslist : DoctorListViewModel
     
     var body: some View {
