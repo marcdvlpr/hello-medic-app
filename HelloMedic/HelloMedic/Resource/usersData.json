@@ -1,0 +1,14 @@
+{
+    "id": "761f596e-d330-4960-b839-c68d614915e4",
+    "email": "johndoe@protonmail.com",
+    "password": "securepassword123",
+    "verified": false,
+    "firstName": "John",
+    "lastName": "Doe",
+    "dateOfBirth": 931942500,
+    "gender": "homme",
+    "address": "10 Avenue Montaigne",
+    "postalCode": "75008",
+    "city": "Paris",
+    "phone": "0607080910"
+}
