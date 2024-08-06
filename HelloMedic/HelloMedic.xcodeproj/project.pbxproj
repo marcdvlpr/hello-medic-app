@@ -25,6 +25,7 @@
 		691057A32C4AB665001BB6F4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691057A22C4AB665001BB6F4 /* SearchView.swift */; };
 		699CBE642C61026200E0E20B /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699CBE632C61026200E0E20B /* FilterButtonView.swift */; };
 		699CBE662C61166200E0E20B /* DoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699CBE652C61166200E0E20B /* DoctorTableViewCell.swift */; };
+		699F8C3B2C626849003D2716 /* Baloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 699F8C3A2C626849003D2716 /* Baloo-Regular.ttf */; };
 		69B873F02C5B77EF0038E3A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B873EF2C5B77EF0038E3A6 /* HomeViewController.swift */; };
 		69B873F22C5BACAE0038E3A6 /* DoctorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B873F12C5BACAE0038E3A6 /* DoctorListModel.swift */; };
 		69B873F42C5BACF80038E3A6 /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B873F32C5BACF80038E3A6 /* DoctorModel.swift */; };
@@ -65,6 +66,8 @@
 		691057A22C4AB665001BB6F4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		699CBE632C61026200E0E20B /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
 		699CBE652C61166200E0E20B /* DoctorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTableViewCell.swift; sourceTree = "<group>"; };
+		699F8C392C625CA0003D2716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		699F8C3A2C626849003D2716 /* Baloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Baloo-Regular.ttf"; path = "../../../../../../Downloads/Baloo/Baloo-Regular.ttf"; sourceTree = "<group>"; };
 		69B873EF2C5B77EF0038E3A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		69B873F12C5BACAE0038E3A6 /* DoctorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListModel.swift; sourceTree = "<group>"; };
 		69B873F32C5BACF80038E3A6 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 		680C18192C49177900BD7874 /* HelloMedic */ = {
 			isa = PBXGroup;
 			children = (
+				699F8C3A2C626849003D2716 /* Baloo-Regular.ttf */,
+				699F8C392C625CA0003D2716 /* Info.plist */,
 				680C182B2C4942DF00BD7874 /* App */,
 				680C182C2C49435800BD7874 /* Core */,
 				680C18282C4942C000BD7874 /* Model */,
@@ -373,6 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				699F8C3B2C626849003D2716 /* Baloo-Regular.ttf in Resources */,
 				68C236452C5A5DA50001B402 /* usersData.json in Resources */,
 				680C18222C49177A00BD7874 /* Preview Assets.xcassets in Resources */,
 				680C181F2C49177A00BD7874 /* Assets.xcassets in Resources */,
@@ -554,6 +560,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HelloMedic/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HelloMedic/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -582,6 +589,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"HelloMedic/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HelloMedic/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
