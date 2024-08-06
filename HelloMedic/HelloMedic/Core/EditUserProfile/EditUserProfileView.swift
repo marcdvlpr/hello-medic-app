@@ -16,9 +16,14 @@ struct EditProfileView: View {
     @State private var address: String = ""
     @State private var postalCode: String = ""
     @State private var city: String = ""
+    @State private var phone: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var phone: String = ""
+    @State private var bloodType: String = ""
+    @State private var allergies: String = ""
+    @State private var height: String = ""
+    @State private var weight: String = ""
+    @State private var wheelchair: String = ""
     
     var body: some View {
         VStack {
@@ -40,6 +45,26 @@ struct EditProfileView: View {
                                        text: $city)
                     RowEditProfileView(title: "Téléphone",
                                        text: $phone)
+                }
+                
+                Section("Information Médical") {
+                    RowEditProfileView(title: "Groupe Sanguin",
+                                       text: $bloodType)
+                    RowEditProfileView(title: "Allergies",
+                                       text: $allergies)
+                    RowEditProfileView(title: "Taille",
+                                       text: $height)
+                    RowEditProfileView(title: "Poids",
+                                       text: $weight)
+                    RowEditProfileView(title: "Fauteuil Roulant",
+                                       text: $wheelchair)
+                }
+                
+                Section("Connexion") {
+                    RowEditProfileView(title: "Email",
+                                   text: $email)
+                    RowEditProfileView(title: "Password",
+                                   text: $password)
                 }
             }
         }
