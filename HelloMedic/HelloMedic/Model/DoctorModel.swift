@@ -13,13 +13,16 @@ class Doctor: Identifiable {
     var name: String // Nom du docteur
     var specialty: String // Spécialité du docteur
     var rating: Int // Évaluation du docteur
+    var distance: String
+    var availability: String
     
     // Initialisateur pour la classe Doctor
-    init(pictName: String, name: String, specialty: String, rating: Int) {
+    init(pictName: String, name: String, specialty: String, rating: Int, distance: String, availability: String) {
         self.pictName = pictName
         self.name = name
         self.specialty = specialty
         self.rating = rating
+        self.distance = distance
+        self.availability = availability
     }
-    
 }

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var isSearchViewActive = false
     @StateObject private var doctorslist = DoctorListViewModel()
+    @State private var isSearchViewActive = false
     
     var body: some View {
         
@@ -55,68 +55,89 @@ struct HomeView: View {
                     .font(.headline)
                 
                 HStack {
-                    Button(action: {
-                        //
-                    }, label: {
-                        Image(systemName: "stethoscope")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 35, height: 35)
-                            .padding(7.5)
-                            .foregroundColor(Color.hmBlue)
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .buttonBorderShape(.circle)
-                    .tint(Color.gray.opacity(0.1))
+                    VStack {
+                        NavigationLink(destination: FilterButtonView().environmentObject(doctorslist).onAppear {
+                            doctorslist.specialty = "Médecin généraliste"
+                        }) {
+                            Image(systemName: "stethoscope")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 35, height: 35)
+                                .padding(7.5)
+                                .foregroundColor(Color.hmBlue)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.circle)
+                        .tint(Color.gray.opacity(0.1))
+                        
+                        Text("Généraliste")
+                    }
+                    .padding(.top, 50)
                     
-                    Button(action: {
-                        //
-                    }, label: {
-                        Image(systemName: "figure.child")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 35, height: 35)
-                            .padding(7.5)
-                            .foregroundColor(Color.hmBlue)
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .buttonBorderShape(.circle)
-                    .tint(Color.gray.opacity(0.1))
+                    VStack {
+                        NavigationLink(destination: FilterButtonView().environmentObject(doctorslist).onAppear {
+                            doctorslist.specialty = "Pédiatre"
+                        }) {
+                            Image(systemName: "figure.child")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 35, height: 35)
+                                .padding(7.5)
+                                .foregroundColor(Color.hmBlue)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.circle)
+                        .tint(Color.gray.opacity(0.1))
+                        
+                        Text("Pédiatre")
+                    }
+                    .padding(.top, 50)
                     
-                    Button(action: {
-                        //
-                    }, label: {
-                        Image(systemName: "syringe")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 35, height: 35)
-                            .padding(7.5)
-                            .foregroundColor(Color.hmBlue)
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .buttonBorderShape(.circle)
-                    .tint(Color.gray.opacity(0.1))
+                    VStack {
+                        NavigationLink(destination: FilterButtonView().environmentObject(doctorslist).onAppear {
+                            doctorslist.specialty = "Infirmière"
+                        }) {
+                            Image(systemName: "syringe")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 35, height: 35)
+                                .padding(7.5)
+                                .foregroundColor(Color.hmBlue)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.circle)
+                        .tint(Color.gray.opacity(0.1))
+                        
+                        Text("Infirmière")
+                    }
+                    .padding(.top, 50)
                     
-                    Button(action: {
-                        //
-                    }, label: {
-                        Image(systemName: "figure.elliptical")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 35, height: 35)
-                            .padding(7.5)
-                            .foregroundColor(Color.hmBlue)
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .buttonBorderShape(.circle)
-                    .tint(Color.gray.opacity(0.1))
+                    VStack {
+                        NavigationLink(destination: FilterButtonView().environmentObject(doctorslist).onAppear {
+                            doctorslist.specialty = "Kinésithérapeute"
+                        }) {
+                            Image(systemName: "figure.elliptical")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 35, height: 35)
+                                .padding(7.5)
+                                .foregroundColor(Color.hmBlue)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.circle)
+                        .tint(Color.gray.opacity(0.1))
+                        
+                        Text("Kiné")
+                        
+                    }
+                    .padding(.top, 50)
                     
                     
                 }
                 .frame(maxWidth: 700, maxHeight: 30, alignment: .center)
                 
                 Text("Mes prochains rendez-vous")
-                    .padding(.top, 20)
+                    .padding(.top, 60)
                     .font(.headline)
                 
                 // Next appointment
@@ -164,13 +185,14 @@ struct HomeView: View {
                 .padding()
                 
                 Text("Docteur à proximité")
-                    .padding(.top, 20)
+                    .padding(.top, 10)
                     .font(.headline)
                 
-                List {
+                VStack {
+                    
                     DoctorView()
+                    
                 }
-                .cornerRadius(20)
                 
                 
                 
