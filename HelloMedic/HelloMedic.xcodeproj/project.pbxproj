@@ -175,6 +175,7 @@
 		680C18192C49177900BD7874 /* HelloMedic */ = {
 			isa = PBXGroup;
 			children = (
+				699F8C3A2C626849003D2716 /* Baloo */,
 				699F8C392C625CA0003D2716 /* Info.plist */,
 				680C182B2C4942DF00BD7874 /* App */,
 				680C182C2C49435800BD7874 /* Core */,
@@ -204,6 +205,8 @@
 				75D65C3D2C5BDF32008DB4A0 /* RegisterM.swift */,
 				F389E2662C4AA06100CFCB77 /* SpecialityModel.swift */,
 				68C236422C5A254B0001B402 /* User.swift */,
+				69B873F32C5BACF80038E3A6 /* DoctorModel.swift */,
+				75D65C3D2C5BDF32008DB4A0 /* RegisterM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
