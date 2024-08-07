@@ -10,9 +10,39 @@ import SwiftUI
 struct EditProfileView: View {
     
     @StateObject var vm = EditProfileViewModel()
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack {
+            HStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Annuler")
+                        .padding()
+                        .foregroundStyle(.hmBlue)
+                }
+                
+                Spacer()
+                
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Enregistrer")
+                        .padding()
+                        .foregroundStyle(.hmBlue)
+                        .fontWeight(.bold)
+                }
+            }
+            
+            ZStack {
+                Circle()
+                    .frame(width: 100, height: 100)
+                    .foregroundStyle(Color(.systemGray2))
+                Text("JD")
+                    .font(.largeTitle)
+            }
+            
             List {
                 Section("Information Personnelle ") {
                     RowEditProfileView(title: "Prénom",
