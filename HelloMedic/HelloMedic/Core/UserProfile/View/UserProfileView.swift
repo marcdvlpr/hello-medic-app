@@ -10,28 +10,41 @@ import SwiftUI
 struct UserProfileView: View {
     
     @StateObject var vm = UserProfileViewModel()
+    @State var isSheetPresented = false
     
     var body: some View {
-        VStack {
+        NavigationStack {
             ZStack {
                 Circle()
                     .frame(width: 100, height: 100)
                     .foregroundStyle(Color(.systemGray2))
-                Text("JD")
+                Text(vm.user.initials)
                     .font(.largeTitle)
             }
+            .shadow(radius: 10)
             
             Button {
-                print("EDITER")
+                isSheetPresented.toggle()
             } label: {
                 Text("Editer")
                     .foregroundStyle(.white)
-                    .padding()
-                    .background(.blue)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(.hmBlue)
                     .clipShape(RoundedRectangle(cornerRadius: 25))
             }
+            .sheet(isPresented: $isSheetPresented){
+                EditProfileView()
+            }
+            .shadow(radius: 10)
             
             List {
+                NavigationLink {
+                    MyDocumentsView()
+                } label: {
+                    Text("Documents")
+                }
+                
                 Section("Information Personnelle ") {
                     RowProfileView(title: "Prénom", 
                                    value: vm.user.firstName)
