@@ -16,7 +16,7 @@ struct HomeView: View {
         
         NavigationStack{
             VStack(alignment: .leading) {
-                Text("Bonjour, Lisa")
+                Text("Bonjour, John DOE")
                     .foregroundColor(.blue)
                     .font(.title2)
                     .padding(.top, 10)
@@ -145,7 +145,7 @@ struct HomeView: View {
                     // Next appointment
                     VStack() {
                         HStack {
-                            Image("drnicolas")
+                            Image("drfrancois")
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .clipShape(Circle())

@@ -15,7 +15,9 @@ class DoctorListViewModel: ObservableObject {
         Doctor(pictName: "drnicolas", name: "Dr. Nicolas CAGE", specialty: "Pédiatre", rating: 4, distance: "1,1 Km", availability: "se déplacer à 9h00"),
         Doctor(pictName: "drmiranda", name: "Dr. Miranda Bailey", specialty: "Kinésithérapeute", rating: 5, distance: "1 Km", availability: "se déplacer à 9h00"),
         Doctor(pictName: "drapril", name: "Dr. April Kepner", specialty: "Infirmière", rating: 5, distance: "1,4 Km", availability: "se déplacer à 9h00"),
-        Doctor(pictName: "drmeredith", name: "Dr. Méredith Grey", specialty: "Médecin généraliste", rating: 4, distance: "2 Km", availability: "se déplacer à 9h00")
+        Doctor(pictName: "drmeredith", name: "Dr. Méredith Grey", specialty: "Médecin généraliste", rating: 4, distance: "2 Km", availability: "se déplacer à 9h00"),
+        Doctor(pictName: "drlisa", name: "Dr. AS Sandy Wilder Cheng", specialty: "Aide-soignante", rating: 4, distance: "1 Km", availability: "se déplacer à 9h00")
+        
     ]
     
     @Published var searchText: String = ""
