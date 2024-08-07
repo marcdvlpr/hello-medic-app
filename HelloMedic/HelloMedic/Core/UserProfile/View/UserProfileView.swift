@@ -40,7 +40,7 @@ struct UserProfileView: View {
             
             List {
                 NavigationLink {
-                    EmptyView()
+                    MyDocumentsView()
                 } label: {
                     Text("Documents")
                 }

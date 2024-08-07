@@ -19,14 +19,14 @@ struct TabBarView: View {
      
     var body: some View {
         TabView(selection: $selectedTab) {
-            Text("Home Screen")
+            HomeView()
                 .tabItem {
                     Image(systemName: Tab.home.rawValue)
                     Text("Accueil")
                 }
                 .tag(Tab.home)
             
-            Text("Appointment Screen")
+            AppointmentView()
                 .tabItem {
                     Image(systemName: Tab.appointment.rawValue)
                     Text("Rendez-vous")
