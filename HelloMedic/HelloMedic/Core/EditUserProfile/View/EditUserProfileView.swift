@@ -42,6 +42,7 @@ struct EditProfileView: View {
                 Text(vm.initials())
                     .font(.largeTitle)
             }
+            .shadow(radius: 10)
             
             List {
                 Section("Information Personnelle ") {

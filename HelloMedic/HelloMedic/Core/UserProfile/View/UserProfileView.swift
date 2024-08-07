@@ -13,7 +13,7 @@ struct UserProfileView: View {
     @State var isSheetPresented = false
     
     var body: some View {
-        VStack {
+        NavigationStack {
             ZStack {
                 Circle()
                     .frame(width: 100, height: 100)
@@ -21,6 +21,7 @@ struct UserProfileView: View {
                 Text(vm.user.initials)
                     .font(.largeTitle)
             }
+            .shadow(radius: 10)
             
             Button {
                 isSheetPresented.toggle()
@@ -35,8 +36,15 @@ struct UserProfileView: View {
             .sheet(isPresented: $isSheetPresented){
                 EditProfileView()
             }
+            .shadow(radius: 10)
             
             List {
+                NavigationLink {
+                    EmptyView()
+                } label: {
+                    Text("Documents")
+                }
+                
                 Section("Information Personnelle ") {
                     RowProfileView(title: "Prénom", 
                                    value: vm.user.firstName)
