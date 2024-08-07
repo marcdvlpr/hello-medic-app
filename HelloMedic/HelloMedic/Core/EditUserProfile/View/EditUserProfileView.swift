@@ -39,7 +39,7 @@ struct EditProfileView: View {
                 Circle()
                     .frame(width: 100, height: 100)
                     .foregroundStyle(Color(.systemGray2))
-                Text("JD")
+                Text(vm.initials())
                     .font(.largeTitle)
             }
             

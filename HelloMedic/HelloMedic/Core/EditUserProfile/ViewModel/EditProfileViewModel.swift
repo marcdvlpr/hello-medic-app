@@ -44,4 +44,8 @@ class EditProfileViewModel: ObservableObject {
         weight = String(medicalInfo.weight)
         wheelchair = medicalInfo.wheelchair ? "Oui" : "Non"
     }
+    
+    func initials() -> String {
+        return user.initials
+    }
 }

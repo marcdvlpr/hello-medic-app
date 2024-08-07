@@ -24,4 +24,15 @@ struct User: Decodable {
     var formattedDate: String {
         return Date(timeIntervalSince1970: dateOfBirth).formatted(date: .long, time: .omitted)
     }
+    
+    var initials: String {
+        let formatter = PersonNameComponentsFormatter()
+        
+        if let components = formatter.personNameComponents(from: "\(firstName) \(lastName)") {
+            formatter.style = .abbreviated
+            
+            return formatter.string(from: components)
+        }
+        return ""
+    }
 }
