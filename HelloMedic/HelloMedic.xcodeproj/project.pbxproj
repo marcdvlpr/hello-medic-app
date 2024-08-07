@@ -193,6 +193,7 @@
 		680C18192C49177900BD7874 /* HelloMedic */ = {
 			isa = PBXGroup;
 			children = (
+				699F8C3A2C626849003D2716 /* Baloo */,
 				699F8C392C625CA0003D2716 /* Info.plist */,
 				680C182B2C4942DF00BD7874 /* App */,
 				680C182C2C49435800BD7874 /* Core */,
