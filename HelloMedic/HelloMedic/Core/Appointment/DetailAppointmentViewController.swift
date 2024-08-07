@@ -9,13 +9,51 @@ import UIKit
 import SwiftUI
 
 class DetailAppointmentViewController : UIViewController {
+    var isPast : Bool
+    let dateRdv : String
+    let heureRdv : String
+    let nameImageSpecialist : String
+    let nameSpecialist : String
+    let specialitySpecialist : String
+    let motif : String
+    let place : String
+    let phone : String
+    let pay : String
+    let document : String
     
-    let composantMotif = ComposantView(nameSection: "Motif", imageSection: UIImage(systemName: "message.fill") ?? UIImage(), textSection: "Rappel Vaccin")
-    let composantPlace = ComposantView(nameSection: "Lieu", imageSection: UIImage(systemName: "location.fill") ?? UIImage(), textSection: "12 rue des Peupliers\n75008")
-    let composantPhone = ComposantView(nameSection: "Contact", imageSection: UIImage(systemName: "phone.fill") ?? UIImage(), textSection: "01 12 23 34 56")
-    let composantPay = ComposantView(nameSection: "Modalités paiement", imageSection: UIImage(systemName: "creditcard.fill") ?? UIImage(), textSection: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée")
+    var composantMotif : ComposantView!
+    var composantPlace : ComposantView!
+    var composantPhone : ComposantView!
+    var composantPay : ComposantView!
+    var composantDocument : ComposantView!
     
     let profilSpecialistButton = UIButton(type: .system)
+    
+    init(isPast: Bool, dateRdv: String, heureRdv: String, nameImageSpecialist: String, nameSpecialist: String, specialitySpecialist: String, motif: String, place: String, phone: String, pay: String,document : String) {
+        self.isPast = isPast
+        self.dateRdv = dateRdv
+        self.heureRdv = heureRdv
+        self.nameImageSpecialist = nameImageSpecialist
+        self.nameSpecialist = nameSpecialist
+        self.specialitySpecialist = specialitySpecialist
+        self.motif = motif
+        self.place = place
+        self.phone = phone
+        self.pay = pay
+        self.document = document
+        super.init(nibName: nil, bundle: nil)
+        
+        composantMotif = ComposantView(nameSection: "Motif", imageSection: UIImage(systemName: "message.fill") ?? UIImage(), textSection: motif)
+        composantPlace = ComposantView(nameSection: "Lieu", imageSection: UIImage(systemName: "location.fill") ?? UIImage(), textSection: place)
+        composantPhone = ComposantView(nameSection: "Contact", imageSection: UIImage(systemName: "phone.fill") ?? UIImage(), textSection: phone)
+        composantPay = ComposantView(nameSection: "Modalités paiement", imageSection: UIImage(systemName: "creditcard.fill") ?? UIImage(), textSection: pay)
+        composantDocument = ComposantView(nameSection: "Documents", imageSection: UIImage(systemName: "doc.fill") ?? UIImage(), textSection: document)
+
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,14 +99,16 @@ class DetailAppointmentViewController : UIViewController {
         let modifyButton = UIButton()
         var configurationModifyButton = UIButton.Configuration.filled()
         let buttonsHStack = UIStackView(arrangedSubviews: [cancelButton, modifyButton])
+        let retakeappointmentButton = UIButton()
+        var configurationretakeappointmentButton = UIButton.Configuration.filled()
         
-        rectangle.backgroundColor = .hmBlue
+        rectangle.backgroundColor = isPast ? UIColor(named: "hmSkyBlue") : UIColor(named: "hmBlue")
         rectangle.layer.cornerRadius = 14
         
         calendarImageView.image = UIImage(systemName: "calendar")
         calendarImageView.tintColor = .white
         
-        dateLabel.text = "Date de date"
+        dateLabel.text = dateRdv
         dateLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         dateLabel.textColor = .white
         
@@ -79,7 +119,7 @@ class DetailAppointmentViewController : UIViewController {
         timerImageView.image = UIImage(systemName: "timer")
         timerImageView.tintColor = .white
         
-        timeLabel.text = "00:00"
+        timeLabel.text = heureRdv
         timeLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         timeLabel.textColor = .white
         
@@ -89,11 +129,11 @@ class DetailAppointmentViewController : UIViewController {
         
         divider.backgroundColor = .white
         
-        specialistNameLabel.text = "Dr Mérédith ATELAF"
+        specialistNameLabel.text = nameSpecialist
         specialistNameLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         specialistNameLabel.textColor = .white
         
-        specialistSpeciality.text = "Médecin"
+        specialistSpeciality.text = specialitySpecialist
         specialistSpeciality.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         specialistSpeciality.textColor = .white
         
@@ -101,7 +141,7 @@ class DetailAppointmentViewController : UIViewController {
         specialistVStack.spacing = 1
         specialistVStack.alignment = .leading
         
-        specialistImageView.image = UIImage(named: "drmeredith")
+        specialistImageView.image = UIImage(named: nameImageSpecialist)
         specialistImageView.clipsToBounds = true
         specialistImageView.layer.cornerRadius = 38
         specialistImageView.contentMode = .scaleAspectFill
@@ -155,6 +195,22 @@ class DetailAppointmentViewController : UIViewController {
         
         buttonsHStack.spacing = 29
         
+        configurationretakeappointmentButton.attributedTitle = AttributedString("Reprogrammer un rendez-vous", attributes: AttributeContainer([.font: titleFont]))
+        
+        // Modifier la taille de l'image
+        configurationretakeappointmentButton.preferredSymbolConfigurationForImage = imageConfig
+         
+        configurationretakeappointmentButton.image = UIImage(systemName: "goforward")
+        configurationretakeappointmentButton.imagePadding = 5  // Espace entre l'image et le texte
+        configurationretakeappointmentButton.imagePlacement = .leading  // Image à gauche du texte
+        configurationretakeappointmentButton.baseBackgroundColor = .white
+        configurationretakeappointmentButton.baseForegroundColor = .hmBlue
+         
+        retakeappointmentButton.configuration = configurationretakeappointmentButton
+        retakeappointmentButton.layer.cornerRadius = 14
+        retakeappointmentButton.clipsToBounds = true
+         
+        
         // Ajouter la scrollView et le contentView
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -170,7 +226,12 @@ class DetailAppointmentViewController : UIViewController {
         contentView.addSubview(composantPay)
         contentView.addSubview(profilSpecialistButton)
         contentView.addSubview(profilSpecialistHStack)
-        contentView.addSubview(buttonsHStack)
+        if !isPast {
+            contentView.addSubview(buttonsHStack)
+        } else {
+            contentView.addSubview(retakeappointmentButton)
+            contentView.addSubview(composantDocument)
+        }
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -188,6 +249,8 @@ class DetailAppointmentViewController : UIViewController {
         profilSpecialistButton.translatesAutoresizingMaskIntoConstraints = false
         profilSpecialistHStack.translatesAutoresizingMaskIntoConstraints = false
         buttonsHStack.translatesAutoresizingMaskIntoConstraints = false
+        retakeappointmentButton.translatesAutoresizingMaskIntoConstraints = false
+        composantDocument.translatesAutoresizingMaskIntoConstraints = false
         
         // Constrain scrollView to the edges of the view
         NSLayoutConstraint.activate([
@@ -212,7 +275,7 @@ class DetailAppointmentViewController : UIViewController {
             rectangle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -7),
             rectangle.widthAnchor.constraint(equalToConstant: 379),
             rectangle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            rectangle.bottomAnchor.constraint(equalTo: buttonsHStack.bottomAnchor, constant: 16),
+            isPast ? rectangle.bottomAnchor.constraint(equalTo: retakeappointmentButton.bottomAnchor, constant: 16) : rectangle.bottomAnchor.constraint(equalTo: buttonsHStack.bottomAnchor, constant: 16),
             
             dateHStack.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 10),
             dateHStack.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
@@ -251,7 +314,7 @@ class DetailAppointmentViewController : UIViewController {
             composantPay.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
             
             profilSpecialistButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            profilSpecialistButton.topAnchor.constraint(equalTo: composantPay.bottomAnchor, constant: 2),
+            isPast ? profilSpecialistButton.topAnchor.constraint(equalTo: composantDocument.bottomAnchor, constant: 2) : profilSpecialistButton.topAnchor.constraint(equalTo: composantPay.bottomAnchor, constant: 2),
             profilSpecialistButton.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
             profilSpecialistButton.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
             profilSpecialistButton.heightAnchor.constraint(equalToConstant: 45),
@@ -259,11 +322,27 @@ class DetailAppointmentViewController : UIViewController {
             profilSpecialistHStack.centerXAnchor.constraint(equalTo: profilSpecialistButton.centerXAnchor),
             profilSpecialistHStack.centerYAnchor.constraint(equalTo: profilSpecialistButton.centerYAnchor),
             
-            buttonsHStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            buttonsHStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            buttonsHStack.topAnchor.constraint(equalTo: profilSpecialistButton.bottomAnchor, constant: 20),
-            buttonsHStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20) // Constraint for bottom of contentView
         ])
+        
+        if !isPast {
+            NSLayoutConstraint.activate([
+                buttonsHStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+                buttonsHStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                buttonsHStack.topAnchor.constraint(equalTo: profilSpecialistButton.bottomAnchor, constant: 20),
+                buttonsHStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                retakeappointmentButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+                retakeappointmentButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                retakeappointmentButton.topAnchor.constraint(equalTo: profilSpecialistButton.bottomAnchor, constant: 20),
+                retakeappointmentButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+                composantDocument.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+                composantDocument.topAnchor.constraint(equalTo: composantPay.bottomAnchor, constant: 2),
+                composantDocument.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 30),
+                composantDocument.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -30),
+            ])
+        }
         
         self.view.layoutIfNeeded()
     }
@@ -322,8 +401,14 @@ class ComposantView: UIView {
         let composantHStack = UIStackView(arrangedSubviews: [composantImageView, composantLabel])
         let textComposantLabel = UILabel()
         
-//        self.layer.shadowOffset = CGSize(width: 5, height: 5)
-//        self.layer.shadowOpacity = 0.3
+        let documentImageView = UIImageView()
+        let doctorLabel = UILabel()
+        let dateLabel = UILabel()
+        let separatorLabel = UILabel()
+        let downloadImageView = UIImageView()
+        let infoDocumentHStack = UIStackView(arrangedSubviews: [doctorLabel, separatorLabel,dateLabel])
+        let infoDocumentVStack = UIStackView(arrangedSubviews: [textComposantLabel, infoDocumentHStack])
+        let documentHStack = UIStackView(arrangedSubviews: [documentImageView,infoDocumentVStack,downloadImageView])
         
         composantLabel.text = nameSection
         composantLabel.textColor = .hmBlue
@@ -346,21 +431,81 @@ class ComposantView: UIView {
             textComposantLabel.textAlignment = .left
         }
         
+        if nameSection == "Documents" {
+            textComposantLabel.textColor = .hmGreen
+            
+            infoDocumentHStack.axis = .horizontal
+            infoDocumentHStack.spacing = 3
+            infoDocumentHStack.alignment = .center
+            
+            infoDocumentVStack.axis = .vertical
+            infoDocumentVStack.spacing = 3
+            infoDocumentVStack.alignment = .leading
+            
+            documentHStack.axis = .horizontal
+            documentHStack.spacing = 5
+            documentHStack.alignment = .center
+            
+            textComposantLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
+            
+            documentImageView.image = UIImage(systemName: "pill.circle.fill")
+            documentImageView.tintColor = .hmGreen
+            
+            doctorLabel.text = "Dr John DOE"
+            doctorLabel.textColor = .hmGreen
+            doctorLabel.font = UIFont.systemFont(ofSize: 11, weight: .light)
+            
+            separatorLabel.text = "|"
+            separatorLabel.font = UIFont.systemFont(ofSize: 11, weight: .light)
+            separatorLabel.textColor = .hmGreen
+            
+            dateLabel.text = "Date de date"
+            dateLabel.textColor = .hmGreen
+            dateLabel.font = UIFont.systemFont(ofSize: 11, weight: .light)
+            
+            downloadImageView.image = UIImage(systemName: "square.and.arrow.down")
+            downloadImageView.tintColor = .hmGreen
+            
+            documentHStack.translatesAutoresizingMaskIntoConstraints = false
+            addSubview(documentHStack)
+            
+            NSLayoutConstraint.activate([
+                infoDocumentVStack.trailingAnchor.constraint(equalTo: downloadImageView.leadingAnchor, constant: -65),
+                documentHStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 37),
+                documentHStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            ])
+            
+        } else {
+            
+            addSubview(textComposantLabel)
+            
+            NSLayoutConstraint.activate([
+                textComposantLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 37),
+                textComposantLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            ])
+        }
+        
         composantHStack.translatesAutoresizingMaskIntoConstraints = false
         composantLabel.translatesAutoresizingMaskIntoConstraints = false
         composantImageView.translatesAutoresizingMaskIntoConstraints = false
         textComposantLabel.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(composantHStack)
-        addSubview(textComposantLabel)
         
         NSLayoutConstraint.activate([
             composantHStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             composantHStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 13),
-            self.bottomAnchor.constraint(equalTo: textComposantLabel.bottomAnchor, constant: 30),
-            textComposantLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 37),
-            textComposantLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
+        
+        if nameSection == "Documents" {
+            NSLayoutConstraint.activate([
+                self.bottomAnchor.constraint(equalTo: documentHStack.bottomAnchor, constant: 30)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                self.bottomAnchor.constraint(equalTo: textComposantLabel.bottomAnchor, constant: 30)
+            ])
+        }
     }
 }
 
@@ -429,5 +574,11 @@ extension UIView {
             shadowView.layer.insertSublayer(shadowLayer, at: 0)
             superview.insertSubview(shadowView, belowSubview: self)
         }
+    }
+}
+
+struct DoccumentHStack : View {
+    var body: some View {
+        Text("Hello")
     }
 }
