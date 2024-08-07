@@ -1,32 +1,24 @@
 //
-//  SearchView.swift
+//  FilterButtonView.swift
 //  HelloMedic
 //
-//  Created by Apprenant 172 on 19/07/2024.
+//  Created by Apprenant 172 on 05/08/2024.
 //
 
 import SwiftUI
 
-struct SearchView: View {
-    
-    @State private var searchText = ""
-    @StateObject private var doctorslist = DoctorListViewModel()
+/// Une vue qui affiche une liste de médecins filtrés par spécialité.
+struct FilterButtonView: View {
+    /// Le modèle de vue des médecins, fourni par l'environnement.
+    @EnvironmentObject var doctorslist : DoctorListViewModel
     
     var body: some View {
         
         NavigationStack {
-            HStack {
-                Text("Spécialiste")
-                    .font(.headline)
-                    .padding()
-                Spacer()
-            }.padding(-10)
-            
             List {
-                ForEach (doctorslist.filteredDoctors) { doctorslist in
+                ForEach(doctorslist.filtredSpecialty) { doctorslist in
                     NavigationLink {
                         Text(doctorslist.name)
-                        DetailAppointmentView()
                     } label: {
                         HStack {
                             Image(doctorslist.pictName)
@@ -72,12 +64,22 @@ struct SearchView: View {
                 }
             }
             .listStyle(.plain)
-            .navigationTitle("Recherche")
-            .searchable(text: $doctorslist.searchText, prompt: "Rechercher un médecin")
         }
     }
 }
 
 #Preview {
-    SearchView()
+    FilterButtonView().environmentObject(DoctorListViewModel())
 }
+
+struct ContentView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        
+        ContentView().environmentObject(DoctorListViewModel())
+        
+    }
+    
+}
+
+
