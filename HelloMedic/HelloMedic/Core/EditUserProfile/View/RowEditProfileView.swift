@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct RowEditProfileView: View {
-    
     let title: String
     
     @Binding var text: String
-    
     
     var body: some View {
         HStack(spacing: 10) {
