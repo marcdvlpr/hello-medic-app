@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class AppointmentDetailsViewController: UIViewController {
     override func viewDidLoad() {
@@ -15,6 +16,7 @@ class AppointmentDetailsViewController: UIViewController {
         appointmentDetailsView.addSubview(nameLabel)
         appointmentDetailsView.addSubview(specialityLabel)
         appointmentDetailsView.addSubview(estimatedTimeLabel)
+        appointmentDetailsView.addSubview(mapView)
         
         view.addSubview(appointmentDetailsView)
         
@@ -63,6 +65,14 @@ class AppointmentDetailsViewController: UIViewController {
         return text
     }()
     
+    private let mapView: MKMapView = {
+        let map = MKMapView()
+        map.clipsToBounds = true
+        map.layer.cornerRadius = 10
+//        map.showsUserLocation = true
+        return map
+    }()
+    
     func setupAutoLayout() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
@@ -91,5 +101,12 @@ class AppointmentDetailsViewController: UIViewController {
         estimatedTimeLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
         estimatedTimeLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
         estimatedTimeLabel.textAlignment = .center
+        
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.heightAnchor.constraint(equalToConstant: 270).isActive = true
+        mapView.topAnchor.constraint(equalTo: estimatedTimeLabel.bottomAnchor, constant: 20).isActive = true
+        mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        mapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
     }
 }
