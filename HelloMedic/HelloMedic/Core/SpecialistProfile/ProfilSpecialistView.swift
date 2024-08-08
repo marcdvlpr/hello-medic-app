@@ -8,15 +8,22 @@
 import SwiftUI
 import MapKit
 
+struct AnnotatedLocation: Identifiable {
+    let id = UUID()
+    let location: CLLocationCoordinate2D
+}
+
 struct ProfilSpecialistView: View {
     let specialist: ProfilSpecialist
     
-    @State private var region = MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 48.8708, longitude: 2.3155), // Centre du 75008 Paris
-            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // Vue zoomée
+    @State private var region = MapCameraPosition.region(
+            MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: 48.8742, longitude: 2.2938), // Centre du code postal 75008
+                span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // Niveau de zoom
+            )
         )
         
-        private let circleCenter = Location(id: UUID(), coordinate: CLLocationCoordinate2D(latitude: 48.8708, longitude: 2.3155))
+        private let circleCenter = AnnotatedLocation(location: CLLocationCoordinate2D(latitude: 48.8708, longitude: 2.3155))
     
     var body: some View {
         ScrollView {
@@ -57,20 +64,24 @@ struct ProfilSpecialistView: View {
                                         .fontWeight(.light)
                                         .font(.system(size: 14))
                                     
-                                    Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: [circleCenter]) { location in
-                                            MapAnnotation(coordinate: location.coordinate) {
-                                                Circle()
-                                                    .strokeBorder(Color.blue, lineWidth: 2)
-                                                    .background(Circle().fill(Color.blue.opacity(0.1)))
-                                                    .frame(width: 200, height: 200) // Taille approximative pour le cercle
-                                            }
+                                    Map(
+                                        initialPosition: region,
+                                        bounds: nil,
+                                        interactionModes: .all
+                                    ) {
+                                        Annotation("", coordinate: circleCenter.location) {
+                                            Circle()
+                                                .strokeBorder(Color.blue, lineWidth: 2)
+                                                .background(Circle().fill(Color.blue.opacity(0.1)))
+                                                .frame(width: 200, height: 200)
                                         }
+                                    }
                                     .cornerRadius(14)
                                     .frame(width: 274,height: 122)
-                                    .onAppear {
-                                        // Ajuster la vue pour inclure le cercle
-                                        region.span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-                                    }
+//                                    .onAppear {
+//                                        // Ajuster la vue pour inclure le cercle
+//                                        region.span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+//                                    }
                                 }
                             })
                         }.padding(.top)
@@ -142,11 +153,6 @@ struct ProfilSpecialistView: View {
                     )
         }
     }
-}
-
-struct Location: Identifiable {
-    let id: UUID
-    let coordinate: CLLocationCoordinate2D
 }
 
 #Preview {
