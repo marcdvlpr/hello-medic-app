@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -60,4 +61,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return 120
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            _ = doctors[indexPath.row]
+            let detailView = DetailAppointmentView()
+            let hostingController = UIHostingController(rootView: detailView)
+            navigationController?.pushViewController(hostingController, animated: true)
+        }
 }
