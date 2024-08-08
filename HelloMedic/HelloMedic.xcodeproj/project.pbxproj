@@ -181,6 +181,7 @@
 				691057992C4AA85A001BB6F4 /* Splash */,
 				680C182E2C49438C00BD7874 /* Login */,
 				680C18342C49457100BD7874 /* Register */,
+				75D65CDA2C64B08A008DB4A0 /* Documents */,
 				680C182D2C49437C00BD7874 /* Root */,
 				680C18312C49443B00BD7874 /* SpecialistProfile */,
 				680C18322C49449200BD7874 /* TabBar */,
@@ -250,8 +251,6 @@
 			children = (
 				75D65C172C5824B0008DB4A0 /* RegisterViewOne.swift */,
 				75D65C142C578B51008DB4A0 /* RegisterViewTwo.swift */,
-				75D65C392C5B8C50008DB4A0 /* MyDocumentsView.swift */,
-				75D65C3B2C5BB12F008DB4A0 /* DocumentDetailView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -352,6 +351,15 @@
 				6AF934862C5B8EA60018164E /* ButtonView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		75D65CDA2C64B08A008DB4A0 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				75D65C392C5B8C50008DB4A0 /* MyDocumentsView.swift */,
+				75D65C3B2C5BB12F008DB4A0 /* DocumentDetailView.swift */,
+			);
+			path = Documents;
 			sourceTree = "<group>";
 		};
 		F389E25B2C4A6B9A00CFCB77 /* Appointment */ = {
