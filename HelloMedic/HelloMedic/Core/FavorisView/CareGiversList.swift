@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+// Data des soignants
 class SpecialistsDataList: ObservableObject {
 
     @Published var careGivers = [

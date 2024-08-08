@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Paramétrage des soignants
 class CareGiver: Identifiable {
     let id = UUID()
     var pictName: String

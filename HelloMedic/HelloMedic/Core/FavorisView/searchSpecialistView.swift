@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Recherche de soignants par spécialités
 struct SearchSpecialistView: View {
 
     @State private var searchSpecialties = ""
@@ -22,7 +23,7 @@ struct SearchSpecialistView: View {
                 Spacer()
             }.padding(-10)
 
-            // début de la scrollView à remplacer
+            // début de la scrollView (non fonctionnelle) à remplacer
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
                     ForEach(0..<5, id: \.self) { index in
@@ -32,13 +33,13 @@ struct SearchSpecialistView: View {
                     }
                 }
             }.padding()
-            // fin de la scrollView à remplacer
+            // fin de la scrollView  (non fonctionnelle) à remplacer
 
             List {
                 ForEach(careGiverslist.filteredCareGivers) { careGiver in
                     NavigationLink {
                         Text(careGiver.name)
-                        DocumentDetailView()                             // écran de test
+                        DocumentDetailView()  // écran de test à remplacer, par la vue adequat
                     } label: {
                         HStack(alignment: .center) {
                             HStack(alignment: .center) {

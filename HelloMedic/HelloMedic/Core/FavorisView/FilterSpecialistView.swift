@@ -3,6 +3,7 @@ import SwiftUI
 struct FilterSpecialistView: View {
     @StateObject private var careGiverslist = SpecialistsDataList()
 
+    // Le filtre pour rechercher les spécialités "scrollView"
     let specialties = [
         ("Médecin généraliste", "stethoscope", "Généraliste"),
         ("Pédiatre", "figure.child", "Pédiatre"),
