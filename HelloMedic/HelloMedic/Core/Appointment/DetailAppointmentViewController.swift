@@ -10,16 +10,9 @@ import SwiftUI
 
 class DetailAppointmentViewController : UIViewController {
     var isPast : Bool
+    let appointment : Appointment
     let dateRdv : String
     let heureRdv : String
-    let nameImageSpecialist : String
-    let nameSpecialist : String
-    let specialitySpecialist : String
-    let motif : String
-    let place : String
-    let phone : String
-    let pay : String
-    let document : String
     
     var composantMotif : ComposantView!
     var composantPlace : ComposantView!
@@ -29,25 +22,18 @@ class DetailAppointmentViewController : UIViewController {
     
     let profilSpecialistButton = UIButton(type: .system)
     
-    init(isPast: Bool, dateRdv: String, heureRdv: String, nameImageSpecialist: String, nameSpecialist: String, specialitySpecialist: String, motif: String, place: String, phone: String, pay: String,document : String) {
+    init(isPast: Bool, appointment : Appointment, dateRdv : String, heureRdv : String) {
         self.isPast = isPast
+        self.appointment = appointment
         self.dateRdv = dateRdv
         self.heureRdv = heureRdv
-        self.nameImageSpecialist = nameImageSpecialist
-        self.nameSpecialist = nameSpecialist
-        self.specialitySpecialist = specialitySpecialist
-        self.motif = motif
-        self.place = place
-        self.phone = phone
-        self.pay = pay
-        self.document = document
         super.init(nibName: nil, bundle: nil)
         
-        composantMotif = ComposantView(nameSection: "Motif", imageSection: UIImage(systemName: "message.fill") ?? UIImage(), textSection: motif)
-        composantPlace = ComposantView(nameSection: "Lieu", imageSection: UIImage(systemName: "location.fill") ?? UIImage(), textSection: place)
-        composantPhone = ComposantView(nameSection: "Contact", imageSection: UIImage(systemName: "phone.fill") ?? UIImage(), textSection: phone)
-        composantPay = ComposantView(nameSection: "Modalités paiement", imageSection: UIImage(systemName: "creditcard.fill") ?? UIImage(), textSection: pay)
-        composantDocument = ComposantView(nameSection: "Documents", imageSection: UIImage(systemName: "doc.fill") ?? UIImage(), textSection: document)
+        composantMotif = ComposantView(nameSection: "Motif", imageSection: UIImage(systemName: "message.fill") ?? UIImage(), textSection: appointment.motif, isPast: isPast)
+        composantPlace = ComposantView(nameSection: "Lieu", imageSection: UIImage(systemName: "location.fill") ?? UIImage(), textSection: appointment.place, isPast: isPast)
+        composantPhone = ComposantView(nameSection: "Contact", imageSection: UIImage(systemName: "phone.fill") ?? UIImage(), textSection: appointment.specialist.phoneNumber, isPast: isPast)
+        composantPay = ComposantView(nameSection: "Modalités paiement", imageSection: UIImage(systemName: "creditcard.fill") ?? UIImage(), textSection: appointment.specialist.paymentMethod, isPast: isPast)
+        composantDocument = ComposantView(nameSection: "Documents", imageSection: UIImage(systemName: "doc.fill") ?? UIImage(), textSection: appointment.document.nom, isPast: isPast, appointment: appointment, dateRdv: dateRdv)
 
     }
     
@@ -129,11 +115,11 @@ class DetailAppointmentViewController : UIViewController {
         
         divider.backgroundColor = .white
         
-        specialistNameLabel.text = nameSpecialist
+        specialistNameLabel.text = "Dr \(appointment.specialist.name) \(appointment.specialist.firstName)"
         specialistNameLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         specialistNameLabel.textColor = .white
         
-        specialistSpeciality.text = specialitySpecialist
+        specialistSpeciality.text = appointment.specialist.speciality.nom
         specialistSpeciality.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         specialistSpeciality.textColor = .white
         
@@ -141,7 +127,7 @@ class DetailAppointmentViewController : UIViewController {
         specialistVStack.spacing = 1
         specialistVStack.alignment = .leading
         
-        specialistImageView.image = UIImage(named: nameImageSpecialist)
+        specialistImageView.image = UIImage(named: appointment.specialist.nameImage)
         specialistImageView.clipsToBounds = true
         specialistImageView.layer.cornerRadius = 38
         specialistImageView.contentMode = .scaleAspectFill
@@ -350,7 +336,7 @@ class DetailAppointmentViewController : UIViewController {
     @objc func navigateToSpecialistProfile() {
         print("Navigate to specialist profile tapped")
         // Présenter la vue SwiftUI avec UIHostingController
-        let hostingController = UIHostingController(rootView: ProfilSpecialistView())
+        let hostingController = UIHostingController(rootView: ProfilSpecialistView(specialist: appointment.specialist))
         // Créer un UINavigationController si vous voulez que la vue SwiftUI soit dans une pile de navigation
         let navigationController = UINavigationController(rootViewController: hostingController)
         
@@ -373,20 +359,26 @@ class ComposantView: UIView {
     var nameSection : String
     var imageSection : UIImage
     var textSection : String
+    var isPast : Bool
+    var appointment : Appointment?
+    var dateRdv : String?
     
-    init(nameSection: String, imageSection: UIImage, textSection: String) {
+    init(nameSection: String, imageSection: UIImage, textSection: String, isPast: Bool, appointment: Appointment? = nil, dateRdv: String? = nil) {
         self.nameSection = nameSection
         self.imageSection = imageSection
         self.textSection = textSection
+        self.isPast = isPast
+        self.appointment = appointment
+        self.dateRdv = dateRdv
         super.init(frame: .zero)
         setupView()
     }
-    
         
     required init?(coder: NSCoder) {
         self.nameSection = ""
         self.imageSection = UIImage()
         self.textSection = ""
+        self.isPast = Bool()
         super.init(coder: coder)
         setupView()
     }
@@ -430,8 +422,16 @@ class ComposantView: UIView {
         if imageSection == UIImage(systemName: "creditcard.fill") {
             textComposantLabel.textAlignment = .left
         }
-        
-        if nameSection == "Documents" {
+        if nameSection == "Documents" && textSection == "" && isPast {
+            textComposantLabel.text = "Aucun document"
+            
+            addSubview(textComposantLabel)
+            
+            NSLayoutConstraint.activate([
+                textComposantLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 37),
+                textComposantLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            ])
+        } else if nameSection == "Documents" && textSection != "" && isPast {
             textComposantLabel.textColor = .hmGreen
             
             infoDocumentHStack.axis = .horizontal
@@ -448,10 +448,10 @@ class ComposantView: UIView {
             
             textComposantLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
             
-            documentImageView.image = UIImage(systemName: "pill.circle.fill")
+            documentImageView.image = UIImage(systemName: appointment?.document.namePicto ?? "")
             documentImageView.tintColor = .hmGreen
             
-            doctorLabel.text = "Dr John DOE"
+            doctorLabel.text = "\(appointment?.specialist.name ?? "") \(appointment?.specialist.firstName ?? "")"
             doctorLabel.textColor = .hmGreen
             doctorLabel.font = UIFont.systemFont(ofSize: 11, weight: .light)
             
@@ -459,7 +459,7 @@ class ComposantView: UIView {
             separatorLabel.font = UIFont.systemFont(ofSize: 11, weight: .light)
             separatorLabel.textColor = .hmGreen
             
-            dateLabel.text = "Date de date"
+            dateLabel.text = dateRdv
             dateLabel.textColor = .hmGreen
             dateLabel.font = UIFont.systemFont(ofSize: 11, weight: .light)
             
@@ -470,7 +470,7 @@ class ComposantView: UIView {
             addSubview(documentHStack)
             
             NSLayoutConstraint.activate([
-                infoDocumentVStack.trailingAnchor.constraint(equalTo: downloadImageView.leadingAnchor, constant: -65),
+                infoDocumentVStack.trailingAnchor.constraint(equalTo: downloadImageView.leadingAnchor, constant: -40),
                 documentHStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 37),
                 documentHStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             ])
@@ -497,7 +497,7 @@ class ComposantView: UIView {
             composantHStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 13),
         ])
         
-        if nameSection == "Documents" {
+        if nameSection == "Documents" && textSection != "" && isPast {
             NSLayoutConstraint.activate([
                 self.bottomAnchor.constraint(equalTo: documentHStack.bottomAnchor, constant: 30)
             ])

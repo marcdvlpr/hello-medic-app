@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 
 struct ProfilSpecialistView: View {
+    let specialist: ProfilSpecialist
+    
     @State private var region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 48.8708, longitude: 2.3155), // Centre du 75008 Paris
             span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // Vue zoomée
@@ -18,13 +20,13 @@ struct ProfilSpecialistView: View {
     
     var body: some View {
         ScrollView {
-            Image("drmeredith")
+            Image(specialist.nameImage)
                 .cornerRadius(100)
-            Text("Dr Meredith FEERGRT")
+            Text("Dr \(specialist.name)")
                 .foregroundStyle(.hmBlue)
                 .fontWeight(.semibold)
                 .font(.system(size: 16))
-            Text("Médecin généraliste")
+            Text(specialist.speciality.nom)
                 .foregroundStyle(.hmBlue)
                 .fontWeight(.regular)
                 .font(.system(size: 13))
@@ -50,7 +52,7 @@ struct ProfilSpecialistView: View {
                             SectionTitle(sectionName: "Périmètre", sectionPictureName: "location.magnifyingglass", divider: false, last: false ,sectionContent: {
                                 
                                 VStack {
-                                    Text("~ 20km autour de 75008 Paris")
+                                    Text(specialist.perimeter)
                                         .foregroundStyle(.hmBlue)
                                         .fontWeight(.light)
                                         .font(.system(size: 14))
@@ -88,19 +90,23 @@ struct ProfilSpecialistView: View {
                         })
                         
                         SectionTitle(sectionName: "Contact", sectionPictureName: "phone.fill", divider: true, last: false, sectionContent: {
-                            Text("01 12 23 34 56")
+                            Text(specialist.phoneNumber)
+                        })
+                        
+                        SectionTitle(sectionName: "Modalités paiement", sectionPictureName: "creditcard.fill", divider: true, last: false, sectionContent: {
+                            Text(specialist.paymentMethod)
                         })
                         
                         SectionTitle(sectionName: "Langues", sectionPictureName: "flag.fill", divider: true, last: false, sectionContent: {
-                            Text("Francais\nAnglais")
+                            Text(specialist.languages)
                                 .multilineTextAlignment(.center)
                         })
                         
                         SectionTitle(sectionName: "Certifications", sectionPictureName: "checkmark.seal.fill", divider: true, last: false, sectionContent: {
                             VStack {
-                                Text("Diplôme d’État de docteur en médecine")
+                                Text(specialist.certification.school)
                                     .fontWeight(.regular)
-                                Text("Faculté de médecine Paris 6")
+                                Text(specialist.certification.diplome)
                             }
                         })
                         VStack {
@@ -144,7 +150,7 @@ struct Location: Identifiable {
 }
 
 #Preview {
-    ProfilSpecialistView()
+    ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: "", name: "", firstName: "", perimeter: "", phoneNumber: "", paymentMethod: "", languages: "", horaires: "", certification: Certification(school: "", diplome: ""), speciality: Speciality(nom: "", image: "")))
 }
 
 struct SectionTitle<Content: View> : View {

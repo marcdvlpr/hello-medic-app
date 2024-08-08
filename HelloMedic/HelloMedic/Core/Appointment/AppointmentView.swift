@@ -81,7 +81,7 @@ struct UpComingAppointmentView: View {
             ScrollView {
                 ForEach(appointmentViewModel.upComingAppointments()) { appointment in
                     NavigationLink(destination: {
-                        UIKitDetailAppointmentView(isPast: false, dateRdv: appointmentViewModel.formattedDate(date: appointment.dateHeureRdv), heureRdv: appointmentViewModel.formattedTime(date: appointment.dateHeureRdv), nameImageSpecialist: appointment.specialist.picture, nameSpecialist: "Dr. \(appointment.specialist.name) \(appointment.specialist.firstName.uppercased())", specialitySpecialist: appointment.specialist.speciality.nom, motif: appointment.motif, place: "", phone: "", pay: "", document: "")
+                        UIKitDetailAppointmentView(isPast: false, appointment: appointment, dateRdv: appointmentViewModel.formattedDate(date: appointment.dateHeureRdv), heureRdv: appointmentViewModel.formattedTime(date: appointment.dateHeureRdv))
                     }, label: {
                         ZStack {
                             Rectangle()
@@ -109,7 +109,7 @@ struct UpComingAppointmentView: View {
                                     .background(.white)
                                 
                                 HStack {
-                                    Image(appointment.specialist.picture)
+                                    Image(appointment.specialist.nameImage)
                                         .resizable()
                                         .frame(width: 62.0, height: 61.0)
                                         .cornerRadius(100
@@ -185,7 +185,7 @@ struct PastAppointmentView: View {
             ScrollView {
                 ForEach(appointmentViewModel.pastAppointments().reversed()) { appointment in
                     NavigationLink(destination: {
-                        UIKitDetailAppointmentView(isPast: true, dateRdv: appointmentViewModel.formattedDate(date: appointment.dateHeureRdv), heureRdv: appointmentViewModel.formattedTime(date: appointment.dateHeureRdv), nameImageSpecialist: appointment.specialist.picture, nameSpecialist: "Dr. \(appointment.specialist.name) \(appointment.specialist.firstName.uppercased())", specialitySpecialist: appointment.specialist.speciality.nom, motif: appointment.motif, place: "", phone: "", pay: "",document: "")
+                        UIKitDetailAppointmentView(isPast: true, appointment: appointment, dateRdv: appointmentViewModel.formattedDate(date: appointment.dateHeureRdv), heureRdv: appointmentViewModel.formattedTime(date: appointment.dateHeureRdv))
                     }, label: {
                         ZStack {
                             Rectangle()
@@ -213,7 +213,7 @@ struct PastAppointmentView: View {
                                     .background(.white)
                                 
                                 HStack {
-                                    Image(appointment.specialist.picture)
+                                    Image(appointment.specialist.nameImage)
                                         .resizable()
                                         .frame(width: 62.0, height: 61.0)
                                         .cornerRadius(100

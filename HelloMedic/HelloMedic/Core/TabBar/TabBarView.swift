@@ -26,7 +26,7 @@ struct TabBarView: View {
                 }
                 .tag(Tab.home)
             
-            Text("Appointment Screen")
+            AppointmentView()
                 .tabItem {
                     Image(systemName: Tab.appointment.rawValue)
                     Text("Rendez-vous")
