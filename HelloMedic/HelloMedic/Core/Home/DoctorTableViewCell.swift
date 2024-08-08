@@ -77,7 +77,7 @@ class DoctorTableViewCell: UITableViewCell {
         drImageView.image = UIImage(named: doctor.pictName)
         drNameLabel.text = doctor.name
         drSpecialtyLabel.text = doctor.specialty
-        drDistanceLabel.text = doctor.distance
-        drAvailabilityLabel.text = doctor.availability
+        drDistanceLabel.text = "Distance: \(doctor.distance)"
+        drAvailabilityLabel.text = "Disponibilité: \(doctor.availability)"
     }
 }
