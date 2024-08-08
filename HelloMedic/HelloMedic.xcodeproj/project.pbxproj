@@ -28,7 +28,7 @@
 		691057A32C4AB665001BB6F4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691057A22C4AB665001BB6F4 /* SearchView.swift */; };
 		699CBE642C61026200E0E20B /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699CBE632C61026200E0E20B /* FilterButtonView.swift */; };
 		699CBE662C61166200E0E20B /* DoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699CBE652C61166200E0E20B /* DoctorTableViewCell.swift */; };
-		699F8C3E2C63D3AF003D2716 /* Baloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 699F8C3D2C63D2F8003D2716 /* Baloo-Regular.ttf */; };
+		699F8C422C64B5CF003D2716 /* Baloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 699F8C412C64B5CF003D2716 /* Baloo-Regular.ttf */; };
 		69B873F02C5B77EF0038E3A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B873EF2C5B77EF0038E3A6 /* HomeViewController.swift */; };
 		69B873F22C5BACAE0038E3A6 /* DoctorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B873F12C5BACAE0038E3A6 /* DoctorListModel.swift */; };
 		69B873F42C5BACF80038E3A6 /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B873F32C5BACF80038E3A6 /* DoctorModel.swift */; };
@@ -77,7 +77,7 @@
 		699CBE632C61026200E0E20B /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
 		699CBE652C61166200E0E20B /* DoctorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTableViewCell.swift; sourceTree = "<group>"; };
 		699F8C392C625CA0003D2716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		699F8C3D2C63D2F8003D2716 /* Baloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo-Regular.ttf"; sourceTree = "<group>"; };
+		699F8C412C64B5CF003D2716 /* Baloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo-Regular.ttf"; sourceTree = "<group>"; };
 		69B873EF2C5B77EF0038E3A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		69B873F12C5BACAE0038E3A6 /* DoctorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListModel.swift; sourceTree = "<group>"; };
 		69B873F32C5BACF80038E3A6 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
@@ -239,8 +239,8 @@
 			children = (
 				68C236552C5CDE280001B402 /* medicalInfoData.json */,
 				68C236442C5A5DA50001B402 /* usersData.json */,
-				699F8C3D2C63D2F8003D2716 /* Baloo-Regular.ttf */,
 				680C181E2C49177A00BD7874 /* Assets.xcassets */,
+				699F8C412C64B5CF003D2716 /* Baloo-Regular.ttf */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -423,7 +423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				699F8C3E2C63D3AF003D2716 /* Baloo-Regular.ttf in Resources */,
+				699F8C422C64B5CF003D2716 /* Baloo-Regular.ttf in Resources */,
 				68C236452C5A5DA50001B402 /* usersData.json in Resources */,
 				680C18222C49177A00BD7874 /* Preview Assets.xcassets in Resources */,
 				680C181F2C49177A00BD7874 /* Assets.xcassets in Resources */,
