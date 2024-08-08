@@ -120,10 +120,26 @@
 		6804B7612C63BDFD00C6F7AF /* AppointmentDetails */ = {
 			isa = PBXGroup;
 			children = (
-				6804B7622C63BE8200C6F7AF /* AppointmentDetailsView.swift */,
-				6804B7642C63C05400C6F7AF /* AppointmentDetailsViewController.swift */,
+				6804B7692C655DA700C6F7AF /* Controller */,
+				6804B7682C655D9B00C6F7AF /* View */,
 			);
 			path = AppointmentDetails;
+			sourceTree = "<group>";
+		};
+		6804B7682C655D9B00C6F7AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6804B7622C63BE8200C6F7AF /* AppointmentDetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6804B7692C655DA700C6F7AF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6804B7642C63C05400C6F7AF /* AppointmentDetailsViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		680C180E2C49177900BD7874 = {

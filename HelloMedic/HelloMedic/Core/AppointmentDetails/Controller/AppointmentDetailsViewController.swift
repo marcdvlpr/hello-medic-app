@@ -17,7 +17,6 @@ class AppointmentDetailsViewController: UIViewController {
         
         locationManager = CLLocationManager()
         locationManager?.delegate = self
-        
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.requestAlwaysAuthorization()
         locationManager?.requestLocation()
@@ -29,6 +28,7 @@ class AppointmentDetailsViewController: UIViewController {
         appointmentDetailsView.addSubview(mapView)
         appointmentDetailsView.addSubview(informationView)
         appointmentDetailsView.addSubview(nameContactLabel)
+        appointmentDetailsView.addSubview(contactPhoneButton)
         
         view.addSubview(appointmentDetailsView)
         
@@ -112,6 +112,18 @@ class AppointmentDetailsViewController: UIViewController {
         return text
     }()
     
+    private let contactPhoneButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("06 07 08 09 10", for: .normal)
+        button.setImage(UIImage(systemName: "phone.fill"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .systemGreen
+        button.setTitleColor(.white, for: .normal)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
     private func setupAutoLayout() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
@@ -162,6 +174,12 @@ class AppointmentDetailsViewController: UIViewController {
         nameContactLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
         nameContactLabel.textAlignment = .left
         
+        contactPhoneButton.translatesAutoresizingMaskIntoConstraints = false
+        contactPhoneButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        contactPhoneButton.topAnchor.constraint(equalTo: nameContactLabel.bottomAnchor, constant: 10).isActive = true
+        contactPhoneButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20).isActive = true
+        contactPhoneButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
+        contactPhoneButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
     }
     
     private func checkLocationAuthorization() {
