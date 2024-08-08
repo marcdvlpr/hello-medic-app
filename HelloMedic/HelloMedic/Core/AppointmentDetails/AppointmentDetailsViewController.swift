@@ -9,8 +9,18 @@ import UIKit
 import MapKit
 
 class AppointmentDetailsViewController: UIViewController {
+    
+    var locationManager: CLLocationManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        
+        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.requestAlwaysAuthorization()
+        locationManager?.requestLocation()
         
         appointmentDetailsView.addSubview(imageView)
         appointmentDetailsView.addSubview(nameLabel)
@@ -69,11 +79,11 @@ class AppointmentDetailsViewController: UIViewController {
         let map = MKMapView()
         map.clipsToBounds = true
         map.layer.cornerRadius = 10
-//        map.showsUserLocation = true
+        map.showsUserLocation = true
         return map
     }()
     
-    func setupAutoLayout() {
+    private func setupAutoLayout() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -108,5 +118,37 @@ class AppointmentDetailsViewController: UIViewController {
         mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         mapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
         mapView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
+    }
+    
+    private func checkLocationAuthorization() {
+        guard let locationManager = locationManager,
+              let location = locationManager.location else { return }
+        
+        switch locationManager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 750, longitudinalMeters: 750)
+            mapView.setRegion(region, animated: true)
+        case .denied:
+            print("Location services has been denied.")
+        case .notDetermined, .restricted:
+            print("Location cannot be dertermined or restricted.")
+        @unknown default:
+            print("Unkkown error. Unable to get location.")
+        }
+    }
+}
+
+extension AppointmentDetailsViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthorization()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print(error)
     }
 }
