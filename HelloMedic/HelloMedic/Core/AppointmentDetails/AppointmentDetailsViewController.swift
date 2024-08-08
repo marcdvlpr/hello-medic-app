@@ -27,6 +27,7 @@ class AppointmentDetailsViewController: UIViewController {
         appointmentDetailsView.addSubview(specialityLabel)
         appointmentDetailsView.addSubview(estimatedTimeLabel)
         appointmentDetailsView.addSubview(mapView)
+        appointmentDetailsView.addSubview(informationView)
         
         view.addSubview(appointmentDetailsView)
         
@@ -66,7 +67,6 @@ class AppointmentDetailsViewController: UIViewController {
     private let estimatedTimeLabel: UILabel = {
         let text = UILabel()
         text.text = "Arrivée estimée 14:30"
-        text.backgroundColor = UIColor(.white)
         text.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         text.layer.borderWidth = 1
         text.layer.borderColor = UIColor(named: "hmBlue")?.cgColor
@@ -81,6 +81,26 @@ class AppointmentDetailsViewController: UIViewController {
         map.layer.cornerRadius = 10
         map.showsUserLocation = true
         return map
+    }()
+    
+    private let informationView: UITextView = {
+        let text = UITextView()
+        text.text = """
+                        Préparer le nécessaire pour votre rendez-vous
+                    
+                    • Carte vitale
+                    • Carnet de santé
+                    • Les traitements en cours
+                    • Informer pour toute allergie et/ou interventions 
+                      récentes
+                    """
+        text.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        text.backgroundColor = UIColor(named: "hmBlue")
+        text.textColor = .white
+        text.textContainerInset = UIEdgeInsets(top: 18, left: 12, bottom: 18, right: 12)
+        text.clipsToBounds = true
+        text.layer.cornerRadius = 10
+        return text
     }()
     
     private func setupAutoLayout() {
@@ -118,6 +138,13 @@ class AppointmentDetailsViewController: UIViewController {
         mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         mapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
         mapView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
+        
+        informationView.translatesAutoresizingMaskIntoConstraints = false
+        informationView.heightAnchor.constraint(equalToConstant: 160).isActive = true
+        informationView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 20).isActive = true
+        informationView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        informationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
+        informationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
     }
     
     private func checkLocationAuthorization() {
