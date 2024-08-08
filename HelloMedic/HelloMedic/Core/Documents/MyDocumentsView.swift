@@ -5,6 +5,7 @@
 //  Created by Apprenant 162 on 01/08/2024.
 //
 import SwiftUI
+import UIKit
 
 struct MyDocumentsView: View {
     let textToShare = "Partager"

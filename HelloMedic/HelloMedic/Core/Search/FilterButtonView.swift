@@ -15,6 +15,7 @@ struct FilterButtonView: View {
     var body: some View {
         
         NavigationStack {
+            /// Filtre sprécialité pour les docteur
             List {
                 ForEach(doctorslist.filtredSpecialty) { doctorslist in
                     NavigationLink {

@@ -30,6 +30,7 @@
 		691057A32C4AB665001BB6F4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691057A22C4AB665001BB6F4 /* SearchView.swift */; };
 		699CBE642C61026200E0E20B /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699CBE632C61026200E0E20B /* FilterButtonView.swift */; };
 		699CBE662C61166200E0E20B /* DoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699CBE652C61166200E0E20B /* DoctorTableViewCell.swift */; };
+		699F8C422C64B5CF003D2716 /* Baloo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 699F8C412C64B5CF003D2716 /* Baloo-Regular.ttf */; };
 		69B873F02C5B77EF0038E3A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B873EF2C5B77EF0038E3A6 /* HomeViewController.swift */; };
 		69B873F22C5BACAE0038E3A6 /* DoctorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B873F12C5BACAE0038E3A6 /* DoctorListModel.swift */; };
 		69B873F42C5BACF80038E3A6 /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B873F32C5BACF80038E3A6 /* DoctorModel.swift */; };
@@ -80,6 +81,7 @@
 		699CBE632C61026200E0E20B /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
 		699CBE652C61166200E0E20B /* DoctorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTableViewCell.swift; sourceTree = "<group>"; };
 		699F8C392C625CA0003D2716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		699F8C412C64B5CF003D2716 /* Baloo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo-Regular.ttf"; sourceTree = "<group>"; };
 		69B873EF2C5B77EF0038E3A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		69B873F12C5BACAE0038E3A6 /* DoctorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListModel.swift; sourceTree = "<group>"; };
 		69B873F32C5BACF80038E3A6 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				6910579C2C4AAB4F001BB6F4 /* Home */,
 				680C182E2C49438C00BD7874 /* Login */,
 				680C18342C49457100BD7874 /* Register */,
+				75D65CDA2C64B08A008DB4A0 /* Documents */,
 				680C182D2C49437C00BD7874 /* Root */,
 				691057A12C4AB637001BB6F4 /* Search */,
 				680C18312C49443B00BD7874 /* SpecialistProfile */,
@@ -268,6 +271,7 @@
 				68C236552C5CDE280001B402 /* medicalInfoData.json */,
 				68C236442C5A5DA50001B402 /* usersData.json */,
 				680C181E2C49177A00BD7874 /* Assets.xcassets */,
+				699F8C412C64B5CF003D2716 /* Baloo-Regular.ttf */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -277,8 +281,6 @@
 			children = (
 				75D65C172C5824B0008DB4A0 /* RegisterViewOne.swift */,
 				75D65C142C578B51008DB4A0 /* RegisterViewTwo.swift */,
-				75D65C392C5B8C50008DB4A0 /* MyDocumentsView.swift */,
-				75D65C3B2C5BB12F008DB4A0 /* DocumentDetailView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -381,6 +383,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		75D65CDA2C64B08A008DB4A0 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				75D65C392C5B8C50008DB4A0 /* MyDocumentsView.swift */,
+				75D65C3B2C5BB12F008DB4A0 /* DocumentDetailView.swift */,
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
 		F389E25B2C4A6B9A00CFCB77 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +461,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				699F8C422C64B5CF003D2716 /* Baloo-Regular.ttf in Resources */,
 				68C236452C5A5DA50001B402 /* usersData.json in Resources */,
 				680C18222C49177A00BD7874 /* Preview Assets.xcassets in Resources */,
 				680C181F2C49177A00BD7874 /* Assets.xcassets in Resources */,

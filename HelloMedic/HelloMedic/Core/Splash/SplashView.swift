@@ -17,7 +17,7 @@ struct SplashView: View {
         VStack {
             // Texte HelloDoc avec la police personnalisée
             Text("HelloDoc")
-                .font(Font.custom("Baloo", size: 64))
+                .font(Font.custom("Baloo-Regular", size: 64))
                 .foregroundColor(Color("hmBlue"))
             
             // Image du logo avec une animation de mise à l'échelle
