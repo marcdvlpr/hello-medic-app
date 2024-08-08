@@ -28,6 +28,7 @@ class AppointmentDetailsViewController: UIViewController {
         appointmentDetailsView.addSubview(estimatedTimeLabel)
         appointmentDetailsView.addSubview(mapView)
         appointmentDetailsView.addSubview(informationView)
+        appointmentDetailsView.addSubview(nameContactLabel)
         
         view.addSubview(appointmentDetailsView)
         
@@ -103,6 +104,14 @@ class AppointmentDetailsViewController: UIViewController {
         return text
     }()
     
+    private let nameContactLabel: UILabel = {
+        let text = UILabel()
+        text.text = "Contacter Dr Lisa Smith"
+        text.textColor = .black
+        text.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        return text
+    }()
+    
     private func setupAutoLayout() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
@@ -145,6 +154,14 @@ class AppointmentDetailsViewController: UIViewController {
         informationView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         informationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
         informationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
+        
+        nameContactLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameContactLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        nameContactLabel.topAnchor.constraint(equalTo: informationView.bottomAnchor, constant: 20).isActive = true
+        nameContactLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
+        nameContactLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
+        nameContactLabel.textAlignment = .left
+        
     }
     
     private func checkLocationAuthorization() {

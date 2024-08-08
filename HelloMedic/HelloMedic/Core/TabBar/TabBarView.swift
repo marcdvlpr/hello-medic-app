@@ -33,7 +33,7 @@ struct TabBarView: View {
                 }
                 .tag(Tab.appointment)
             
-            AppointmentDetailsView()
+            Text("Favorite Screen")
                 .tabItem {
                     Image(systemName: Tab.favorite.rawValue)
                     Text("Favoris")

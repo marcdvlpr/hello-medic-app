@@ -34,7 +34,8 @@ struct UserProfileView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 25))
             }
             .sheet(isPresented: $isSheetPresented){
-                EditProfileView()
+//                EditProfileView()
+                AppointmentDetailsView()
             }
             .shadow(radius: 10)
             
