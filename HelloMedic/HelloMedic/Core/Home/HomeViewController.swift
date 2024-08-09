@@ -11,9 +11,11 @@ import SwiftUI
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var doctors: [Doctor] = [
-        Doctor(pictName: "drlisa", name: "Dr. Lisa MANOBAL", specialty: "Médecin généraliste", rating: 5, distance: "1,2 Km", availability: "se déplacer à 9h00"),
-        Doctor(pictName: "drnicolas", name: "Dr. Nicolas CAGE", specialty: "Pédiatre", rating: 4, distance: "1,1 Km", availability: "se déplacer à 10h00"),
-        Doctor(pictName: "drmiranda", name: "Dr. Miranda Bailey", specialty: "Kinésithérapeute", rating: 5, distance: "1,4 Km", availability: "se déplacer à 9h30")
+        Doctor(pictName: "drlisa", name: "Lisa MANOBAL", specialty: "Médecin généraliste", rating: 5, distance: "1,2 Km", availability: "se déplacer à 9h00", perimeter :"20km autour de Paris 75008", phoneNumber: "01 42 76 23 58", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nEspagnol", horaires: "30km autour de Paris 75003", certification: Certification(school: "Université de Paris", diplome: "Diplôme d'État de Docteur en Médecine")),
+        
+        Doctor(pictName: "drnicolas", name: "Nicolas CAGE", specialty: "Pédiatre", rating: 4, distance: "1,1 Km", availability: "se déplacer à 9h00", perimeter: "40km autour de Paris 75018", phoneNumber: "01 83 94 67 82", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nAllemand", horaires: "",certification: Certification(school: "Université de Paris", diplome: "Diplôme d'État de Docteur en Médecine")),
+        
+        Doctor(pictName: "drmiranda", name: "Miranda BAILEY", specialty: "Kinésithérapeute", rating: 5, distance: "1 Km", availability: "se déplacer à 9h00",perimeter: "20km autour de Paris 75009", phoneNumber: "01 43 28 91 46", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nAnglais", horaires: "", certification: Certification(school: "IFMK de l'Université de Paris", diplome: "Diplôme d'État de Masseur-Kinésithérapeute"))
     ]
     
     let tableView = UITableView()
@@ -41,7 +43,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         ])
     }
     
-    // UITableViewDataSource Methods
+    // UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return doctors.count
@@ -56,15 +58,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    // UITableViewDelegate Methods
+    // UITableViewDelegate heightForRowAt
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 120
     }
     
+    // didSelectRowAt cell detail
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             _ = doctors[indexPath.row]
-            let detailView = DetailAppointmentView()
+        let detailView = ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: doctors[indexPath.row].pictName, name: doctors[indexPath.row].name, firstName: "", perimeter: doctors[indexPath.row].perimeter, phoneNumber: doctors[indexPath.row].phoneNumber, paymentMethod: doctors[indexPath.row].paymentMethod, languages: doctors[indexPath.row].paymentMethod, horaires: doctors[indexPath.row].horaires, certification: Certification(school: doctors[indexPath.row].certification.school, diplome: doctors[indexPath.row].certification.diplome), speciality: Speciality(nom: "", image: "")))
             let hostingController = UIHostingController(rootView: detailView)
             navigationController?.pushViewController(hostingController, animated: true)
         }

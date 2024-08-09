@@ -12,6 +12,7 @@ struct SearchView: View {
     @State private var searchText = ""
     @StateObject private var doctorslist = DoctorListViewModel()
     
+    
     var body: some View {
         
         NavigationStack {
@@ -25,8 +26,7 @@ struct SearchView: View {
             List {
                 ForEach (doctorslist.filteredDoctors) { doctorslist in
                     NavigationLink {
-                        Text(doctorslist.name)
-                        DetailAppointmentView()
+                        ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: doctorslist.pictName, name: doctorslist.name, firstName: "", perimeter: doctorslist.perimeter, phoneNumber: doctorslist.phoneNumber, paymentMethod: doctorslist.paymentMethod, languages: doctorslist.paymentMethod, horaires: doctorslist.horaires, certification: Certification(school: doctorslist.certification.school, diplome: doctorslist.certification.diplome), speciality: Speciality(nom: "", image: "")))
                     } label: {
                         HStack {
                             Image(doctorslist.pictName)
