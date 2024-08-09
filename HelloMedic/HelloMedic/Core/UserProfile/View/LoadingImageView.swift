@@ -32,5 +32,5 @@ struct LoadingImageView: View {
 }
 
 #Preview {
-    LoadingImageView(url: URL(string: "https://i.pravatar.cc/300?img=14"), initials: "JD")
+    LoadingImageView(url: URL(string: "https://i.pravatar.cc/300?img=12"), initials: "JD")
 }

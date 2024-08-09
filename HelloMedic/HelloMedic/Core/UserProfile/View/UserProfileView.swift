@@ -14,7 +14,7 @@ struct UserProfileView: View {
     
     var body: some View {
         NavigationStack {
-            LoadingImageView(url: URL(string: ""),
+            LoadingImageView(url: URL(string: vm.user.picture),
                              initials: vm.user.initials)
             .shadow(radius: 10)
             
