@@ -14,13 +14,8 @@ struct UserProfileView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                Circle()
-                    .frame(width: 100, height: 100)
-                    .foregroundStyle(Color(.systemGray2))
-                Text(vm.user.initials)
-                    .font(.largeTitle)
-            }
+            LoadingImageView(url: URL(string: ""),
+                             initials: vm.user.initials)
             .shadow(radius: 10)
             
             Button {
