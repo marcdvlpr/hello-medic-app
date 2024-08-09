@@ -41,7 +41,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         ])
     }
     
-    // UITableViewDataSource Methods
+    // UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return doctors.count
@@ -56,12 +56,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    // UITableViewDelegate Methods
+    // UITableViewDelegate heightForRowAt
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 120
     }
     
+    // didSelectRowAt cell detail
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             _ = doctors[indexPath.row]
             let detailView = DetailAppointmentView()
