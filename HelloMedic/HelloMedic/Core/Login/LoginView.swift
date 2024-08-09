@@ -14,24 +14,40 @@ struct LoginView: View {
     @State private var isPasswordValid: Bool = true
 
     var body: some View {
-        VStack(spacing: 20) {
-            LogoView()
-
-            EmailView(
-                email: $email,
-                isEmailValid: $isEmailValid
-            )
-
-            PasswordView(
-                password: $password,
-                isPasswordValid: $isPasswordValid
-            )
-
-            ButtonView(action: {
-                print("Login button touched")
-            })
+        NavigationStack {
+            VStack(spacing: 10) {
+                LogoView()
+                
+                EmailView(
+                    email: $email,
+                    isEmailValid: $isEmailValid
+                )
+                
+                PasswordView(
+                    password: $password,
+                    isPasswordValid: $isPasswordValid
+                )
+                
+                NavigationLink {
+                    TabBarView()
+                        .navigationBarBackButtonHidden()
+                } label: {
+                    ButtonView()
+                }
+                
+                HStack {
+                    NavigationLink {
+                        RegisterViewTwo()
+                    } label: {
+                        HStack {
+                            Text("Vous n'avez pas de compte ?")
+                                .font(.system(size: 14))
+                        }
+                    }
+                }
+            }
+            .padding()
         }
-        .padding()
     }
 }
 

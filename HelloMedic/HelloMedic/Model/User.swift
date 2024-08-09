@@ -20,6 +20,7 @@ struct User: Decodable {
     let postalCode: String
     let city: String
     let phone: String
+    let picture: String
     
     var formattedDate: String {
         return Date(timeIntervalSince1970: dateOfBirth).formatted(date: .long, time: .omitted)
