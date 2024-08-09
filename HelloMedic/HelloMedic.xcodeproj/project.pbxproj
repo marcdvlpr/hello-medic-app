@@ -48,6 +48,7 @@
 		75D65C3A2C5B8C50008DB4A0 /* MyDocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D65C392C5B8C50008DB4A0 /* MyDocumentsView.swift */; };
 		75D65C3C2C5BB12F008DB4A0 /* DocumentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D65C3B2C5BB12F008DB4A0 /* DocumentDetailView.swift */; };
 		75D65C3E2C5BDF32008DB4A0 /* RegisterM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D65C3D2C5BDF32008DB4A0 /* RegisterM.swift */; };
+		75D65CDE2C6614F0008DB4A0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D65CDD2C6614F0008DB4A0 /* RegisterView.swift */; };
 		F370C25D2C61073200BE0F6E /* ProfilSpecialistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370C25C2C61073200BE0F6E /* ProfilSpecialistView.swift */; };
 		F389E25D2C4A6C2A00CFCB77 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389E25C2C4A6C2A00CFCB77 /* AppointmentView.swift */; };
 		F389E2612C4A96AA00CFCB77 /* AppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */; };
@@ -104,6 +105,7 @@
 		75D65C392C5B8C50008DB4A0 /* MyDocumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocumentsView.swift; sourceTree = "<group>"; };
 		75D65C3B2C5BB12F008DB4A0 /* DocumentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDetailView.swift; sourceTree = "<group>"; };
 		75D65C3D2C5BDF32008DB4A0 /* RegisterM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterM.swift; sourceTree = "<group>"; };
+		75D65CDD2C6614F0008DB4A0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F370C25C2C61073200BE0F6E /* ProfilSpecialistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilSpecialistView.swift; sourceTree = "<group>"; };
 		F389E25C2C4A6C2A00CFCB77 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
 		F389E2602C4A96AA00CFCB77 /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentModel.swift; path = HelloMedic/Model/AppointmentModel.swift; sourceTree = SOURCE_ROOT; };
@@ -291,7 +293,7 @@
 		680C18342C49457100BD7874 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				75D65C172C5824B0008DB4A0 /* RegisterViewOne.swift */,
+				75D65CDB2C661481008DB4A0 /* Controller */,
 				75D65C142C578B51008DB4A0 /* RegisterViewTwo.swift */,
 			);
 			path = Register;
@@ -415,6 +417,23 @@
 			path = Documents;
 			sourceTree = "<group>";
 		};
+		75D65CDB2C661481008DB4A0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				75D65C172C5824B0008DB4A0 /* RegisterViewOne.swift */,
+				75D65CDC2C6614C6008DB4A0 /* View */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		75D65CDC2C6614C6008DB4A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75D65CDD2C6614F0008DB4A0 /* RegisterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F389E25B2C4A6B9A00CFCB77 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +541,7 @@
 				691057A32C4AB665001BB6F4 /* SearchView.swift in Sources */,
 				68C236542C5CD4DA0001B402 /* RowProfileView.swift in Sources */,
 				68C236522C5BD5420001B402 /* UserProfileViewModel.swift in Sources */,
+				75D65CDE2C6614F0008DB4A0 /* RegisterView.swift in Sources */,
 				69B873F42C5BACF80038E3A6 /* DoctorModel.swift in Sources */,
 				69B873F02C5B77EF0038E3A6 /* HomeViewController.swift in Sources */,
 				75D65C152C578B51008DB4A0 /* RegisterViewTwo.swift in Sources */,

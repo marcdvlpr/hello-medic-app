@@ -10,16 +10,10 @@ import UIKit
 
 class RegisterViewOne: UIViewController{
     
-//    @IBOutlet weak var loginButton: UIButton!
-//    @IBOutlet weak var errorlabel: UILabel!
-//    @IBOutlet weak var enterpassword: UITextField!
-//    @IBOutlet weak var enteremail: UITextField!
-    
     let enteremail = UITextField()
     let enterpassword = UITextField()
     let loginButton = UIButton(type: .system)
     let errorlabel = UILabel()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
