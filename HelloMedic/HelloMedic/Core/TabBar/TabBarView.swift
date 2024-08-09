@@ -19,7 +19,7 @@ struct TabBarView: View {
      
     var body: some View {
         TabView(selection: $selectedTab) {
-            Text("Home Screen")
+            HomeView()
                 .tabItem {
                     Image(systemName: Tab.home.rawValue)
                     Text("Accueil")
@@ -40,7 +40,7 @@ struct TabBarView: View {
                 }
                 .tag(Tab.favorite)
             
-            Text("Profile Screen")
+            UserProfileView()
                 .tabItem {
                     Image(systemName: Tab.profile.rawValue)
                     Text("Profil")

@@ -11,7 +11,7 @@ import SwiftUI
 struct HelloMedicApp: App {
     var body: some Scene {
         WindowGroup {
-            ViewCoordinator()
+            ContentView()
         }
     }
 }
