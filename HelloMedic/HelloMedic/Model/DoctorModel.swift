@@ -16,6 +16,12 @@ class Doctor: Identifiable {
     var rating: Int /// Évaluation du docteur.
     var distance: String /// Distance jusqu'au docteur.
     var availability: String
+    var perimeter : String
+    var phoneNumber: String
+    var paymentMethod: String
+    var languages: String
+    var horaires: String
+    var certification : Certification
     
     /// Initialisateur pour la classe Doctor.
        ///
@@ -26,12 +32,20 @@ class Doctor: Identifiable {
        ///   - rating: Évaluation du docteur.
        ///   - distance: Distance jusqu'au docteur.
        ///   - availability: Disponibilité du docteur.
-    init(pictName: String, name: String, specialty: String, rating: Int, distance: String, availability: String) {
+    init(pictName: String, name: String, specialty: String, rating: Int, distance: String, availability: String, perimeter: String, phoneNumber: String, paymentMethod: String, languages: String, horaires: String, certification: Certification) {
         self.pictName = pictName
         self.name = name
         self.specialty = specialty
         self.rating = rating
         self.distance = distance
         self.availability = availability
+        self.perimeter = perimeter
+        self.phoneNumber = phoneNumber
+        self.paymentMethod = paymentMethod
+        self.languages = languages
+        self.horaires = horaires
+        self.certification = certification
     }
+    
+    
 }
