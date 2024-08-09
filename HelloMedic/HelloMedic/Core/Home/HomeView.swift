@@ -16,7 +16,7 @@ struct HomeView: View {
         
         NavigationStack{
             VStack(alignment: .leading) {
-                Text("Bonjour, John DOE")
+                Text("Bonjour, John Doe")
                     .foregroundColor(.blue)
                     .font(.title2)
                     .padding(.top, 10)
