@@ -76,7 +76,9 @@ struct AppointmentView: View {
 
 struct UpComingAppointmentView: View {
     @StateObject private var appointmentViewModel = AppointmentViewModel()
+    @State private var isSheetPresented = false
     var isCurrentDay : Bool = false
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -181,9 +183,9 @@ struct UpComingAppointmentView: View {
                                         })
                                     }
                                 } else {
-                                    Button(action: {
-                                        
-                                    }, label: {
+                                    Button {
+                                        isSheetPresented.toggle()
+                                    } label: {
                                         HStack{
                                             Image(systemName: "arrowshape.right.fill")
                                             Text("Suivre le trajet")
@@ -195,7 +197,10 @@ struct UpComingAppointmentView: View {
                                         .buttonStyle(.borderedProminent)
                                         .background(.white)
                                         .cornerRadius(14)
-                                    })
+                                    }
+                                    .sheet(isPresented: $isSheetPresented){
+                                        AppointmentDetailsView()
+                                    }
                                 }
                             }
                         }
