@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         if isActive {
-            TabBarView()
+            LoginView()
         } else {
             SplashView(isActive: $isActive)
         }

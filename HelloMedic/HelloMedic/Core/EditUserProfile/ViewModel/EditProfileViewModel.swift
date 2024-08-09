@@ -16,6 +16,7 @@ class EditProfileViewModel: ObservableObject {
     @Published var postalCode: String = ""
     @Published var city: String = ""
     @Published var phone: String = ""
+    @Published var picture: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var bloodType: String = ""
@@ -36,6 +37,7 @@ class EditProfileViewModel: ObservableObject {
         postalCode = user.postalCode
         city = user.city
         phone = user.phone
+        picture = user.picture
         email = user.email
         password = user.password
         bloodType = medicalInfo.bloodType
