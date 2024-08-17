@@ -1,5 +1,5 @@
 //
-//  FavoriteCareGiversData1.swift
+//  FavoriteCareGiversData.swift
 //  HelloMedic
 //
 //  Created by Apprenant 125 on 17/08/2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FavoriteCareGiversData1 {
+struct FavoriteCareGiversData {
    static let careGivers: [CareGiver] = [
       CareGiver(
          name: "Dr Mickael Stevensen",
@@ -25,7 +25,7 @@ struct FavoriteCareGiversData1 {
          name: "Ms jennyfer Fergusson",
          specialty: "Infirmière",
          image: "drlisa",
-         specialtyImage: "cross.case"
+         specialtyImage: "syringe"
       ),
       CareGiver(
          name: "Ms johanna Smith",
@@ -37,7 +37,7 @@ struct FavoriteCareGiversData1 {
          name: "Ms Deborah Benett",
          specialty: "Aide-soignante",
          image: "drisabelle",
-         specialtyImage: "bandage"
+         specialtyImage: "cross.case"
       )
    ]
 }
