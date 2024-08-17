@@ -1,5 +1,5 @@
 //
-//  MainView1.swift
+//  MainView.swift
 //  HelloMedic
 //
 //  Created by Apprenant 125 on 17/08/2024.
@@ -24,7 +24,7 @@ struct MainView: View {
    var body: some View {
       NavigationView {
          VStack {
-            SpecialtyScrollView(
+            FilterCareGiverView(
                careGivers: favoriteCareGivers,
                selectedSpecialty: $selectedSpecialty,
                searchText: $searchText
@@ -33,7 +33,7 @@ struct MainView: View {
                .font(.system(.title3, weight: .bold))
                .frame(maxWidth: .infinity, alignment: .leading)
                .padding(10)
-            CaregiverList(careGivers: filteredCareGivers)
+            CareGiverList(careGivers: filteredCareGivers)
          }
          .navigationTitle("Bonjour, Lisa")
          .searchable(text: $searchText, prompt: "rechercher une spécialité")
