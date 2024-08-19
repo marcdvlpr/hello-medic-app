@@ -391,13 +391,21 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		6A93AF5C2C653473006BF883 /* FavorisView */ = {
+		6A1281602C73D1DA00E68A9F /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				6A1281562C73CEDA00E68A9F /* CareGiver.swift */,
 				6A1281582C73CEEE00E68A9F /* CareGiverList.swift */,
 				6A12815A2C73CEF700E68A9F /* FavoriteCareGiversData.swift */,
 				6A12815C2C73CF0000E68A9F /* FilterCareGiverView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6A93AF5C2C653473006BF883 /* FavorisView */ = {
+			isa = PBXGroup;
+			children = (
+				6A1281602C73D1DA00E68A9F /* Components */,
 				6A12815E2C73CF0900E68A9F /* MainView.swift */,
 			);
 			path = FavorisView;
