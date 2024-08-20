@@ -224,7 +224,7 @@
 				F389E25B2C4A6B9A00CFCB77 /* Appointment */,
 				6804B7612C63BDFD00C6F7AF /* AppointmentDetails */,
 				685BA7AB2C60D07600B96839 /* EditUserProfile */,
-				6A93AF5C2C653473006BF883 /* FavorisView */,
+				6A93AF5C2C653473006BF883 /* Favoris */,
 				6910579C2C4AAB4F001BB6F4 /* Home */,
 				680C182E2C49438C00BD7874 /* Login */,
 				680C18342C49457100BD7874 /* Register */,
@@ -402,13 +402,13 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		6A93AF5C2C653473006BF883 /* FavorisView */ = {
+		6A93AF5C2C653473006BF883 /* Favoris */ = {
 			isa = PBXGroup;
 			children = (
 				6A1281602C73D1DA00E68A9F /* Components */,
 				6A12815E2C73CF0900E68A9F /* MainView.swift */,
 			);
-			path = FavorisView;
+			path = Favoris;
 			sourceTree = "<group>";
 		};
 		6AF9347D2C5B6EDC0018164E /* Components */ = {
