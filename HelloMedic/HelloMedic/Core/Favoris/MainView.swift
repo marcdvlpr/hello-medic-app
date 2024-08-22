@@ -21,6 +21,12 @@ struct MainView: View {
       }
    }
 
+   func resetCareGivers() {
+      searchText = ""
+      selectedSpecialty = nil
+      favoriteCareGivers = FavoriteCareGiversData.careGivers
+   }
+
    var body: some View {
       NavigationView {
          VStack {
@@ -32,20 +38,47 @@ struct MainView: View {
             Text("Favoris")
                .font(.system(.title3, weight: .bold))
                .frame(maxWidth: .infinity, alignment: .leading)
-               .padding(10)
-            CareGiverList(careGivers: filteredCareGivers)
+               .padding(.leading, 10)
+            List(filteredCareGivers) { caregiver in
+               HStack {
+                  Image(caregiver.image)
+                     .resizable()
+                     .frame(width: 60, height: 60)
+                     .clipShape(Circle())
+                  VStack(alignment: .leading) {
+                     Text(caregiver.name)
+                        .font(.headline)
+                     Text(caregiver.specialty)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                  }
+               }
+            }
          }
-         .navigationTitle("Bonjour, Lisa")
+      }
          .searchable(text: $searchText, prompt: "rechercher une spécialité")
          .onChange(of: searchText) { oldValue, newValue in
-            selectedSpecialty = nil
-            print("Search Text: \(newValue)")
+            print("searchText changed to: \(newValue)")
+            if newValue.isEmpty {
+               resetCareGivers()
+            } else {
+               selectedSpecialty = nil
+            }
+         }
+         .onChange(of: selectedSpecialty) { oldValue, newValue in
+            print("selectedSpecialty changed to: \(String(describing: newValue))")
+            if newValue == nil {
+               searchText = ""
+               favoriteCareGivers = FavoriteCareGiversData.careGivers
+            }
+         }
+         .onSubmit(of: .search) {
+            if searchText.isEmpty {
+               resetCareGivers()
+            }
          }
       }
    }
-}
-
-
 
 #Preview {
    MainView()

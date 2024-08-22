@@ -17,7 +17,7 @@ struct CareGiverList: View {
                Image(caregiver.image)
                   .resizable()
                   .aspectRatio(contentMode: .fit)
-                  .frame(width: 50, height: 50)
+                  .frame(width: 70, height: 70)
                   .clipShape(Circle())
                VStack(alignment: .leading) {
                   Text(caregiver.name)
