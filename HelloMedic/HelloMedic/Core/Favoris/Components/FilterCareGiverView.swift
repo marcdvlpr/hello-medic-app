@@ -24,7 +24,7 @@ struct FilterCareGiverView: View {
                      .padding(10)
                      .background(Color.white)
                      .clipShape(Circle())
-                     .containerRelativeFrame(.horizontal, count: 4,spacing: 0)
+                     .containerRelativeFrame(.horizontal, count: 4,spacing: 15)
                      .overlay(Circle().stroke(Color.gray, lineWidth: 0.5))
                      .foregroundStyle(.blue)
                      .onTapGesture {
@@ -37,7 +37,7 @@ struct FilterCareGiverView: View {
                }
             }
          }
-         .padding(10)
+         .padding(.top, 27)
       }
       .padding(.horizontal)
    }
