@@ -7,23 +7,24 @@
 
 import UIKit
 
-class PractitionerCardViewViewController: UIViewController {
+class PractitionerViewController: UIViewController {
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      view.backgroundColor = .white
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+      let cardView = PractitionerCardView()
+      cardView.translatesAutoresizingMaskIntoConstraints = false
+      view.addSubview(cardView)
 
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+         // Contraintes pour la carte
+      NSLayoutConstraint.activate([
+         cardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+         //             cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+         cardView.widthAnchor.constraint(equalToConstant: 350),
+         cardView.heightAnchor.constraint(equalToConstant: 170)
+      ])
+   }
 }
+
+
