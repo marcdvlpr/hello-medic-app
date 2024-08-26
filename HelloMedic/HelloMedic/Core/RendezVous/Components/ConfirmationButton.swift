@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct ConfirmationButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    ConfirmationButton()
+   var body: some View {
+      Button(action: {
+         print("Le bouton a été cliqué")
+      }) {
+         Text("Confirmer votre rendez-vous")
+            .fontWeight(.bold)
+            .foregroundStyle(.white)
+            .padding()
+            .background(Color.blue)
+            .cornerRadius(10)
+      }
+      Spacer()
+   }
 }
