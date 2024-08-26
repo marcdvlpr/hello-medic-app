@@ -29,6 +29,8 @@ struct RendezVousView2: View {
          Color(white: 0.9).edgesIgnoringSafeArea(.all)
 
          VStack {
+
+            PractitionerViewControllerRepresentable()
             Spacer()
 
             DateSelectionView(daysOfWeek: daysOfWeek, dates: dates, isDaySelected: isDaySelected)
