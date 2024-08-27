@@ -25,9 +25,6 @@ struct RendezVousView2: View {
    @State private var selectedTime: String? = nil
 
    var body: some View {
-      ZStack {
-         Color(white: 0.9).edgesIgnoringSafeArea(.all)
-
          VStack {
 
             PractitionerViewControllerRepresentable()
@@ -43,7 +40,6 @@ struct RendezVousView2: View {
          }
       }
    }
-}
 
 #Preview {
    RendezVousView2()

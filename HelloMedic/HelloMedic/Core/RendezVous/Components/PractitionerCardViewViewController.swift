@@ -20,8 +20,7 @@ class PractitionerViewController: UIViewController {
       NSLayoutConstraint.activate([
          cardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
          cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-         //             cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-         cardView.widthAnchor.constraint(equalToConstant: 350),
+         cardView.widthAnchor.constraint(equalToConstant: 360),
          cardView.heightAnchor.constraint(equalToConstant: 170)
       ])
    }

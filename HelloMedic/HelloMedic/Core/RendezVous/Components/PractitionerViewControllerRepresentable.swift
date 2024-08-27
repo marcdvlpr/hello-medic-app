@@ -18,6 +18,6 @@ struct PractitionerViewControllerRepresentable: UIViewControllerRepresentable {
 
 struct PractitionerViewControllerRepresentable_Previews: PreviewProvider {
    static var previews: some View {
-      PractitionerViewControllerRepresentable()// FIXME: bug ?
+      PractitionerViewControllerRepresentable()
    }
 }

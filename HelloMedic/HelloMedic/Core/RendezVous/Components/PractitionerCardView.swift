@@ -9,9 +9,11 @@ import UIKit
 
 class PractitionerCardView: UIView {
    private let backgroundView = UIView()
+   
       // Initialisation de la vue
    override init(frame: CGRect) {
       super.init(frame: frame)
+      self.backgroundColor = UIColor.lightGray
       setupView()
    }
 
@@ -22,7 +24,8 @@ class PractitionerCardView: UIView {
 
       // Configuration de la vue
    private func setupView() {
-         // Configuration de base de la carte
+      
+         // Configuration de base de la card
       backgroundColor = UIColor.systemBlue
       layer.cornerRadius = 25
       layer.shadowColor = UIColor.black.cgColor
@@ -30,12 +33,11 @@ class PractitionerCardView: UIView {
       layer.shadowOffset = CGSize(width: 0, height: 2)
       layer.shadowRadius = 4
 
-         // Ajout des sous-vues ici
       setupSubviews()
    }
 
    private func setupSubviews() {
-         // Image du médecin
+         // Image du soignant
       let imageView = UIImageView()
       imageView.translatesAutoresizingMaskIntoConstraints = false
       imageView.contentMode = .scaleAspectFill
@@ -44,7 +46,7 @@ class PractitionerCardView: UIView {
       imageView.image = UIImage(named: "drfrancois")
       addSubview(imageView)
 
-         // Nom et prénom du médecin
+         // Nom et prénom du soignant
       let nameLabel = UILabel()
       nameLabel.translatesAutoresizingMaskIntoConstraints = false
       nameLabel.font = UIFont.boldSystemFont(ofSize: 18)
@@ -52,7 +54,7 @@ class PractitionerCardView: UIView {
       nameLabel.text = "Dr. Benhamou David"
       addSubview(nameLabel)
 
-         // Spécialité du médecin
+         // Spécialité du soignant
       let specialtyLabel = UILabel()
       specialtyLabel.translatesAutoresizingMaskIntoConstraints = false
       specialtyLabel.font = UIFont.systemFont(ofSize: 16)
@@ -62,7 +64,7 @@ class PractitionerCardView: UIView {
 
          // Contraintes pour les sous-vues
       NSLayoutConstraint.activate([
-         imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+         imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
          imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
          imageView.widthAnchor.constraint(equalToConstant: 80),
          imageView.heightAnchor.constraint(equalToConstant: 80),
