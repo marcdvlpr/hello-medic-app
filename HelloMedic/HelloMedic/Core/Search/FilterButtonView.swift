@@ -22,7 +22,7 @@ struct FilterButtonView: View {
                         Text(doctorslist.name)
                     } label: {
                         HStack {
-                            Image(doctorslist.pictName)
+                            Image(doctorslist.pict)
                                 .resizable()
                                 .frame(width: 70, height: 70)
                                 .clipShape(Circle())
