@@ -33,8 +33,9 @@ struct TabBarView: View {
                 }
                 .tag(Tab.appointment)
             
-            SearchSpecialistView()
-                .tabItem {
+           MainView()
+
+             .tabItem {
                     Image(systemName: Tab.favorite.rawValue)
                     Text("Favoris")
                 }

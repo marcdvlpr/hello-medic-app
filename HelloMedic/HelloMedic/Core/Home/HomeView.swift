@@ -171,8 +171,9 @@ struct HomeView: View {
                         HStack {
                             Image(systemName: "calendar")
                                 .foregroundColor(.white)
-                            Text("Lundi 03 Septembre")
+                            Text("Lundi 03 Septembre 2024")
                                 .foregroundColor(.white)
+                                .fixedSize(horizontal: false, vertical: true)
                             Spacer()
                             Image(systemName: "clock")
                                 .foregroundColor(.white)

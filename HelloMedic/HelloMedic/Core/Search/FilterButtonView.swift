@@ -30,7 +30,6 @@ struct FilterButtonView: View {
                                 .padding()
                             
                             VStack(alignment: .leading) {
-                                
                                 Text(doctorslist.name)
                                     .font(.headline)
                                 Text(doctorslist.specialty)
