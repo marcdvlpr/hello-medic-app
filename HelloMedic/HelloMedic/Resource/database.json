@@ -82,7 +82,7 @@
           "perimeter": "20km autour de Paris 75008",
           "phoneNumber": "01 42 76 23 58",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
-          "languages": "Français\nEspagnol",
+          "languages": "Français, Espagnol",
           "horaires": "30km autour de Paris 75003",
           "certification": {
             "school": "Université de Paris",
@@ -100,7 +100,7 @@
           "perimeter": "40km autour de Paris 75018",
           "phoneNumber": "01 83 94 67 82",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
-          "languages": "Français\nAllemand",
+          "languages": "Français, Allemand",
           "horaires": "",
           "certification": {
             "school": "Université de Paris",
@@ -118,7 +118,7 @@
           "perimeter": "20km autour de Paris 75009",
           "phoneNumber": "01 43 28 91 46",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
-          "languages": "Français\nAnglais",
+          "languages": "Français, Anglais",
           "horaires": "",
           "certification": {
             "school": "IFMK de l'Université de Paris",
@@ -136,7 +136,7 @@
           "perimeter": "30km autour de Paris 75003",
           "phoneNumber": "01 56 20 75 34",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
-          "languages": "Français\nAnglais",
+          "languages": "Français, Anglais",
           "horaires": "",
           "certification": {
             "school": "IFSI de l'AP-HP",
@@ -154,7 +154,7 @@
           "perimeter": "20km autour de Paris 75002",
           "phoneNumber": "01 65 67 89 12",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
-          "languages": "Français\nPortugais",
+          "languages": "Français, Portugais",
           "horaires": "",
           "certification": {
             "school": "Université de Bordeaux",
