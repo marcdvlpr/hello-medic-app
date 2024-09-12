@@ -7,45 +7,29 @@
 
 import Foundation
 
+/// Représente les informations de certification du médecin.
+///
+/// `MedicalCertification` inclut des informations sur l'école où le médecin a obtenu son diplôme
+/// ainsi que le type de diplôme reçu.
+struct MedicalCertification: Codable {
+    var school: String /// L'école où le médecin a obtenu son diplôme.
+    var diplome: String /// Le type de diplôme obtenu par le médecin.
+}
+
 /// Représente un médecin avec ses détails.
-class Doctor: Identifiable {
-    let id = UUID() /// Identifiant unique pour chaque docteur.
-    var pictName: String /// Nom de l'image du docteur.
+struct Doctor: Identifiable, Codable {
+    let id: String /// Identifiant unique pour chaque docteur.
+    var pict: String /// Nom de l'image du docteur.
     var name: String /// Nom du docteur.
     var specialty: String /// Spécialité du docteur.
     var rating: Int /// Évaluation du docteur.
     var distance: String /// Distance jusqu'au docteur.
-    var availability: String
-    var perimeter : String
-    var phoneNumber: String
-    var paymentMethod: String
-    var languages: String
-    var horaires: String
-    var certification : Certification
-    
-    /// Initialisateur pour la classe Doctor.
-       ///
-       /// - Parameters:
-       ///   - pictName: Nom de l'image du docteur.
-       ///   - name: Nom du docteur.
-       ///   - specialty: Spécialité du docteur.
-       ///   - rating: Évaluation du docteur.
-       ///   - distance: Distance jusqu'au docteur.
-       ///   - availability: Disponibilité du docteur.
-    init(pictName: String, name: String, specialty: String, rating: Int, distance: String, availability: String, perimeter: String, phoneNumber: String, paymentMethod: String, languages: String, horaires: String, certification: Certification) {
-        self.pictName = pictName
-        self.name = name
-        self.specialty = specialty
-        self.rating = rating
-        self.distance = distance
-        self.availability = availability
-        self.perimeter = perimeter
-        self.phoneNumber = phoneNumber
-        self.paymentMethod = paymentMethod
-        self.languages = languages
-        self.horaires = horaires
-        self.certification = certification
-    }
-    
+    var availability: String /// Les horaires de disponibilité du médecin.
+    var perimeter : String /// Le périmètre dans lequel le médecin intervient.
+    var phoneNumber: String /// Le numéro de téléphone du médecin.
+    var paymentMethod: String /// Les méthodes de paiement acceptées par le médecin.
+    var languages: String /// Les langues parlées par le médecin.
+    var horaires: String /// Les horaires spécifiques ou supplémentaires du médecin.
+    var certification : MedicalCertification /// La certification médicale du médecin.
     
 }

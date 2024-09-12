@@ -26,10 +26,10 @@ struct SearchView: View {
             List {
                 ForEach (doctorslist.filteredDoctors) { doctorslist in
                     NavigationLink {
-                        ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: doctorslist.pictName, name: doctorslist.name, firstName: "", perimeter: doctorslist.perimeter, phoneNumber: doctorslist.phoneNumber, paymentMethod: doctorslist.paymentMethod, languages: doctorslist.paymentMethod, horaires: doctorslist.horaires, certification: Certification(school: doctorslist.certification.school, diplome: doctorslist.certification.diplome), speciality: Speciality(nom: "", image: "")))
+                        ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: doctorslist.pict, name: doctorslist.name, firstName: "", perimeter: doctorslist.perimeter, phoneNumber: doctorslist.phoneNumber, paymentMethod: doctorslist.paymentMethod, languages: doctorslist.paymentMethod, horaires: doctorslist.horaires, certification: Certification(school: doctorslist.certification.school, diplome: doctorslist.certification.diplome), speciality: Speciality(nom: "", image: "")))
                     } label: {
                         HStack {
-                            Image(doctorslist.pictName)
+                            Image(doctorslist.pict)
                                 .resizable()
                                 .frame(width: 70, height: 70)
                                 .clipShape(Circle())
