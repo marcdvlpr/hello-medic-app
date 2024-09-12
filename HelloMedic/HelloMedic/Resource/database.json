@@ -59,12 +59,12 @@
           "specialty": "Médecin généraliste",
           "rating": 5,
           "distance": "5 km",
-          "availability": "Lundi à Vendredi, 9h-17h",
+          "availability": "Lundi au Vendredi, 9h-17h",
           "perimeter": "10 km",
           "phoneNumber": "01 23 45 67 89",
           "paymentMethod": "Carte de crédit, Espèces, Assurance",
           "languages": "Français, Anglais",
-          "horaires": "Lundi à Vendredi : 9h-17h, Samedi : 9h-12h",
+          "horaires": "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
           "certification": {
             "institution": "Université de Paris",
             "year": 2005,
@@ -83,7 +83,7 @@
           "phoneNumber": "01 42 76 23 58",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
           "languages": "Français, Espagnol",
-          "horaires": "30km autour de Paris 75003",
+          "horaires": "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
           "certification": {
             "school": "Université de Paris",
             "diplome": "Diplôme d'État de Docteur en Médecine"
@@ -101,7 +101,7 @@
           "phoneNumber": "01 83 94 67 82",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
           "languages": "Français, Allemand",
-          "horaires": "",
+          "horaires": "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
           "certification": {
             "school": "Université de Paris",
             "diplome": "Diplôme d'État de Docteur en Médecine"
@@ -119,7 +119,7 @@
           "phoneNumber": "01 43 28 91 46",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
           "languages": "Français, Anglais",
-          "horaires": "",
+          "horaires": "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
           "certification": {
             "school": "IFMK de l'Université de Paris",
             "diplome": "Diplôme d'État de Masseur-Kinésithérapeute"
@@ -137,7 +137,7 @@
           "phoneNumber": "01 56 20 75 34",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
           "languages": "Français, Anglais",
-          "horaires": "",
+          "horaires": "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
           "certification": {
             "school": "IFSI de l'AP-HP",
             "diplome": "Diplôme d'État d'Infirmier"
@@ -155,7 +155,7 @@
           "phoneNumber": "01 65 67 89 12",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
           "languages": "Français, Portugais",
-          "horaires": "",
+          "horaires": "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
           "certification": {
             "school": "Université de Bordeaux",
             "diplome": "Diplôme d'État de Docteur en Médecine"
@@ -173,11 +173,19 @@
           "phoneNumber": "01 49 32 58 74",
           "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
           "languages": "Français",
-          "horaires": "",
+          "horaires": "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
           "certification": {
             "school": "Université Claude Bernard Lyon 1",
             "diplome": "Diplôme d'État de Docteur en Médecine"
           }
         }
-      ]
+      ],
+    "ordonnance": [
+        "id": "f68d5448-9230-465f-bb5a-af713dc3bdba"
+        "titre": "Ordonnance de médicaments"
+        "docname": "Dr. KIGUERI"
+        "date": "01 Août 2024"
+        "username": "John DOE"
+    ]
+    
 }

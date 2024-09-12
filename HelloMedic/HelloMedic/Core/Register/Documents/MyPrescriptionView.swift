@@ -7,22 +7,25 @@
 import SwiftUI
 import UIKit
 
-struct MyDocumentsView: View {
+struct MyPrescriptionView: View {
     let textToShare = "Partager"
     @State private var isShareSheetPresented = false
     @State private var isButtonSelected = false
     @State private var showingModal = false
     
-    struct ActivityViewController: UIViewControllerRepresentable {
-        let activityItems: [Any]
+struct ActivityViewController: UIViewControllerRepresentable {
+    let activityItems: [Any]
             
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+    let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
                 return controller
             }
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
             }
         }
+    var array = [Ordonnance(id: 0, titre: "Ordonnance de médicaments", docname: "Dr KEPNER", date: "26 Juillet 2024", username: "John DOE"),
+                 Ordonnance(id: 0, titre: "Ordonnance de médicaments", docname: "Dr BAILEY", date: "23 Mai 2024", username: "John DOE"),
+                 Ordonnance(id: 0, titre: "Ordonnance de médicaments", docname: "Dr CAGE", date: "04 Janvier 2024", username: "John DOE")]
        
     var body: some View {
         ZStack{
@@ -37,9 +40,7 @@ struct MyDocumentsView: View {
         List {
             Button(action: {
                 showingModal = true
-                
             }, label: {
-                
                 HStack{
                     Image(systemName: "pills")
                         .foregroundStyle(Color.hmSkyBlue)
@@ -49,14 +50,12 @@ struct MyDocumentsView: View {
                         .font(.system(size: 19
                                      ))
                 }
-                
                 HStack{
                     Text("Dr KIGUERI")
                         .foregroundStyle(Color.black)
                     
                     Text("01 Août 2024")
                         .foregroundStyle(Color.black)
-                    
                 }
                 HStack{
                     Image(systemName: "person.fill")
@@ -72,18 +71,14 @@ struct MyDocumentsView: View {
                     .sheet(isPresented: $isShareSheetPresented) {
                 ActivityViewController(activityItems: [textToShare])
                     };
-                        
                                 }
             })
             .sheet(isPresented: $showingModal) {
                 DocumentDetailView()
             }
-         
             ForEach(array) { document in
                 VStack {
-                    
                     HStack {
-                        
                         Image(systemName: "pills")
                             .foregroundStyle(Color.hmSkyBlue)
                         
@@ -91,8 +86,6 @@ struct MyDocumentsView: View {
                             .foregroundStyle(Color.hmBlue)
                             .font(.system(size: 19
                                          ))
-                        
-                        
                     }
                     HStack {
                         Text(document.docname)
@@ -109,16 +102,12 @@ struct MyDocumentsView: View {
                     }
                 }
                 .padding(.vertical, 5)
-                
             }
-
             }
-            
             }
-
         }
     
     #Preview {
-        MyDocumentsView()
+        MyPrescriptionView()
     }
 

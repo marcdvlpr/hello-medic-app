@@ -35,7 +35,7 @@ struct UserProfileView: View {
             
             List {
                 NavigationLink {
-                    MyDocumentsView()
+                    MyPrescriptionView()
                 } label: {
                     Text("Documents")
                 }
