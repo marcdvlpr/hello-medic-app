@@ -261,8 +261,7 @@
 		680C182E2C49438C00BD7874 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				6AF9347D2C5B6EDC0018164E /* Components */,
-				6AF9347E2C5B72950018164E /* LoginView.swift */,
+				6AF9347D2C5B6EDC0018164E /* Views */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -443,15 +442,16 @@
 			path = Favoris;
 			sourceTree = "<group>";
 		};
-		6AF9347D2C5B6EDC0018164E /* Components */ = {
+		6AF9347D2C5B6EDC0018164E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6AF9347E2C5B72950018164E /* LoginView.swift */,
 				6AF934802C5B83F70018164E /* LogoView.swift */,
 				6AF934822C5B85600018164E /* EmailView.swift */,
 				6AF934842C5B88F00018164E /* PasswordView.swift */,
 				6AF934862C5B8EA60018164E /* ButtonView.swift */,
 			);
-			path = Components;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		753151792C92F7B800B67E61 /* ViewModel */ = {
