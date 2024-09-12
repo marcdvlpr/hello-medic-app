@@ -181,11 +181,13 @@
         }
       ],
     "ordonnance": [
-        "id": "f68d5448-9230-465f-bb5a-af713dc3bdba"
-        "titre": "Ordonnance de médicaments"
-        "docname": "Dr. KIGUERI"
-        "date": "01 Août 2024"
+        {
+        "id": "f68d5448-9230-465f-bb5a-af713dc3bdba",
+        "titre": "Ordonnance de médicaments",
+        "docname": "Dr. KIGUERI",
+        "date": "01 Août 2024",
         "username": "John DOE"
+        }
     ]
     
 }
