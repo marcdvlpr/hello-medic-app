@@ -58,18 +58,19 @@ struct UserProfileView: View {
                     RowProfileView(title: "Téléphone",
                                    value: vm.user?.phone ?? "")
                 }
+                .redacted(reason: vm.user == nil ? .placeholder : [])
                 
                 Section("Information Médical") {
                     RowProfileView(title: "Groupe Sanguin", 
-                                   value: vm.medicalInfo.bloodType)
-                    RowProfileView(title: "Allergies", 
-                                   value: vm.medicalInfo.allergies)
-                    RowProfileView(title: "Taille", 
-                                   value: "\(vm.medicalInfo.height) cm")
-                    RowProfileView(title: "Poids", 
-                                   value: "\(vm.medicalInfo.weight) kg")
-                    RowProfileView(title: "Fauteuil Roulant", 
-                                   value: "\(vm.medicalInfo.wheelchair ? "Oui" : "Non")")
+                                   value: vm.medicalInfo?.bloodType ?? "")
+                    RowProfileView(title: "Allergies",
+                                   value: vm.medicalInfo?.allergies ?? "")
+                    RowProfileView(title: "Taille",
+                                   value: "\(vm.medicalInfo?.height ?? 0) cm")
+                    RowProfileView(title: "Poids",
+                                   value: "\(vm.medicalInfo?.weight ?? 0) kg")
+                    RowProfileView(title: "Fauteuil Roulant",
+                                   value: "\(vm.medicalInfo?.wheelchair ?? false ? "Oui" : "Non")")
                 }
                 
                 Section("Connexion") {
@@ -95,6 +96,7 @@ struct UserProfileView: View {
         }
         .onAppear {
             vm.getUserById(userId: "761f596e-d330-4960-b839-c68d614915e4")
+            vm.getMedicalInformationById(userId: "761f596e-d330-4960-b839-c68d614915e4")
         }
     }
 }
