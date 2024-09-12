@@ -18,6 +18,7 @@
 		680C18382C4A653100BD7874 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680C18372C4A653100BD7874 /* UserProfileView.swift */; };
 		685BA7AD2C60D50E00B96839 /* EditUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685BA7AC2C60D50E00B96839 /* EditUserProfileView.swift */; };
 		685BA7AF2C60F40C00B96839 /* RowEditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685BA7AE2C60F40C00B96839 /* RowEditProfileView.swift */; };
+		6896057B2C92E12B00333D82 /* database.json in Resources */ = {isa = PBXBuildFile; fileRef = 6896057A2C92E12B00333D82 /* database.json */; };
 		68B53B172C62356000B5FEDD /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B53B162C62356000B5FEDD /* EditProfileViewModel.swift */; };
 		68C236432C5A254B0001B402 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C236422C5A254B0001B402 /* User.swift */; };
 		68C236452C5A5DA50001B402 /* usersData.json in Resources */ = {isa = PBXBuildFile; fileRef = 68C236442C5A5DA50001B402 /* usersData.json */; };
@@ -84,6 +85,7 @@
 		680C18372C4A653100BD7874 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		685BA7AC2C60D50E00B96839 /* EditUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileView.swift; sourceTree = "<group>"; };
 		685BA7AE2C60F40C00B96839 /* RowEditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowEditProfileView.swift; sourceTree = "<group>"; };
+		6896057A2C92E12B00333D82 /* database.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = database.json; sourceTree = "<group>"; };
 		68B53B162C62356000B5FEDD /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		68C236422C5A254B0001B402 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		68C236442C5A5DA50001B402 /* usersData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usersData.json; sourceTree = "<group>"; };
@@ -193,7 +195,6 @@
 		680C18192C49177900BD7874 /* HelloMedic */ = {
 			isa = PBXGroup;
 			children = (
-				699F8C3A2C626849003D2716 /* Baloo */,
 				699F8C392C625CA0003D2716 /* Info.plist */,
 				680C182B2C4942DF00BD7874 /* App */,
 				680C182C2C49435800BD7874 /* Core */,
@@ -304,6 +305,7 @@
 		680C18332C4944AE00BD7874 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6896057A2C92E12B00333D82 /* database.json */,
 				68C236552C5CDE280001B402 /* medicalInfoData.json */,
 				68C236442C5A5DA50001B402 /* usersData.json */,
 				680C181E2C49177A00BD7874 /* Assets.xcassets */,
@@ -562,6 +564,7 @@
 				68C236452C5A5DA50001B402 /* usersData.json in Resources */,
 				680C18222C49177A00BD7874 /* Preview Assets.xcassets in Resources */,
 				680C181F2C49177A00BD7874 /* Assets.xcassets in Resources */,
+				6896057B2C92E12B00333D82 /* database.json in Resources */,
 				68C236562C5CDE280001B402 /* medicalInfoData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
