@@ -14,8 +14,8 @@ struct UserProfileView: View {
     
     var body: some View {
         NavigationStack {
-            LoadingImageView(url: URL(string: vm.user.picture),
-                             initials: vm.user.initials)
+            LoadingImageView(url: URL(string: vm.user?.picture ?? ""),
+                             initials: vm.user?.initials ?? "")
             .shadow(radius: 10)
             
             Button {
@@ -42,21 +42,21 @@ struct UserProfileView: View {
                 
                 Section("Information Personnelle ") {
                     RowProfileView(title: "Prénom", 
-                                   value: vm.user.firstName)
+                                   value: vm.user?.firstName ?? "")
                     RowProfileView(title: "Nom",
-                                   value: vm.user.lastName)
+                                   value: vm.user?.lastName ?? "")
                     RowProfileView(title: "Date de naissance",
-                                   value: vm.user.formattedDate)
-                    RowProfileView(title: "Genre", 
-                                   value: vm.user.gender)
-                    RowProfileView(title: "Adresse", 
-                                   value: vm.user.address)
-                    RowProfileView(title: "Code Postal", 
-                                   value: vm.user.postalCode)
-                    RowProfileView(title: "Ville", 
-                                   value: vm.user.city)
-                    RowProfileView(title: "Téléphone", 
-                                   value: vm.user.phone)
+                                   value: vm.user?.formattedDate ?? "")
+                    RowProfileView(title: "Genre",
+                                   value: vm.user?.gender ?? "")
+                    RowProfileView(title: "Adresse",
+                                   value: vm.user?.address ?? "")
+                    RowProfileView(title: "Code Postal",
+                                   value: vm.user?.postalCode ?? "")
+                    RowProfileView(title: "Ville",
+                                   value: vm.user?.city ?? "")
+                    RowProfileView(title: "Téléphone",
+                                   value: vm.user?.phone ?? "")
                 }
                 
                 Section("Information Médical") {
@@ -74,8 +74,8 @@ struct UserProfileView: View {
                 
                 Section("Connexion") {
                     RowProfileView(title: "Email", 
-                                   value: vm.user.email)
-                    RowProfileView(title: "Password", 
+                                   value: vm.user?.email ?? "")
+                    RowProfileView(title: "Password",
                                    value: "••••••••••••")
                 }
                 
@@ -92,6 +92,9 @@ struct UserProfileView: View {
                         .foregroundStyle(.red)
                 }
             }
+        }
+        .onAppear {
+            vm.getUserById(userId: "761f596e-d330-4960-b839-c68d614915e4")
         }
     }
 }
