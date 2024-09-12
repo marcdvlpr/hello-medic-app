@@ -7,7 +7,7 @@
 import SwiftUI
 import UIKit
 
-struct MyDocumentsView: View {
+struct MyPrescriptionView: View {
     let textToShare = "Partager"
     @State private var isShareSheetPresented = false
     @State private var isButtonSelected = false
@@ -108,6 +108,6 @@ struct ActivityViewController: UIViewControllerRepresentable {
         }
     
     #Preview {
-        MyDocumentsView()
+        MyPrescriptionView()
     }
 
