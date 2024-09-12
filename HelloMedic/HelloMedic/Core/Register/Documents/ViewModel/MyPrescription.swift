@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class MyPrescription: ObservableObject {
+    @Published var ordonnance: [Ordonnance] = []
+    
+    func fetchordonnance() {
+       
+    }
+    
+}
