@@ -19,7 +19,7 @@ struct FilterButtonView: View {
             List {
                 ForEach(doctorslist.filtredSpecialty) { doctorslist in
                     NavigationLink {
-                        Text(doctorslist.name)
+                        ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: doctorslist.pict, name: doctorslist.name, firstName: "", perimeter: doctorslist.perimeter, phoneNumber: doctorslist.phoneNumber, paymentMethod: doctorslist.paymentMethod, languages: doctorslist.paymentMethod, horaires: doctorslist.horaires, certification: Certification(school: doctorslist.certification.school, diplome: doctorslist.certification.diplome), speciality: Speciality(nom: "", image: "")))
                     } label: {
                         HStack {
                             Image(doctorslist.pict)
