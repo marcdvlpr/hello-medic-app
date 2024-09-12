@@ -50,5 +50,134 @@
             "weight": 60,
             "wheelchair": false
         }
-    ]
+    ],
+    "doctors": [
+        {
+          "id": "2866b124-9e18-48ab-af10-587c58fc0484",
+          "pict": "https://devweb88.com/dr/drfrancois.jpeg",
+          "name": "Dr. François BENHAMOU",
+          "specialty": "Médecin généraliste",
+          "rating": 5,
+          "distance": "5 km",
+          "availability": "Lundi à Vendredi, 9h-17h",
+          "perimeter": "10 km",
+          "phoneNumber": "01 23 45 67 89",
+          "paymentMethod": "Carte de crédit, Espèces, Assurance",
+          "languages": "Français, Anglais",
+          "horaires": "Lundi à Vendredi : 9h-17h, Samedi : 9h-12h",
+          "certification": {
+            "institution": "Université de Paris",
+            "year": 2005,
+            "specialization": "Cardiologie"
+          }
+        },
+        {
+          "id": "fa1373af-7272-4350-95cb-fbac3b125e35",
+          "pict": "https://devweb88.com/dr/drlisa.jpeg",
+          "name": "Lisa MANOBAL",
+          "specialty": "Médecin généraliste",
+          "rating": 5,
+          "distance": "1,2 Km",
+          "availability": "se déplacer à 9h00",
+          "perimeter": "20km autour de Paris 75008",
+          "phoneNumber": "01 42 76 23 58",
+          "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+          "languages": "Français\nEspagnol",
+          "horaires": "30km autour de Paris 75003",
+          "certification": {
+            "school": "Université de Paris",
+            "diplome": "Diplôme d'État de Docteur en Médecine"
+          }
+        },
+        {
+          "id": "35d66fc6-6c80-4b5b-8548-48d9941066d9",
+          "pict": "https://devweb88.com/dr/drnicolas.jpeg",
+          "name": "Nicolas CAGE",
+          "specialty": "Pédiatre",
+          "rating": 4,
+          "distance": "1,1 Km",
+          "availability": "se déplacer à 9h00",
+          "perimeter": "40km autour de Paris 75018",
+          "phoneNumber": "01 83 94 67 82",
+          "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+          "languages": "Français\nAllemand",
+          "horaires": "",
+          "certification": {
+            "school": "Université de Paris",
+            "diplome": "Diplôme d'État de Docteur en Médecine"
+          }
+        },
+        {
+          "id": "b13b26e1-df4b-4db6-9b79-f689ba2c848b",
+          "pict": "https://devweb88.com/dr/drmiranda.png",
+          "name": "Miranda BAILEY",
+          "specialty": "Kinésithérapeute",
+          "rating": 5,
+          "distance": "1 Km",
+          "availability": "se déplacer à 9h00",
+          "perimeter": "20km autour de Paris 75009",
+          "phoneNumber": "01 43 28 91 46",
+          "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+          "languages": "Français\nAnglais",
+          "horaires": "",
+          "certification": {
+            "school": "IFMK de l'Université de Paris",
+            "diplome": "Diplôme d'État de Masseur-Kinésithérapeute"
+          }
+        },
+        {
+          "id": "7fd7ac17-6d3c-4db7-8234-3019e1e4227e",
+          "pict": "https://devweb88.com/dr/drapril.png",
+          "name": "April KEPNERK",
+          "specialty": "Infirmière",
+          "rating": 5,
+          "distance": "1,4 Km",
+          "availability": "se déplacer à 9h00",
+          "perimeter": "30km autour de Paris 75003",
+          "phoneNumber": "01 56 20 75 34",
+          "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+          "languages": "Français\nAnglais",
+          "horaires": "",
+          "certification": {
+            "school": "IFSI de l'AP-HP",
+            "diplome": "Diplôme d'État d'Infirmier"
+          }
+        },
+        {
+          "id": "edb7f25c-c64f-4909-9ed7-ede787663767",
+          "pict": "https://devweb88.com/dr/drmeredith.jpeg",
+          "name": "Méredith GREY",
+          "specialty": "Médecin généraliste",
+          "rating": 4,
+          "distance": "2 Km",
+          "availability": "se déplacer à 9h00",
+          "perimeter": "20km autour de Paris 75002",
+          "phoneNumber": "01 65 67 89 12",
+          "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+          "languages": "Français\nPortugais",
+          "horaires": "",
+          "certification": {
+            "school": "Université de Bordeaux",
+            "diplome": "Diplôme d'État de Docteur en Médecine"
+          }
+        },
+        {
+          "id": "d953e3d8-d4cb-4863-898a-f9f9776d7660",
+          "pict": "https://devweb88.com/dr/drlisa.jpeg",
+          "name": "Sandy Wilder CHENG",
+          "specialty": "Aide-soignante",
+          "rating": 4,
+          "distance": "1 Km",
+          "availability": "se déplacer à 9h00",
+          "perimeter": "40km autour de Paris 75012",
+          "phoneNumber": "01 49 32 58 74",
+          "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+          "languages": "Français",
+          "horaires": "",
+          "certification": {
+            "school": "Université Claude Bernard Lyon 1",
+            "diplome": "Diplôme d'État de Docteur en Médecine"
+          }
+        }
+      ]
 }
