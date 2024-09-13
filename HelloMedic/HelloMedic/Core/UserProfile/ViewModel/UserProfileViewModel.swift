@@ -8,10 +8,10 @@
 import Foundation
 
 class UserProfileViewModel: ObservableObject {
-    @Published var user: User?
-    @Published var medicalInfo: MedicalInfo?
+    @Published var user: User = User(id: "", email: "", password: "", verified: false, firstName: "", lastName: "", dateOfBirth: Date.now, gender: "", address: "", postalCode: "", city: "", phone: "", picture: "")
+    @Published var medicalInfo: MedicalInfo = MedicalInfo(id: "", userID: "", bloodType: "", allergies: "", height: 0, weight: 0, wheelchair: false)
     
-    private let baseURL = "http://localhost:3000"
+    let baseURL = "http://localhost:3000"
     
     func getUserById(userId: String) {
         guard let url = URL(string: "\(baseURL)/users/\(userId)") else {
@@ -57,6 +57,32 @@ class UserProfileViewModel: ObservableObject {
             } else if let error = error {
                 print("Error fetching data: \(error)")
             }
+        }.resume()
+    }
+    
+    func updateUser(_ user: User) {
+        guard let url = URL(string: "\(baseURL)/users/\(user.id)") else {
+            print("Invalid URL")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        
+        do {
+            let data = try JSONEncoder().encode(user)
+            request.httpBody = data
+        } catch {
+            print("Error encoding contact: \(error)")
+            return
+        }
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error updating contact: \(error)")
+                return
+            }
+            self.getUserById(userId: user.id)
         }.resume()
     }
 }
