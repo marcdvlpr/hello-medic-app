@@ -14,7 +14,7 @@ struct AnnotatedLocation: Identifiable {
 }
 
 struct ProfilSpecialistView: View {
-    let specialist: ProfilSpecialist
+    let specialist: Doctor
     
     @State private var region = MapCameraPosition.region(
             MKCoordinateRegion(
@@ -27,13 +27,21 @@ struct ProfilSpecialistView: View {
     
     var body: some View {
         ScrollView {
-            Image(specialist.nameImage)
-                .cornerRadius(100)
+            
+            AsyncImage(url: URL(string: specialist.pict)) { image in
+                image
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .cornerRadius(100)
+            } placeholder: {
+                ProgressView()
+                    .frame(width: 50.0, height: 50.0)
+            }
             Text("Dr \(specialist.name)")
                 .foregroundStyle(.hmBlue)
                 .fontWeight(.semibold)
                 .font(.system(size: 16))
-            Text(specialist.speciality.nom)
+            Text(specialist.specialty)
                 .foregroundStyle(.hmBlue)
                 .fontWeight(.regular)
                 .font(.system(size: 13))
@@ -156,7 +164,7 @@ struct ProfilSpecialistView: View {
 }
 
 #Preview {
-    ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: "", name: "", firstName: "", perimeter: "", phoneNumber: "", paymentMethod: "", languages: "", horaires: "", certification: Certification(school: "", diplome: ""), speciality: Speciality(nom: "", image: "")))
+    ProfilSpecialistView(specialist: Doctor(id: UUID().uuidString, pict: "", name: "", specialty: "", rating: 5, distance: "", availability: "", perimeter: "", phoneNumber: "", paymentMethod: "", languages: "", horaires: "", certification: MedicalCertification(school: "", diplome: "")))
 }
 
 struct SectionTitle<Content: View> : View {

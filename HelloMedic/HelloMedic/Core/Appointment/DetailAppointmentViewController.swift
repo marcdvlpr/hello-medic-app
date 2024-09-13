@@ -14,6 +14,8 @@ class DetailAppointmentViewController : UIViewController {
     let dateRdv : String
     let heureRdv : String
     
+    var profilSpecialistViewModel = ProfilSpecialistViewModel()
+    
     var composantMotif : ComposantView!
     var composantPlace : ComposantView!
     var composantPhone : ComposantView!
@@ -23,6 +25,7 @@ class DetailAppointmentViewController : UIViewController {
     let profilSpecialistButton = UIButton(type: .system)
     
     init(isPast: Bool, appointment : Appointment, dateRdv : String, heureRdv : String) {
+        
         self.isPast = isPast
         self.appointment = appointment
         self.dateRdv = dateRdv
@@ -31,8 +34,8 @@ class DetailAppointmentViewController : UIViewController {
         
         composantMotif = ComposantView(nameSection: "Motif", imageSection: UIImage(systemName: "message.fill") ?? UIImage(), textSection: appointment.motif, isPast: isPast)
         composantPlace = ComposantView(nameSection: "Lieu", imageSection: UIImage(systemName: "location.fill") ?? UIImage(), textSection: appointment.place, isPast: isPast)
-        composantPhone = ComposantView(nameSection: "Contact", imageSection: UIImage(systemName: "phone.fill") ?? UIImage(), textSection: appointment.specialist.phoneNumber, isPast: isPast)
-        composantPay = ComposantView(nameSection: "Modalités paiement", imageSection: UIImage(systemName: "creditcard.fill") ?? UIImage(), textSection: appointment.specialist.paymentMethod, isPast: isPast)
+        composantPhone = ComposantView(nameSection: "Contact", imageSection: UIImage(systemName: "phone.fill") ?? UIImage(), textSection: profilSpecialistViewModel.getDoctorById(appointment.specialistId).phoneNumber, isPast: isPast)
+        composantPay = ComposantView(nameSection: "Modalités paiement", imageSection: UIImage(systemName: "creditcard.fill") ?? UIImage(), textSection: profilSpecialistViewModel.getDoctorById(appointment.specialistId).paymentMethod, isPast: isPast)
         composantDocument = ComposantView(nameSection: "Documents", imageSection: UIImage(systemName: "doc.fill") ?? UIImage(), textSection: appointment.document.nom, isPast: isPast, appointment: appointment, dateRdv: dateRdv)
 
     }
@@ -115,11 +118,11 @@ class DetailAppointmentViewController : UIViewController {
         
         divider.backgroundColor = .white
         
-        specialistNameLabel.text = "Dr \(appointment.specialist.name) \(appointment.specialist.firstName)"
+        specialistNameLabel.text = "Dr \(profilSpecialistViewModel.getDoctorById(appointment.specialistId).name)"
         specialistNameLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         specialistNameLabel.textColor = .white
         
-        specialistSpeciality.text = appointment.specialist.speciality.nom
+        specialistSpeciality.text = profilSpecialistViewModel.getDoctorById(appointment.specialistId).specialty
         specialistSpeciality.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         specialistSpeciality.textColor = .white
         
@@ -127,7 +130,7 @@ class DetailAppointmentViewController : UIViewController {
         specialistVStack.spacing = 1
         specialistVStack.alignment = .leading
         
-        specialistImageView.image = UIImage(named: appointment.specialist.nameImage)
+        specialistImageView.image = UIImage(named: profilSpecialistViewModel.getDoctorById(appointment.specialistId).pict)
         specialistImageView.clipsToBounds = true
         specialistImageView.layer.cornerRadius = 38
         specialistImageView.contentMode = .scaleAspectFill
@@ -336,7 +339,7 @@ class DetailAppointmentViewController : UIViewController {
     @objc func navigateToSpecialistProfile() {
         print("Navigate to specialist profile tapped")
         // Présenter la vue SwiftUI avec UIHostingController
-        let hostingController = UIHostingController(rootView: ProfilSpecialistView(specialist: appointment.specialist))
+        let hostingController = UIHostingController(rootView: ProfilSpecialistView(specialist: profilSpecialistViewModel.getDoctorById(appointment.specialistId)))
         // Créer un UINavigationController si vous voulez que la vue SwiftUI soit dans une pile de navigation
         let navigationController = UINavigationController(rootViewController: hostingController)
         
@@ -362,6 +365,8 @@ class ComposantView: UIView {
     var isPast : Bool
     var appointment : Appointment?
     var dateRdv : String?
+    
+    var profilSpecialistViewModel = DoctorListViewModel()
     
     init(nameSection: String, imageSection: UIImage, textSection: String, isPast: Bool, appointment: Appointment? = nil, dateRdv: String? = nil) {
         self.nameSection = nameSection
@@ -451,7 +456,7 @@ class ComposantView: UIView {
             documentImageView.image = UIImage(systemName: appointment?.document.namePicto ?? "")
             documentImageView.tintColor = .hmGreen
             
-            doctorLabel.text = "\(appointment?.specialist.name ?? "") \(appointment?.specialist.firstName ?? "")"
+            doctorLabel.text = "\(profilSpecialistViewModel.getDoctorById(appointment!.specialistId).name)"
             doctorLabel.textColor = .hmGreen
             doctorLabel.font = UIFont.systemFont(ofSize: 11, weight: .light)
             

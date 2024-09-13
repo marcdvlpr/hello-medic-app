@@ -8,20 +8,146 @@
 import Foundation
 
 class ProfilSpecialistViewModel: ObservableObject {
-    @Published var specialists: [ProfilSpecialist] = []
+    @Published var specialists: [Doctor] = []
     var viewModel = SpecialityViewModel()
     
     init() {
         // Chargez les données initiales ou simulez-les pour l'exemple
         self.specialists = [
-            ProfilSpecialist(nameImage: "drlisa", name: "Lisa", firstName: "Manobal", perimeter: "20km autour de Paris 75008", phoneNumber: "01 42 76 23 58", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nEspagnol", horaires: "30km autour de Paris 75003", certification: Certification(school: "Université de Paris", diplome: "Diplôme d'État de Docteur en Médecine"), speciality: viewModel.specialities[0]),
-            ProfilSpecialist(nameImage: "drnicolas", name: "Nicolas", firstName: "Cage", perimeter: "40km autour de Paris 75018", phoneNumber: "01 83 94 67 82", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nAllemand", horaires: "",certification: Certification(school: "Université de Paris", diplome: "Diplôme d'État de Docteur en Médecine"), speciality: viewModel.specialities[1]),
-            ProfilSpecialist(nameImage: "drmiranda", name: "Miranda", firstName: "Bailey", perimeter: "20km autour de Paris 75009", phoneNumber: "01 43 28 91 46", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nAnglais", horaires: "", certification: Certification(school: "IFMK de l'Université de Paris", diplome: "Diplôme d'État de Masseur-Kinésithérapeute"), speciality: viewModel.specialities[2]),
-            ProfilSpecialist(nameImage: "drapril", name: "April", firstName: "Kepner", perimeter: "30km autour de Paris 75003", phoneNumber: "01 56 20 75 34", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nAnglais", horaires: "", certification: Certification(school: "IFSI de l'AP-HP", diplome: "Diplôme d'État d'Infirmier"), speciality: viewModel.specialities[3]),
-            ProfilSpecialist(nameImage: "drmeredith", name: "Mérédith", firstName: "Grey", perimeter: "20km autour de Paris 75002", phoneNumber: "01 65 67 89 12", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nPortugais", horaires: "", certification: Certification(school: "Université de Bordeaux", diplome: "Diplôme d'État de Docteur en Médecine"), speciality: viewModel.specialities[0]),
-            ProfilSpecialist(nameImage: "drfrancois", name: "François", firstName: "Benhamou", perimeter: "40km autour de Paris 75012", phoneNumber: "01 49 32 58 74", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français", horaires: "", certification: Certification(school: "Université Claude Bernard Lyon 1", diplome: "Diplôme d'État de Docteur en Médecine"), speciality: viewModel.specialities[0]),
-            ProfilSpecialist(nameImage: "dralexandre", name: "Alexandre", firstName: "Dumas", perimeter: "25km autour de Paris 75020", phoneNumber: "01 27 24 19 83", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nItalien", horaires: "",certification: Certification(school: "Université de Paris", diplome: "Diplôme d'État de Docteur en Médecine"), speciality: viewModel.specialities[0]),
-            ProfilSpecialist(nameImage: "drisabelle", name: "Isabelle", firstName: "Tousaint", perimeter: "40km autour de Paris 75014", phoneNumber: "01 44 73 92 65", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nEspagnol", horaires: "", certification: Certification(school: "IFSI de l'Université de Marseille", diplome: "Diplôme d'État d'Infirmier"), speciality: viewModel.specialities[3])
+            Doctor(
+                    id: "2866b124-9e18-48ab-af10-587c58fc0484",
+                    pict: "drfrancois",
+                    name: "François BENHAMOU",
+                    specialty: "Médecin généraliste",
+                    rating: 5,
+                    distance: "5 km",
+                    availability: "Lundi au Vendredi, 9h-17h",
+                    perimeter: "10 km",
+                    phoneNumber: "01 23 45 67 89",
+                    paymentMethod: "Carte de crédit, Espèces, Assurance",
+                    languages: "Français, Anglais",
+                    horaires: "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
+                    certification: MedicalCertification(
+                        school: "Université de Paris",
+                        diplome: "Diplôme d'État de Docteur en Médecine"
+                    )
+                ),
+                Doctor(
+                    id: "fa1373af-7272-4350-95cb-fbac3b125e35",
+                    pict: "drlisa",
+                    name: "Lisa MANOBAL",
+                    specialty: "Médecin généraliste",
+                    rating: 5,
+                    distance: "1,2 Km",
+                    availability: "se déplacer à 9h00",
+                    perimeter: "20km autour de Paris 75008",
+                    phoneNumber: "01 42 76 23 58",
+                    paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+                    languages: "Français, Espagnol",
+                    horaires: "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
+                    certification: MedicalCertification(
+                        school: "Université de Paris",
+                        diplome: "Diplôme d'État de Docteur en Médecine"
+                    )
+                ),
+                Doctor(
+                    id: "35d66fc6-6c80-4b5b-8548-48d9941066d9",
+                    pict: "drnicolas",
+                    name: "Nicolas CAGE",
+                    specialty: "Pédiatre",
+                    rating: 4,
+                    distance: "1,1 Km",
+                    availability: "se déplacer à 9h00",
+                    perimeter: "40km autour de Paris 75018",
+                    phoneNumber: "01 83 94 67 82",
+                    paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+                    languages: "Français, Allemand",
+                    horaires: "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
+                    certification: MedicalCertification(
+                        school: "Université de Paris",
+                        diplome: "Diplôme d'État de Docteur en Médecine"
+                    )
+                ),
+                Doctor(
+                    id: "b13b26e1-df4b-4db6-9b79-f689ba2c848b",
+                    pict: "drmiranda",
+                    name: "Miranda BAILEY",
+                    specialty: "Kinésithérapeute",
+                    rating: 5,
+                    distance: "1 Km",
+                    availability: "se déplacer à 9h00",
+                    perimeter: "20km autour de Paris 75009",
+                    phoneNumber: "01 43 28 91 46",
+                    paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+                    languages: "Français, Anglais",
+                    horaires: "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
+                    certification: MedicalCertification(
+                        school: "IFMK de l'Université de Paris",
+                        diplome: "Diplôme d'État de Masseur-Kinésithérapeute"
+                    )
+                ),
+                Doctor(
+                    id: "7fd7ac17-6d3c-4db7-8234-3019e1e4227e",
+                    pict: "drapril",
+                    name: "April KEPNERK",
+                    specialty: "Infirmière",
+                    rating: 5,
+                    distance: "1,4 Km",
+                    availability: "se déplacer à 9h00",
+                    perimeter: "30km autour de Paris 75003",
+                    phoneNumber: "01 56 20 75 34",
+                    paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+                    languages: "Français, Anglais",
+                    horaires: "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
+                    certification: MedicalCertification(
+                        school: "IFSI de l'AP-HP",
+                        diplome: "Diplôme d'État d'Infirmier"
+                    )
+                ),
+                Doctor(
+                    id: "edb7f25c-c64f-4909-9ed7-ede787663767",
+                    pict: "drmeredith",
+                    name: "Méredith GREY",
+                    specialty: "Médecin généraliste",
+                    rating: 4,
+                    distance: "2 Km",
+                    availability: "se déplacer à 9h00",
+                    perimeter: "20km autour de Paris 75002",
+                    phoneNumber: "01 65 67 89 12",
+                    paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+                    languages: "Français, Portugais",
+                    horaires: "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
+                    certification: MedicalCertification(
+                        school: "Université de Bordeaux",
+                        diplome: "Diplôme d'État de Docteur en Médecine"
+                    )
+                ),
+                Doctor(
+                    id: "d953e3d8-d4cb-4863-898a-f9f9776d7660",
+                    pict: "dralexandre",
+                    name: "Sandy Wilder CHENG",
+                    specialty: "Aide-soignant",
+                    rating: 4,
+                    distance: "1 Km",
+                    availability: "se déplacer à 9h00",
+                    perimeter: "40km autour de Paris 75012",
+                    phoneNumber: "01 49 32 58 74",
+                    paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+                    languages: "Français",
+                    horaires: "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
+                    certification: MedicalCertification (
+                        school: "Université Claude Bernard Lyon 1",
+                        diplome: "Diplôme d'État de Docteur en Médecine"
+                    )
+                )
         ]
+    }
+    
+    func getDoctorById(_ id: String) -> Doctor {
+        // Créer un médecin par défaut
+        let defaultDoctor = Doctor(id: "1", pict: "", name: "Inconnu", specialty: "", rating: 0, distance: "", availability: "", perimeter: "", phoneNumber: "", paymentMethod: "", languages: "", horaires: "", certification: MedicalCertification(school: "", diplome: ""))
+        
+        // Retourner le médecin correspondant ou le médecin par défaut
+        return specialists.first(where: { $0.id == id }) ?? defaultDoctor
     }
 }

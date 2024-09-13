@@ -67,7 +67,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // didSelectRowAt cell detail
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             _ = doctors[indexPath.row]
-        let detailView = ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: doctors[indexPath.row].pict, name: doctors[indexPath.row].name, firstName: "", perimeter: doctors[indexPath.row].perimeter, phoneNumber: doctors[indexPath.row].phoneNumber, paymentMethod: doctors[indexPath.row].paymentMethod, languages: doctors[indexPath.row].paymentMethod, horaires: doctors[indexPath.row].horaires, certification: Certification(school: doctors[indexPath.row].certification.school, diplome: doctors[indexPath.row].certification.diplome), speciality: Speciality(nom: "", image: "")))
+        let detailView = ProfilSpecialistView(specialist: doctors[indexPath.row])
             let hostingController = UIHostingController(rootView: detailView)
             navigationController?.pushViewController(hostingController, animated: true)
         }

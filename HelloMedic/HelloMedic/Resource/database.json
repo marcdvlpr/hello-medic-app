@@ -91,22 +91,22 @@
             }
         },
         {
-            "id": "fa1373af-7272-4350-95cb-fbac3b125e35",
-            "pict": "https://devweb88.com/dr/drlisa.jpeg",
-            "name": "Lisa MANOBAL",
-            "specialty": "Médecin généraliste",
-            "rating": 5,
-            "distance": "1,2 Km",
-            "availability": "se déplacer à 9h00",
-            "perimeter": "20km autour de Paris 75008",
-            "phoneNumber": "01 42 76 23 58",
-            "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
-            "languages": "Français, Espagnol",
-            "horaires": "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
-            "certification": {
-                "school": "Université de Paris",
-                "diplome": "Diplôme d'État de Docteur en Médecine"
-            }
+          "id": "fa1373af-7272-4350-95cb-fbac3b125e35",
+          "pict": "https://devweb88.com/dr/dralexandre.jpeg",
+          "name": "Alexandre MANOBAL",
+          "specialty": "Médecin généraliste",
+          "rating": 5,
+          "distance": "1,2 Km",
+          "availability": "se déplacer à 9h00",
+          "perimeter": "20km autour de Paris 75008",
+          "phoneNumber": "01 42 76 23 58",
+          "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
+          "languages": "Français, Espagnol",
+          "horaires": "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
+          "certification": {
+            "school": "Université de Paris",
+            "diplome": "Diplôme d'État de Docteur en Médecine"
+          }
         },
         {
             "id": "35d66fc6-6c80-4b5b-8548-48d9941066d9",
@@ -228,5 +228,116 @@
             "date": "04 Janvier 2024",
             "username": "John DOE"
         }
+<<<<<<< HEAD
+    ],
+    
+    "appointments":
+    [
+        {
+            "id": "B1C789BA-E7FF-4A27-8B43-1AB8C7D1A617",
+            "place": "12 Rue de la Paix\n75002 Paris, France",
+            "document":
+            {
+                "nom": "Rapport de bilan de santé complet",
+                "namePicto": "list.clipboard.fill"
+            },
+            "dateHeureRdv": "2024-05-07T10:00:00Z",
+            "motif": "Bilan de santé",
+            "isCanceled": false,
+            "specialistId": "7fd7ac17-6d3c-4db7-8234-3019e1e4227e"
+        },
+        {
+            "id": "6F7BD57B-C631-4897-97B3-2275AB293B69",
+            "place": "12 Rue de la Paix\n75002 Paris, France",
+            "document":
+            {
+                "nom": "Guide de soins de plaies",
+                "namePicto": "checklist.checked"
+            },
+            "dateHeureRdv": "2024-07-09T12:00:00Z",
+            "motif": "Soins post-opératoires",
+            "isCanceled": false,
+            "specialistId": "d953e3d8-d4cb-4863-898a-f9f9776d7660"
+        },
+        {
+            "id": "145A98B4-21EE-4343-A26D-858EF97870EB",
+            "place": "12 Rue de la Paix\n75002 Paris, France",
+            "document":
+            {
+                "nom": "",
+                "namePicto": ""
+            },
+            "dateHeureRdv": "2024-07-12T13:15:00Z",
+            "motif": "Changement pansement",
+            "isCanceled": false,
+            "specialistId": "d953e3d8-d4cb-4863-898a-f9f9776d7660"
+        },
+        {
+            "id": "CA2DAABC-2ABD-45BD-9B90-E3C4A3DA266F",
+            "place": "12 Rue de la Paix\n75002 Paris, France",
+            "document":
+            {
+                "nom": "",
+                "namePicto": ""
+            },
+            "dateHeureRdv": "2024-07-19T13:15:00Z",
+            "motif": "Changement pansement",
+            "isCanceled": false,
+            "specialistId": "d953e3d8-d4cb-4863-898a-f9f9776d7660"
+        },
+        {
+            "id": "31D9EB07-5688-4EB8-B529-7B648143206A",
+            "place": "12 Rue de la Paix\n75002 Paris, France",
+            "document":
+            {
+                "nom": "Ordonnance vaccin",
+                "namePicto": "syringe.fill"
+            },
+            "dateHeureRdv": "2024-07-23T14:00:00Z",
+            "motif": "Rappel vaccin",
+            "isCanceled": false,
+            "specialistId": "7fd7ac17-6d3c-4db7-8234-3019e1e4227e"
+        },
+        {
+            "id": "E2CF4147-DCC6-491B-BE97-761A5D949F90",
+            "place": "12 Rue de la Paix\n75002 Paris, France",
+            "document":
+            {
+                "nom": "Guide d'exercices de rééducation",
+                "namePicto": "checklist.checked"
+            },
+            "dateHeureRdv": "2024-09-16T18:00:00Z",
+            "motif": "Rééducation post-opératoire",
+            "isCanceled": false,
+            "specialistId": "35d66fc6-6c80-4b5b-8548-48d9941066d9"
+        },
+        {
+            "id": "F76FCAF8-146A-4CA6-AF21-440ABA1F6B42",
+            "place": "12 Rue de la Paix\n75002 Paris, France",
+            "document":
+            {
+                "nom": "Ordonnance médicaments",
+                "namePicto": "pill.fill"
+            },
+            "dateHeureRdv": "2024-09-21T14:00:00Z",
+            "motif": "Maux de tête et migraines",
+            "isCanceled": false,
+            "specialistId": "b13b26e1-df4b-4db6-9b79-f689ba2c848b"
+        },
+        {
+            "id": "1838F0B0-C714-427C-8004-1B1C397A6F07",
+            "place": "12 Rue de la Paix\n75002 Paris, France",
+            "document":
+            {
+                "nom": "Courbe de croissance et poids",
+                "namePicto": "heart.text.square.fill"
+            },
+            "dateHeureRdv": "2024-10-02T17:00:00Z",
+            "motif": "Examens de routine et suivi de croissance",
+            "isCanceled": false,
+            "specialistId": "2866b124-9e18-48ab-af10-587c58fc0484"
+        }
+=======
+>>>>>>> dev
     ]
 }
