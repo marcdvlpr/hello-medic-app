@@ -194,13 +194,8 @@ struct HomeView: View {
                     .font(.headline)
                 
                 VStack {
-                    
                     DoctorView()
-                    
                 }
-                
-                
-                
                 Spacer()
             }
             .padding()
