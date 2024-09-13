@@ -223,10 +223,9 @@
 				68C236572C5CDE9D0001B402 /* MedicalInfo.swift */,
 				F389E2622C4A96C000CFCB77 /* ProfilSpecialistModel.swift */,
 				F389E2662C4AA06100CFCB77 /* SpecialityModel.swift */,
-				75D65C3D2C5BDF32008DB4A0 /* Ordonnance.swift */,
 				68C236422C5A254B0001B402 /* User.swift */,
 				69B873F32C5BACF80038E3A6 /* DoctorModel.swift */,
-				75D65C3D2C5BDF32008DB4A0 /* RegisterM.swift */,
+				75D65C3D2C5BDF32008DB4A0 /* Ordonnance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,6 +376,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		690890582C944711000250E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6910579F2C4AABEA001BB6F4 /* HomeView.swift */,
+				69B873EF2C5B77EF0038E3A6 /* HomeViewController.swift */,
+				699CBE652C61166200E0E20B /* DoctorTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		691057992C4AA85A001BB6F4 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,9 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				69B873EA2C5A27D90038E3A6 /* ViewModel */,
-				6910579F2C4AABEA001BB6F4 /* HomeView.swift */,
-				69B873EF2C5B77EF0038E3A6 /* HomeViewController.swift */,
-				699CBE652C61166200E0E20B /* DoctorTableViewCell.swift */,
+				690890582C944711000250E8 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -643,7 +650,6 @@
 				6A0E2C9C2C7A85E90096DB7B /* RendezVousView.swift in Sources */,
 				680C18382C4A653100BD7874 /* UserProfileView.swift in Sources */,
 				7531517B2C92F80B00B67E61 /* MyPrescription.swift in Sources */,
-				6A93AF622C65373E006BF883 /* searchSpecialistView.swift in Sources */,
 				6A1281572C73CEDA00E68A9F /* CareGiver.swift in Sources */,
 				68C236482C5A60A40001B402 /* JSONLoader.swift in Sources */,
 				6804B7632C63BE8200C6F7AF /* AppointmentDetailsView.swift in Sources */,

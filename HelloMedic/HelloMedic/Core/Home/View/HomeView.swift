@@ -171,7 +171,7 @@ struct HomeView: View {
                         HStack {
                             Image(systemName: "calendar")
                                 .foregroundColor(.white)
-                            Text("Lundi 03 Septembre 2024")
+                            Text("Lundi 03 Décembre 2024")
                                 .foregroundColor(.white)
                                 .fixedSize(horizontal: false, vertical: true)
                             Spacer()
@@ -194,13 +194,8 @@ struct HomeView: View {
                     .font(.headline)
                 
                 VStack {
-                    
                     DoctorView()
-                    
                 }
-                
-                
-                
                 Spacer()
             }
             .padding()
