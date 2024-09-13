@@ -7,10 +7,48 @@
 
 import SwiftUI
 
+enum Gender: String, CaseIterable, Identifiable, Codable {
+    case male
+    case female
+    case other
+    var id: Self { self }
+  
+    var suggestedGender: String {
+        switch self {
+            case .male: return "homme"
+            case .female: return "femme"
+            case .other: return "autre"
+        }
+    }
+}
+
 struct EditProfileView: View {
     
-    @StateObject var vm = EditProfileViewModel()
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject var viewModel: UserProfileViewModel
+    
+    @State private var date = Date()
+    @State private var selectedGender: Gender = .male
+    
+    @State private var firstName: String = ""
+    @State private var lastName: String = ""
+    @State private var dateOfBirth: Date = Date.now
+    @State private var gender: String = "homme"
+    @State private var address: String = ""
+    @State private var postalCode: String = ""
+    @State private var city: String = ""
+    @State private var phone: String = ""
+    @State private var picture: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var bloodType: String = ""
+    @State private var allergies: String = ""
+    @State private var height: Int = 0
+    @State private var weight: Double = 0
+    @State private var wheelchair: Bool = false
+    
+    var user: User
+    var medicalInfo: MedicalInfo
     
     var body: some View {
         VStack {
@@ -26,6 +64,29 @@ struct EditProfileView: View {
                 Spacer()
                 
                 Button {
+                    let updatedUser = User(id: user.id, 
+                                           email: email,
+                                           password: password,
+                                           verified: user.verified,
+                                           firstName: firstName,
+                                           lastName: lastName,
+                                           dateOfBirth: dateOfBirth,
+                                           gender: selectedGender.rawValue,
+                                           address: address,
+                                           postalCode: postalCode,
+                                           city: city,
+                                           phone: phone,
+                                           picture: picture)
+                    
+                    let updatedMedicalInfo = MedicalInfo(id: medicalInfo.id,
+                                                         userID: user.id,
+                                                         bloodType: bloodType,
+                                                         allergies: allergies,
+                                                         height: height,
+                                                         weight: weight,
+                                                         wheelchair: wheelchair)
+                    
+                    viewModel.updateUser(updatedUser)
                     dismiss()
                 } label: {
                     Text("Enregistrer")
@@ -35,54 +96,85 @@ struct EditProfileView: View {
                 }
             }
             
-            LoadingImageView(url: URL(string: vm.picture),
-                             initials: vm.initials())
+            LoadingImageView(url: URL(string: viewModel.user.picture),
+                             initials: viewModel.user.initials)
             .shadow(radius: 10)
             
             List {
                 Section("Information Personnelle ") {
                     RowEditProfileView(title: "Prénom",
-                                       text: $vm.firstName)
+                                       text: $firstName)
                     RowEditProfileView(title: "Nom",
-                                       text: $vm.lastName)
-                    RowEditProfileView(title: "Date de Naissance",
-                                       text: $vm.dateOfBirth)
-                    RowEditProfileView(title: "Genre",
-                                       text: $vm.gender)
+                                       text: $lastName)
+                    
+                    HStack(spacing: 10) {
+                        DatePicker(selection: $dateOfBirth, in: ...Date.now, displayedComponents: .date) {
+                            Text("Select a date")
+                        }
+                    }
+                    
+                    HStack(spacing: 10) {
+                        Picker("Genre", selection: $selectedGender) {
+                            ForEach(Gender.allCases) { gender in
+                                Text(gender.suggestedGender.capitalized)
+                            }
+                        }
+                    }
+                    
                     RowEditProfileView(title: "Adresse",
-                                       text: $vm.address)
+                                       text: $address)
                     RowEditProfileView(title: "Code Postal",
-                                       text: $vm.postalCode)
+                                       text: $postalCode)
                     RowEditProfileView(title: "Ville",
-                                       text: $vm.city)
+                                       text: $city)
                     RowEditProfileView(title: "Téléphone",
-                                       text: $vm.phone)
+                                       text: $phone)
                 }
                 
                 Section("Information Médical") {
                     RowEditProfileView(title: "Groupe Sanguin",
-                                       text: $vm.bloodType)
+                                       text: $bloodType)
                     RowEditProfileView(title: "Allergies",
-                                       text: $vm.allergies)
-                    RowEditProfileView(title: "Taille (cm)",
-                                       text: $vm.height)
-                    RowEditProfileView(title: "Poids (kg)",
-                                       text: $vm.weight)
-                    RowEditProfileView(title: "Fauteuil Roulant",
-                                       text: $vm.wheelchair)
+                                       text: $allergies)
+//                    RowEditProfileView(title: "Taille (cm)",
+//                                       
+//                    RowEditProfileView(title: "Poids (kg)",
+//                                       text: $weight)
+//                    RowEditProfileView(title: "Fauteuil Roulant",
+//                                       text: $wheelchair ? "Oui" : "Non")
                 }
                 
                 Section("Connexion") {
                     RowEditProfileView(title: "Email",
-                                       text: $vm.email)
+                                       text: $email)
                     RowEditProfileView(title: "Password",
-                                       text: $vm.password)
+                                       text: $password)
                 }
             }
+        }
+        .onAppear {
+            firstName = viewModel.user.firstName
+            lastName = viewModel.user.lastName
+            dateOfBirth = viewModel.user.dateOfBirth
+            gender = viewModel.user.gender
+            address = viewModel.user.address
+            postalCode = viewModel.user.postalCode
+            city = viewModel.user.city
+            phone = viewModel.user.phone
+            picture = viewModel.user.picture
+            email = viewModel.user.email
+            password = viewModel.user.password
+            bloodType = viewModel.medicalInfo.bloodType
+            allergies = viewModel.medicalInfo.allergies ?? ""
+            height = viewModel.medicalInfo.height
+            weight = viewModel.medicalInfo.weight
+            wheelchair = viewModel.medicalInfo.wheelchair
         }
     }
 }
 
 #Preview {
-    EditProfileView()
+    EditProfileView(viewModel: UserProfileViewModel(), 
+                    user: User.user, 
+                    medicalInfo: MedicalInfo.MOCK_MEDICALINFO)
 }
