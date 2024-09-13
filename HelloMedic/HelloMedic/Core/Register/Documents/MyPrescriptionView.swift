@@ -8,105 +8,71 @@ import SwiftUI
 import UIKit
 
 struct MyPrescriptionView: View {
-    let textToShare = "Partager"
-    @State private var isShareSheetPresented = false
-    @State private var isButtonSelected = false
+    @StateObject private var viewModel = MyPrescription()
     @State private var showingModal = false
     
-struct ActivityViewController: UIViewControllerRepresentable {
-    let activityItems: [Any]
-            
-    func makeUIViewController(context: Context) -> UIActivityViewController {
-    let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-                return controller
-            }
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
-            }
-        }
-    var array = [Ordonnance(id: 0, titre: "Ordonnance de médicaments", docname: "Dr KEPNER", date: "26 Juillet 2024", username: "John DOE"),
-                 Ordonnance(id: 0, titre: "Ordonnance de médicaments", docname: "Dr BAILEY", date: "23 Mai 2024", username: "John DOE"),
-                 Ordonnance(id: 0, titre: "Ordonnance de médicaments", docname: "Dr CAGE", date: "04 Janvier 2024", username: "John DOE")]
-       
-    var body: some View {
-        ZStack{
-            Rectangle()
-                .frame(width: 400, height: 100)
-                .foregroundStyle(.hmBlue)
-            Text("Mes Documents")
-                .font(.largeTitle)
-                .foregroundStyle(Color.white)
-            
-        }
-        List {
-            Button(action: {
-                showingModal = true
-            }, label: {
-                HStack{
-                    Image(systemName: "pills")
-                        .foregroundStyle(Color.hmSkyBlue)
-                    
-                    Text("Ordonnance de médicaments")
-                        .foregroundStyle(Color.hmBlue)
-                        .font(.system(size: 19
-                                     ))
-                }
-                HStack{
-                    Text("Dr KIGUERI")
-                        .foregroundStyle(Color.black)
-                    
-                    Text("01 Août 2024")
-                        .foregroundStyle(Color.black)
-                }
-                HStack{
-                    Image(systemName: "person.fill")
-                        .foregroundStyle(Color.hmSkyBlue)
-                    Text("John DOE")
-                        .foregroundStyle(Color.black)
-                        .padding()
-                    Button(action: {
-                    self.isShareSheetPresented.toggle()
-                    }) {
-                    Image(systemName: "square.and.arrow.up")
-                    }
-                    .sheet(isPresented: $isShareSheetPresented) {
-                ActivityViewController(activityItems: [textToShare])
-                    };
-                                }
-            })
-            .sheet(isPresented: $showingModal) {
-                DocumentDetailView()
-            }
-            ForEach(array) { document in
-                VStack {
-                    HStack {
-                        Image(systemName: "pills")
-                            .foregroundStyle(Color.hmSkyBlue)
-                        
-                        Text(document.titre)
-                            .foregroundStyle(Color.hmBlue)
-                            .font(.system(size: 19
-                                         ))
-                    }
-                    HStack {
-                        Text(document.docname)
-                        
-                        Text(document.date)
-                    }
-                    HStack {
-                        Image(systemName: "person.fill")
-                            .foregroundStyle(Color.hmSkyBlue)
-                        Text(document.username)
-                            .padding()
-                        Image(systemName: "square.and.arrow.up")
-                            .foregroundStyle(Color.blue)
-                    }
-                }
-                .padding(.vertical, 5)
-            }
-            }
-            }
-        }
     
+    var body: some View {
+       
+        
+        NavigationView {
+            VStack{
+                ZStack{
+                    Rectangle()
+                        .frame(width: 400, height: 100)
+                        .foregroundStyle(.hmBlue)
+                    Text("Mes Documents")
+                        .font(.largeTitle)
+                        .foregroundStyle(Color.white)
+                }
+                
+                List(viewModel.ordonnance) { ordo in
+                    Button(action: {
+                        showingModal = true
+                    }, label: {
+                        HStack{
+                            Image(systemName: "pills")
+                                .foregroundStyle(Color.hmSkyBlue)
+                            
+                            Text(ordo.titre)
+                                .foregroundStyle(Color.hmBlue)
+                                .font(.system(size: 19
+                                             ))
+                        }
+                        HStack{
+                            Text(ordo.docname)
+                                .foregroundStyle(Color.black)
+                            
+                            Text(ordo.date)
+                                .foregroundStyle(Color.black)
+                        }
+                        HStack{
+                            Image(systemName: "person.fill")
+                                .foregroundStyle(Color.hmSkyBlue)
+                            Text(ordo.username)
+                                .foregroundStyle(Color.black)
+                                .padding()
+                            
+                            Button(action: {
+                            }) {
+                            Image(systemName: "square.and.arrow.up")
+                            }
+                        }
+                    })
+                    .sheet(isPresented: $showingModal) {
+                        DocumentDetailView()
+                    }
+                }
+                .onAppear {
+                    viewModel.fetchordonnance()
+                }
+            }
+        }
+         
+    }
+}
+    
+
     #Preview {
         MyPrescriptionView()
     }
