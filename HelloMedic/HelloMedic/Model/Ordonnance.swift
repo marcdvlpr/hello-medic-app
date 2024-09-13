@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Ordonnance: Codable, Identifiable {
-    var id: Int
+    var id: String
     var titre: String
     var docname: String
     var date: String
