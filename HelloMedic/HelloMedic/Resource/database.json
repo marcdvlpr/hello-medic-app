@@ -91,7 +91,6 @@
             }
         },
         {
-<<<<<<< HEAD
           "id": "fa1373af-7272-4350-95cb-fbac3b125e35",
           "pict": "https://devweb88.com/dr/dralexandre.jpeg",
           "name": "Alexandre MANOBAL",
@@ -108,24 +107,6 @@
             "school": "Université de Paris",
             "diplome": "Diplôme d'État de Docteur en Médecine"
           }
-=======
-            "id": "fa1373af-7272-4350-95cb-fbac3b125e35",
-            "pict": "https://devweb88.com/dr/drlisa.jpeg",
-            "name": "Lisa MANOBAL",
-            "specialty": "Médecin généraliste",
-            "rating": 5,
-            "distance": "1,2 Km",
-            "availability": "se déplacer à 9h00",
-            "perimeter": "20km autour de Paris 75008",
-            "phoneNumber": "01 42 76 23 58",
-            "paymentMethod": "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée",
-            "languages": "Français, Espagnol",
-            "horaires": "Lundi au Vendredi : 9h-17h, Samedi : 9h-12h",
-            "certification": {
-                "school": "Université de Paris",
-                "diplome": "Diplôme d'État de Docteur en Médecine"
-            }
->>>>>>> dev
         },
         {
             "id": "35d66fc6-6c80-4b5b-8548-48d9941066d9",
