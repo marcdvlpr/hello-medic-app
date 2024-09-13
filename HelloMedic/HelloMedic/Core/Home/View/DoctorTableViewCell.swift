@@ -74,7 +74,7 @@ class DoctorTableViewCell: UITableViewCell {
     }
     
     func connectToDr(with doctor: Doctor) {
-        drImageView.image = UIImage(named: doctor.pictName)
+        drImageView.image = UIImage(named: doctor.pict)
         drNameLabel.text = doctor.name
         drSpecialtyLabel.text = doctor.specialty
         drDistanceLabel.text = "Distance: \(doctor.distance)"

@@ -33,8 +33,8 @@ struct RegisterViewTwo: View {
     var isFormValid: Bool {
     !firstname.isEmpty && !lastname.isEmpty && !address.isEmpty && !zipcode.isEmpty && !city.isEmpty && Calendar.current.isDateInToday(dateofBirth) == false }
     
+    
     var body: some View {
-        
         ZStack{
             Rectangle()
                 .frame(width: 400, height: 100)
@@ -72,7 +72,6 @@ struct RegisterViewTwo: View {
     }
 }
 struct PopupView: View {
-    
     /// Variable qui détermine si la pop-up est affichée
     @Binding var isShowingPopup: Bool
     

@@ -10,37 +10,45 @@ import Foundation
 /// Une classe qui gère la liste des médecins et les filtres de recherche.
 class DoctorListViewModel: ObservableObject {
     
-    @Published var doctors = [
-        Doctor(pictName: "drlisa", name: "Lisa MANOBAL", specialty: "Médecin généraliste", rating: 5, distance: "1,2 Km", availability: "se déplacer à 9h00", perimeter :"20km autour de Paris 75008", phoneNumber: "01 42 76 23 58", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nEspagnol", horaires: "30km autour de Paris 75003", certification: Certification(school: "Université de Paris", diplome: "Diplôme d'État de Docteur en Médecine")),
-        
-        Doctor(pictName: "drnicolas", name: "Nicolas CAGE", specialty: "Pédiatre", rating: 4, distance: "1,1 Km", availability: "se déplacer à 9h00", perimeter: "40km autour de Paris 75018", phoneNumber: "01 83 94 67 82", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nAllemand", horaires: "",certification: Certification(school: "Université de Paris", diplome: "Diplôme d'État de Docteur en Médecine")),
-        
-        Doctor(pictName: "drmiranda", name: "Miranda BAILEY", specialty: "Kinésithérapeute", rating: 5, distance: "1 Km", availability: "se déplacer à 9h00",perimeter: "20km autour de Paris 75009", phoneNumber: "01 43 28 91 46", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nAnglais", horaires: "", certification: Certification(school: "IFMK de l'Université de Paris", diplome: "Diplôme d'État de Masseur-Kinésithérapeute")),
-        
-        Doctor(pictName: "drapril", name: "April KEPNERK", specialty: "Infirmière", rating: 5, distance: "1,4 Km", availability: "se déplacer à 9h00",perimeter: "30km autour de Paris 75003", phoneNumber: "01 56 20 75 34", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nAnglais", horaires: "", certification: Certification(school: "IFSI de l'AP-HP", diplome: "Diplôme d'État d'Infirmier")),
-        
-        Doctor(pictName: "drmeredith", name: "Méredith GREY", specialty: "Médecin généraliste", rating: 4, distance: "2 Km", availability: "se déplacer à 9h00",perimeter: "20km autour de Paris 75002", phoneNumber: "01 65 67 89 12", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français\nPortugais", horaires: "", certification: Certification(school: "Université de Bordeaux", diplome: "Diplôme d'État de Docteur en Médecine")),
-        
-        Doctor(pictName: "drlisa", name: "AS Sandy Wilder CHENG", specialty: "Aide-soignante", rating: 4, distance: "1 Km", availability: "se déplacer à 9h00", perimeter: "40km autour de Paris 75012", phoneNumber: "01 49 32 58 74", paymentMethod: "Chèque, espèces et cartes bancaires\n• Conventionné\n• Tiers payant : Sécurité sociale et mutuelle\n• Carte Vitale acceptée", languages: "Français", horaires: "", certification: Certification(school: "Université Claude Bernard Lyon 1", diplome: "Diplôme d'État de Docteur en Médecine"))
-        
-    ]
-    
+    @Published var doctors: [Doctor] = []
     @Published var searchText: String = ""
     @Published var specialty: String = ""
     
-    var filteredDoctors: [Doctor] {
-        if searchText.isEmpty {
-            return doctors
-        } else {
-            return doctors.filter { $0.name.contains(searchText) || $0.specialty.contains(searchText) }
+    private let baseURL = "http://localhost:3000/doctors"
+    
+    func fetchDoctors() {
+        guard let url = URL(string: baseURL) else {
+            print("Invalid URL")
+            return
         }
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                do {
+                    let decodedContacts = try JSONDecoder().decode([Doctor].self, from: data)
+                    DispatchQueue.main.async {
+                        self.doctors = decodedContacts
+                    }
+                } catch {
+                    print("Error decoding data: \(error)")
+                }
+            } else if let error = error {
+                print("Error fetching data: \(error)")
+            }
+        }.resume()
     }
     
-    var filtredSpecialty: [Doctor] {
-            if searchText.isEmpty {
-                return doctors.filter { $0.specialty == specialty }
-            } else {
-                return doctors.filter { $0.specialty == specialty && $0.name.lowercased().contains(searchText.lowercased()) }
+    // Filtrage combiné par texte de recherche et spécialité (OCP)
+        var filteredDoctors: [Doctor] {
+            doctors.filter { doctor in
+                let matchesSearchText = searchText.isEmpty ||
+                    doctor.name.lowercased().contains(searchText.lowercased()) ||
+                    doctor.specialty.lowercased().contains(searchText.lowercased())
+                
+                
+                let matchesSpecialty = specialty.isEmpty || doctor.specialty == specialty
+                
+                return matchesSearchText && matchesSpecialty
             }
         }
-}
+    }
