@@ -16,3 +16,13 @@ struct MedicalInfo: Decodable {
     let weight: Double
     let wheelchair: Bool
 }
+
+extension MedicalInfo {
+    static let MOCK_MEDICALINFO = MedicalInfo(id: "56922dea-d62b-4dba-b974-5c59443744ed",
+                                              userID: "761f596e-d330-4960-b839-c68d614915e4",
+                                              bloodType: "O+",
+                                              allergies: "",
+                                              height: 175,
+                                              weight: 75,
+                                              wheelchair: false)
+}
