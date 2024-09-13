@@ -48,10 +48,19 @@ class DoctorListViewModel: ObservableObject {
     }
     
     var filtredSpecialty: [Doctor] {
-            if searchText.isEmpty {
-                return doctors.filter { $0.specialty == specialty }
-            } else {
-                return doctors.filter { $0.specialty == specialty && $0.name.lowercased().contains(searchText.lowercased()) }
-            }
+        if searchText.isEmpty {
+            return doctors.filter { $0.specialty == specialty }
+        } else {
+            return doctors.filter { $0.specialty == specialty && $0.name.lowercased().contains(searchText.lowercased()) }
         }
+    }
+    
+    /// Fonction qui retourne un médecin en fonction de son ID (UUID)
+   func getDoctorById(_ id: String) -> Doctor {
+       // Créer un médecin par défaut
+       let defaultDoctor = Doctor(id: "1", pict: "", name: "Inconnu", specialty: "", rating: 0, distance: "", availability: "", perimeter: "", phoneNumber: "", paymentMethod: "", languages: "", horaires: "", certification: MedicalCertification(school: "", diplome: ""))
+       
+       // Retourner le médecin correspondant ou le médecin par défaut
+       return doctors.first(where: { $0.id == id }) ?? defaultDoctor
+   }
 }

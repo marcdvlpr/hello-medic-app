@@ -76,6 +76,8 @@ struct AppointmentView: View {
 
 struct UpComingAppointmentView: View {
     @StateObject private var appointmentViewModel = AppointmentViewModel()
+    @StateObject private var profilSpecialistViewModel = DoctorListViewModel()
+    
     @State private var isSheetPresented = false
     var isCurrentDay : Bool = false
     
@@ -121,22 +123,26 @@ struct UpComingAppointmentView: View {
                                     .background(.white)
                                 
                                 HStack {
-                                    Image(appointment.specialist.nameImage)
-                                        .resizable()
-                                        .frame(width: 62.0, height: 61.0)
-                                        .cornerRadius(100
-                                        )
+                                    AsyncImage(url: URL(string: profilSpecialistViewModel.getDoctorById(appointment.specialistId).pict)) { image in
+                                        image
+                                            .resizable()
+                                            .frame(width: 62.0, height: 61.0)
+                                            .cornerRadius(100)
+                                    } placeholder: {
+                                        ProgressView()
+                                            .frame(width: 50.0, height: 50.0)
+                                    }
                                     
                                     VStack (alignment: .leading) {
-                                        Text("Dr. \(appointment.specialist.name) \(appointment.specialist.firstName.uppercased())")
+                                        Text("Dr. \(profilSpecialistViewModel.getDoctorById(appointment.specialistId).name)")
                                             .fontWeight(.semibold)
-                                            .font(.system(size: 13))
-                                        Text(appointment.specialist.speciality.nom)
+                                            .font(.system(size: 15))
+                                        Text(profilSpecialistViewModel.getDoctorById(appointment.specialistId).specialty)
                                             .fontWeight(.regular)
-                                            .font(.system(size: 10))
+                                            .font(.system(size: 12))
                                         Text(appointment.motif)
                                             .fontWeight(.regular)
-                                            .font(.system(size: 10))
+                                            .font(.system(size: 12))
                                     }
                                     
                                     Spacer()
@@ -208,9 +214,21 @@ struct UpComingAppointmentView: View {
                 }
             }
         }
+        .onAppear {
+            appointmentViewModel.fetchAppointments()
+            profilSpecialistViewModel.fetchDoctors()
+        }
     }
     
-    func isToday(_ date: Date) -> Bool {
+    func isToday(_ dateString: String) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ" // Format de la date dans le JSON
+        
+        // Convertir la chaîne en Date
+        guard let date = dateFormatter.date(from: dateString) else {
+            return false // Retourner false si la conversion échoue
+        }
+        
         let calendar = Calendar.current
         let today = Date()
         
@@ -222,7 +240,16 @@ struct UpComingAppointmentView: View {
         // Comparer les composants
         return todayComponents == dateComponents
     }
-    func isWithin24Hours(_ date: Date) -> Bool {
+    
+    func isWithin24Hours(_ dateString: String) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ" // Assurez-vous que le format correspond à celui de votre chaîne de date
+
+        // Convertir la chaîne en Date
+        guard let date = dateFormatter.date(from: dateString) else {
+            return false // Retourner false si la conversion échoue
+        }
+        
         let now = Date()
         let calendar = Calendar.current
         
@@ -234,26 +261,37 @@ struct UpComingAppointmentView: View {
         return false
     }
         
-    func timeRemaining(_ date: Date) -> String {
+    func timeRemaining(_ dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ" // Assurez-vous que le format correspond à celui de votre chaîne de date
+
+        // Convertir la chaîne en Date
+        guard let date = dateFormatter.date(from: dateString) else {
+            return "Invalid date format" // Retourner un message d'erreur si la conversion échoue
+        }
+
         let now = Date()
         let calendar = Calendar.current
-        
+
         // Calculer la différence en heures, minutes et secondes
         let components = calendar.dateComponents([.hour, .minute, .second], from: now, to: date)
         
         let hours = components.hour ?? 0
         let minutes = components.minute ?? 0
-//        let seconds = components.second ?? 0
+        // let seconds = components.second ?? 0
+        
         if hours != 0 {
-            return String(format: "-%02dh%", hours)
+            return String(format: "-%02dh", hours)
         } else {
-            return String(format: "-%01dmin%", minutes)
+            return String(format: "-%01dmin", minutes)
         }
     }
 }
 
 struct PastAppointmentView: View {
     @StateObject private var appointmentViewModel = AppointmentViewModel()
+    @StateObject private var profilSpecialistViewModel = DoctorListViewModel()
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -268,7 +306,7 @@ struct PastAppointmentView: View {
                                 .foregroundColor(.hmSkyBlue)
                             
                             VStack {
-                                HStack {
+                                HStack(spacing: 3) {
                                     Image(systemName: "calendar")
                                     Text(appointmentViewModel.formattedDate(date: appointment.dateHeureRdv))
                                         
@@ -287,22 +325,29 @@ struct PastAppointmentView: View {
                                     .background(.white)
                                 
                                 HStack {
-                                    Image(appointment.specialist.nameImage)
-                                        .resizable()
-                                        .frame(width: 62.0, height: 61.0)
-                                        .cornerRadius(100
-                                        )
+                                    AsyncImage(url: URL(string: profilSpecialistViewModel.getDoctorById(appointment.specialistId).pict)) { image in
+                                        image
+                                            .resizable()
+                                            .frame(width: 62.0, height: 61.0)
+                                            .cornerRadius(100
+                                            )
+                                        
+                                    } placeholder: {
+                                        ProgressView()
+                                            .frame(width: 50.0, height: 50.0)
+                                    }
+                                        
                                     
                                     VStack (alignment: .leading) {
-                                        Text("Dr. \(appointment.specialist.name) \(appointment.specialist.firstName.uppercased())")
+                                        Text("Dr. \(profilSpecialistViewModel.getDoctorById(appointment.specialistId).name)")
                                             .fontWeight(.semibold)
-                                            .font(.system(size: 13))
-                                        Text(appointment.specialist.speciality.nom)
+                                            .font(.system(size: 15))
+                                        Text(profilSpecialistViewModel.getDoctorById(appointment.specialistId).specialty)
                                             .fontWeight(.regular)
-                                            .font(.system(size: 10))
+                                            .font(.system(size: 12))
                                         Text(appointment.motif)
                                             .fontWeight(.regular)
-                                            .font(.system(size: 10))
+                                            .font(.system(size: 12))
                                     }
                                     
                                     Spacer()
@@ -334,6 +379,10 @@ struct PastAppointmentView: View {
                     })
                 }
             }
+        }
+        .onAppear {
+            appointmentViewModel.fetchAppointments()
+            profilSpecialistViewModel.fetchDoctors()
         }
     }
 }
