@@ -11,6 +11,8 @@ import Foundation
 class DoctorListViewModel: ObservableObject {
     
     @Published var doctors: [Doctor] = []
+    @Published var searchText: String = ""
+    @Published var specialty: String = ""
     
     private let baseURL = "http://localhost:3000/doctors"
     
@@ -36,22 +38,17 @@ class DoctorListViewModel: ObservableObject {
         }.resume()
     }
     
-    @Published var searchText: String = ""
-    @Published var specialty: String = ""
-    
-    var filteredDoctors: [Doctor] {
-        if searchText.isEmpty {
-            return doctors
-        } else {
-            return doctors.filter { $0.name.contains(searchText) || $0.specialty.contains(searchText) }
-        }
-    }
-    
-    var filtredSpecialty: [Doctor] {
-            if searchText.isEmpty {
-                return doctors.filter { $0.specialty == specialty }
-            } else {
-                return doctors.filter { $0.specialty == specialty && $0.name.lowercased().contains(searchText.lowercased()) }
+    // Filtrage combiné par texte de recherche et spécialité (OCP)
+        var filteredDoctors: [Doctor] {
+            doctors.filter { doctor in
+                let matchesSearchText = searchText.isEmpty ||
+                    doctor.name.lowercased().contains(searchText.lowercased()) ||
+                    doctor.specialty.lowercased().contains(searchText.lowercased())
+                
+                
+                let matchesSpecialty = specialty.isEmpty || doctor.specialty == specialty
+                
+                return matchesSearchText && matchesSpecialty
             }
         }
-}
+    }

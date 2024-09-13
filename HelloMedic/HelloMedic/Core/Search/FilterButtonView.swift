@@ -17,7 +17,7 @@ struct FilterButtonView: View {
         NavigationStack {
             /// Filtre sprécialité pour les docteur
             List {
-                ForEach(doctorslist.filtredSpecialty) { doctor in
+                ForEach(doctorslist.filteredDoctors) { doctor in
                     NavigationLink {
                         ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: doctor.pict, name: doctor.name, firstName: "", perimeter: doctor.perimeter, phoneNumber: doctor.phoneNumber, paymentMethod: doctor.paymentMethod, languages: doctor.paymentMethod, horaires: doctor.horaires, certification: Certification(school: doctor.certification.school, diplome: doctor.certification.diplome), speciality: Speciality(nom: "", image: "")))
                     } label: {
