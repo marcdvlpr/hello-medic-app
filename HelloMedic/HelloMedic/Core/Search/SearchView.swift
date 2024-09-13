@@ -24,31 +24,35 @@ struct SearchView: View {
             }.padding(-10)
             
             List {
-                ForEach (doctorslist.filteredDoctors) { doctorslist in
+                ForEach (doctorslist.filteredDoctors) { doctor in
                     NavigationLink {
-                        ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: doctorslist.pict, name: doctorslist.name, firstName: "", perimeter: doctorslist.perimeter, phoneNumber: doctorslist.phoneNumber, paymentMethod: doctorslist.paymentMethod, languages: doctorslist.paymentMethod, horaires: doctorslist.horaires, certification: Certification(school: doctorslist.certification.school, diplome: doctorslist.certification.diplome), speciality: Speciality(nom: "", image: "")))
+                        ProfilSpecialistView(specialist: ProfilSpecialist(nameImage: doctor.pict, name: doctor.name, firstName: "", perimeter: doctor.perimeter, phoneNumber: doctor.phoneNumber, paymentMethod: doctor.paymentMethod, languages: doctor.languages, horaires: doctor.horaires, certification: Certification(school: doctor.certification.school, diplome: doctor.certification.diplome), speciality: Speciality(nom: "", image: "")))
                     } label: {
                         HStack {
-                            Image(doctorslist.pict)
-                                .resizable()
-                                .frame(width: 70, height: 70)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                                .padding()
+                            AsyncImage(url: URL(string: doctor.pict)) { image in
+                                image
+                                    .resizable()
+                                    .frame(width: 70, height: 70)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                                    .padding()
+                            } placeholder: {
+                                ProgressView()
+                            }
                             
                             VStack(alignment: .leading) {
                                 
-                                Text(doctorslist.name)
+                                Text(doctor.name)
                                     .font(.headline)
-                                Text(doctorslist.specialty)
+                                Text(doctor.specialty)
                                     .font(.subheadline)
                                 HStack {
                                     // Afficher les étoiles en fonction de la note
-                                    ForEach(0..<doctorslist.rating, id: \.self) { _ in
+                                    ForEach(0..<doctor.rating, id: \.self) { _ in
                                         Image(systemName: "star.fill")
                                             .foregroundColor(.yellow)
                                     }
-                                    ForEach(0..<(5 - doctorslist.rating), id: \.self) { _ in
+                                    ForEach(0..<(5 - doctor.rating), id: \.self) { _ in
                                         Image(systemName: "star")
                                             .foregroundColor(.gray)
                                     }
@@ -70,6 +74,9 @@ struct SearchView: View {
                         
                     }
                 }
+            }
+            .onAppear {
+                doctorslist.fetchDoctors()
             }
             .listStyle(.plain)
             .navigationTitle("Recherche")
