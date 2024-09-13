@@ -376,6 +376,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		690890582C944711000250E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6910579F2C4AABEA001BB6F4 /* HomeView.swift */,
+				69B873EF2C5B77EF0038E3A6 /* HomeViewController.swift */,
+				699CBE652C61166200E0E20B /* DoctorTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		691057992C4AA85A001BB6F4 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,9 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				69B873EA2C5A27D90038E3A6 /* ViewModel */,
-				6910579F2C4AABEA001BB6F4 /* HomeView.swift */,
-				69B873EF2C5B77EF0038E3A6 /* HomeViewController.swift */,
-				699CBE652C61166200E0E20B /* DoctorTableViewCell.swift */,
+				690890582C944711000250E8 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
