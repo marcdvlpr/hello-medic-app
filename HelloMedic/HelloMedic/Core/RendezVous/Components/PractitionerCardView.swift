@@ -8,12 +8,12 @@
 import UIKit
 
 class PractitionerCardView: UIView {
-   private let backgroundView = UIView()
-   
-      // Initialisation de la vue
+   private let imageView = UIImageView()
+   private let nameLabel = UILabel()
+   private let specialtyLabel = UILabel()
+
    override init(frame: CGRect) {
       super.init(frame: frame)
-      self.backgroundColor = UIColor.lightGray
       setupView()
    }
 
@@ -22,9 +22,7 @@ class PractitionerCardView: UIView {
       setupView()
    }
 
-      // Configuration de la vue
    private func setupView() {
-      
          // Configuration de base de la card
       backgroundColor = UIColor.systemBlue
       layer.cornerRadius = 25
@@ -38,28 +36,22 @@ class PractitionerCardView: UIView {
 
    private func setupSubviews() {
          // Image du soignant
-      let imageView = UIImageView()
       imageView.translatesAutoresizingMaskIntoConstraints = false
       imageView.contentMode = .scaleAspectFill
       imageView.clipsToBounds = true
       imageView.layer.cornerRadius = 40
-      imageView.image = UIImage(named: "drfrancois")
       addSubview(imageView)
 
          // Nom et prénom du soignant
-      let nameLabel = UILabel()
       nameLabel.translatesAutoresizingMaskIntoConstraints = false
       nameLabel.font = UIFont.boldSystemFont(ofSize: 18)
       nameLabel.textColor = .white
-      nameLabel.text = "Dr. Benhamou David"
       addSubview(nameLabel)
 
          // Spécialité du soignant
-      let specialtyLabel = UILabel()
       specialtyLabel.translatesAutoresizingMaskIntoConstraints = false
       specialtyLabel.font = UIFont.systemFont(ofSize: 16)
       specialtyLabel.textColor = .white
-      specialtyLabel.text = "Généraliste"
       addSubview(specialtyLabel)
 
          // Contraintes pour les sous-vues
@@ -78,7 +70,12 @@ class PractitionerCardView: UIView {
          specialtyLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10)
       ])
    }
-}
 
+   func configure(with careGiver: CareGiver) {
+      imageView.image = UIImage(named: careGiver.image)
+      nameLabel.text = careGiver.name
+      specialtyLabel.text = careGiver.specialty
+   }
+}
 
 

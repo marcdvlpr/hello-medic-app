@@ -48,6 +48,7 @@
 		6A12815F2C73CF0900E68A9F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A12815E2C73CF0900E68A9F /* MainView.swift */; };
 		6A2530CE2C9425CF000F7955 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2530CD2C9425CF000F7955 /* AppUser.swift */; };
 		6A2B17342C95BAEC00F5E408 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2B17332C95BAEC00F5E408 /* Confirm.swift */; };
+		6A2B17362C95F36C00F5E408 /* PractitionerCardViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2B17352C95F36C00F5E408 /* PractitionerCardViewRepresentable.swift */; };
 		6A84BB112C952D3400263528 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A10C24E2C93186300146114 /* LoginViewModel.swift */; };
 		6AF9347F2C5B72950018164E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF9347E2C5B72950018164E /* LoginView.swift */; };
 		6AF934812C5B83F70018164E /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF934802C5B83F70018164E /* LogoView.swift */; };
@@ -117,6 +118,7 @@
 		6A12815E2C73CF0900E68A9F /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		6A2530CD2C9425CF000F7955 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		6A2B17332C95BAEC00F5E408 /* Confirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirm.swift; sourceTree = "<group>"; };
+		6A2B17352C95F36C00F5E408 /* PractitionerCardViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PractitionerCardViewRepresentable.swift; sourceTree = "<group>"; };
 		6AF9347E2C5B72950018164E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6AF934802C5B83F70018164E /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		6AF934822C5B85600018164E /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				6A0E2CA72C7C214F0096DB7B /* PractitionerCardView.swift */,
 				6A0E2CA92C7C21E60096DB7B /* PractitionerViewControllerRepresentable.swift */,
 				6A2B17332C95BAEC00F5E408 /* Confirm.swift */,
+				6A2B17352C95F36C00F5E408 /* PractitionerCardViewRepresentable.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				680C18362C4A54FB00BD7874 /* TabBarView.swift in Sources */,
 				75D65C3C2C5BB12F008DB4A0 /* DocumentDetailView.swift in Sources */,
 				6A0E2CA22C7AC0C40096DB7B /* ConfirmationButton.swift in Sources */,
+				6A2B17362C95F36C00F5E408 /* PractitionerCardViewRepresentable.swift in Sources */,
 				75D65C182C5824B0008DB4A0 /* RegisterViewOne.swift in Sources */,
 				685BA7AD2C60D50E00B96839 /* EditUserProfileView.swift in Sources */,
 				691057A02C4AABEA001BB6F4 /* HomeView.swift in Sources */,

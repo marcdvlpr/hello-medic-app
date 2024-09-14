@@ -11,6 +11,7 @@ struct MainView: View {
    @State private var searchText = ""
    @State private var selectedSpecialty: String? = nil
    @State private var favoriteCareGivers = FavoriteCareGiversData.careGivers
+   @State private var selectedCareGiver: CareGiver? = nil
 
    var filteredCareGivers: [CareGiver] {
       favoriteCareGivers.filter { caregiver in
@@ -28,7 +29,7 @@ struct MainView: View {
    }
 
    var body: some View {
-      NavigationView {
+      NavigationView { // Modifié
          VStack {
             FilterCareGiverView(
                careGivers: favoriteCareGivers,
@@ -40,47 +41,48 @@ struct MainView: View {
                .frame(maxWidth: .infinity, alignment: .leading)
                .padding(.leading, 10)
             List(filteredCareGivers) { caregiver in
-               HStack {
-                  Image(caregiver.image)
-                     .resizable()
-                     .frame(width: 60, height: 60)
-                     .clipShape(Circle())
-                  VStack(alignment: .leading) {
-                     Text(caregiver.name)
-                        .font(.headline)
-                     Text(caregiver.specialty)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
+               NavigationLink(destination: RendezVousView2(careGiver: caregiver)) {
+                  HStack {
+                     Image(caregiver.image)
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .clipShape(Circle())
+                     VStack(alignment: .leading) {
+                        Text(caregiver.name)
+                           .font(.headline)
+                        Text(caregiver.specialty)
+                           .font(.subheadline)
+                           .foregroundStyle(.gray)
+                     }
                   }
                }
             }
          }
       }
-         .searchable(text: $searchText, prompt: "rechercher une spécialité")
-         .onChange(of: searchText) { oldValue, newValue in
-            print("searchText changed to: \(newValue)")
-            if newValue.isEmpty {
-               resetCareGivers()
-            } else {
-               selectedSpecialty = nil
-            }
+      .searchable(text: $searchText, prompt: "rechercher une spécialité")
+      .onChange(of: searchText) { oldValue, newValue in
+         print("searchText changed to: \(newValue)")
+         if newValue.isEmpty {
+            resetCareGivers()
+         } else {
+            selectedSpecialty = nil
          }
-         .onChange(of: selectedSpecialty) { oldValue, newValue in
-            print("selectedSpecialty changed to: \(String(describing: newValue))")
-            if newValue == nil {
-               searchText = ""
-               favoriteCareGivers = FavoriteCareGiversData.careGivers
-            }
+      }
+      .onChange(of: selectedSpecialty) { oldValue, newValue in
+         print("selectedSpecialty changed to: \(String(describing: newValue))")
+         if newValue == nil {
+            searchText = ""
+            favoriteCareGivers = FavoriteCareGiversData.careGivers
          }
-         .onSubmit(of: .search) {
-            if searchText.isEmpty {
-               resetCareGivers()
-            }
+      }
+      .onSubmit(of: .search) {
+         if searchText.isEmpty {
+            resetCareGivers()
          }
       }
    }
+}
 
 #Preview {
    MainView()
 }
-
