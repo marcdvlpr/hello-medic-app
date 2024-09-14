@@ -20,9 +20,9 @@ struct Confirm: View {
                      est confirmé !
                """)
          .multilineTextAlignment(.center)
-         .font(.title)
+         .font(.title2)
       }
-      .presentationDetents([.height(250)])
+      .presentationDetents([.height(200)])
    }
 }
 

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RendezVousView2: View {
+   let careGiver: CareGiver
    let daysOfWeek: [String] = ["Lun", "Mar", "Mer", "Jeu", "Ven"]
    let dates: [String] = ["8", "9", "10", "11", "12"]
    let isDaySelected: [Bool] = [false, false, false, true, false]
@@ -26,14 +27,15 @@ struct RendezVousView2: View {
 
    var body: some View {
       VStack {
-         PractitionerViewControllerRepresentable()
-         Spacer()
+         PractitionerCardViewRepresentable(careGiver: careGiver)
+            .frame(height: 175)
+            .padding()
 
          DateSelectionView(daysOfWeek: daysOfWeek, dates: dates, isDaySelected: isDaySelected)
-            .padding(.bottom, 60)
+            .padding(.bottom, 45)
 
          TimeSlotSelectionView(timeSlots: timeSlots, selectedTime: $selectedTime)
-            .padding(.bottom, 60)
+            .padding(.bottom, 50)
 
          Button(action: {
             isShowingSheet.toggle()
@@ -46,16 +48,17 @@ struct RendezVousView2: View {
                .cornerRadius(8)
                .padding(20)
          }
-         Spacer()
-         .sheet(isPresented: $isShowingSheet) {
-            Confirm()
-               .presentationDetents([.height(300)]) 
-               }
+
+            .sheet(isPresented: $isShowingSheet) {
+               Confirm()
+                  .presentationDetents([.height(230)])
             }
-         }
+         .padding(.bottom, 15)
+                        Spacer()
       }
-   
+   }
+}
 
 #Preview {
-   RendezVousView2()
+   RendezVousView2(careGiver: CareGiver( name: "Dr. Dupont", specialty: "Cardiologue", image: "medecin1", specialtyImage: "Généraliste"))
 }
