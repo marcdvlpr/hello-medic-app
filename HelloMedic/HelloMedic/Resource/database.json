@@ -51,26 +51,6 @@
             "wheelchair": false
         }
     ],
-    "medicalInfo": [
-        {
-            "id": "56922dea-d62b-4dba-b974-5c59443744ed",
-            "userID": "761f596e-d330-4960-b839-c68d614915e4",
-            "bloodType": "O+",
-            "allergies": "",
-            "height": 180,
-            "weight": 80.5,
-            "wheelchair": false
-        },
-        {
-            "id": "5018ebe0-624e-4587-b784-ef07e86d69b6",
-            "userID": "d5fd4071-9c50-440b-a77e-020cfbabd08e",
-            "bloodType": "A-",
-            "allergies": "",
-            "height": 165,
-            "weight": 60,
-            "wheelchair": false
-        }
-    ],
     "doctors": [
         {
             "id": "2866b124-9e18-48ab-af10-587c58fc0484",
