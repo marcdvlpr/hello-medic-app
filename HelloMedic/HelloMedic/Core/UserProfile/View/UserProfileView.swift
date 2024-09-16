@@ -12,6 +12,8 @@ struct UserProfileView: View {
     @StateObject var viewModel = UserProfileViewModel()
     @State var isSheetPresented = false
     
+    let userId = "761f596e-d330-4960-b839-c68d614915e4"
+    
     var body: some View {
         NavigationStack {
             LoadingImageView(url: URL(string: viewModel.user.picture),
@@ -87,17 +89,22 @@ struct UserProfileView: View {
                     Text("Déconnexion")
                         .foregroundStyle(.red)
                 }
+                
                 Button {
-                    print("DELETE")
+                    viewModel.deleteUser(userId: "bd49fc70-a9b9-48cf-a859-2dd4ef8d31f7")
                 } label: {
-                    Text("Supprimer son compte")
-                        .foregroundStyle(.red)
+                    NavigationLink {
+                        LoginView()
+                    } label: {
+                        Text("Supprimer son compte")
+                            .foregroundStyle(.red)
+                    }
                 }
             }
         }
         .onAppear {
-            viewModel.getUserById(userId: "761f596e-d330-4960-b839-c68d614915e4")
-            viewModel.getMedicalInformationById(userId: "761f596e-d330-4960-b839-c68d614915e4")
+            viewModel.getUserById(userId: userId)
+            viewModel.getMedicalInformationById(userId: userId)
         }
     }
 }
