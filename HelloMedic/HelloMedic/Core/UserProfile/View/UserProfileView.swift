@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+//enum RoutePath: Hashable {
+//    switch route {
+//    case login: return LoginView()
+//    }
+//}
+
 struct UserProfileView: View {
     
     @StateObject var viewModel = UserProfileViewModel()
@@ -90,11 +96,11 @@ struct UserProfileView: View {
                         .foregroundStyle(.red)
                 }
                 
-                Button {
-                    viewModel.deleteUser(userId: "bd49fc70-a9b9-48cf-a859-2dd4ef8d31f7")
+                NavigationLink {
+                    LoginView()
                 } label: {
-                    NavigationLink {
-                        LoginView()
+                    Button {
+                        viewModel.deleteUser(userId: "dbabb044-54f1-4790-a42f-68f11594ae32")
                     } label: {
                         Text("Supprimer son compte")
                             .foregroundStyle(.red)
