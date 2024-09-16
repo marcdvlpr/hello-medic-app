@@ -85,4 +85,21 @@ class UserProfileViewModel: ObservableObject {
             self.getUserById(userId: user.id)
         }.resume()
     }
+    
+    func deleteUser(userId: String) {
+        guard let url = URL(string: "\(baseURL)/users/\(userId)") else {
+            print("Invalid URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error deleting contact: \(error)")
+                return
+            }
+        }.resume()
+    }
 }

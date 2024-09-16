@@ -29,6 +29,21 @@
             "city": "Montreuil",
             "phone": "0609080705",
             "picture": "https://i.pravatar.cc/300?img=1"
+        },
+        {
+            "id": "bd49fc70-a9b9-48cf-a859-2dd4ef8d31f7",
+            "email": "jennasmith@gmail.com",
+            "password": "securepassword1234",
+            "verified": false,
+            "firstName": "Jenna",
+            "lastName": "Smith",
+            "dateOfBirth": 931942500,
+            "gender": "female",
+            "address": "55 Rue de Vincenne",
+            "postalCode": "93100",
+            "city": "Montreuil",
+            "phone": "0609080705",
+            "picture": "https://i.pravatar.cc/300?img=1"
         }
     ],
     "medicalInformation": [
