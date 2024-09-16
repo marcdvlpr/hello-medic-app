@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 protocol NameRepresentable {
     var firstName: String { get }
     var lastName: String { get }
