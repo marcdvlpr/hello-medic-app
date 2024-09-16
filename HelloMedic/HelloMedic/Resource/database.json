@@ -228,7 +228,6 @@
             "date": "04 Janvier 2024",
             "username": "John DOE"
         }
-<<<<<<< HEAD
     ],
     
     "appointments":
@@ -337,7 +336,5 @@
             "isCanceled": false,
             "specialistId": "2866b124-9e18-48ab-af10-587c58fc0484"
         }
-=======
->>>>>>> dev
     ]
 }

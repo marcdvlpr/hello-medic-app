@@ -1,5 +1,5 @@
 //
-//  Users.swift
+//  AppUser.swift
 //  HelloMedic
 //
 //  Created by Apprenant 125 on 13/09/2024.
